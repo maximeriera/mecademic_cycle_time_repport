@@ -19,7 +19,7 @@
       "initial_status": {
         "activation_state": true,
         "homing_state": true,
-        "simulation_mode": 1,
+        "simulation_mode": 0,
         "recovery_mode": false,
         "error_status": false,
         "pause_motion_status": false,
@@ -213,8 +213,8 @@
       "gripper_close_delay_s": 0.0,
       "blending_percent": null,
       "variables": {
-        "PICK_X": 54.6055798738,
-        "PICK_Y": 168.0825363077,
+        "PICK_X": 27.785658998,
+        "PICK_Y": 158.1235426828,
         "SPD_PICK": 300,
         "SPD_INSERT": 150,
         "SPD_RETRACT": 800,
@@ -230,8 +230,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.15,
-          "PICK_X": 54.6055798738,
-          "PICK_Y": 168.0825363077,
+          "PICK_X": 27.785658998,
+          "PICK_Y": 158.1235426828,
           "SPD_INSERT": 150,
           "SPD_PICK": 300,
           "SPD_RETRACT": 800
@@ -248,8 +248,8 @@
       "gripper_close_delay_s": 0.0,
       "blending_percent": null,
       "variables": {
-        "PICK_X": 32.5953388655,
-        "PICK_Y": 119.8356673054,
+        "PICK_X": 15.3086727163,
+        "PICK_Y": 18.9555548658,
         "SPD_PICK": 300,
         "SPD_INSERT": 150,
         "SPD_RETRACT": 800,
@@ -265,8 +265,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.15,
-          "PICK_X": 32.5953388655,
-          "PICK_Y": 119.8356673054,
+          "PICK_X": 15.3086727163,
+          "PICK_Y": 18.9555548658,
           "SPD_INSERT": 150,
           "SPD_PICK": 300,
           "SPD_RETRACT": 800
@@ -283,8 +283,8 @@
       "gripper_close_delay_s": 0.0,
       "blending_percent": null,
       "variables": {
-        "PICK_X": 62.626575258,
-        "PICK_Y": 183.7019802007,
+        "PICK_X": 24.3894351766,
+        "PICK_Y": 125.9960616089,
         "SPD_PICK": 300,
         "SPD_INSERT": 150,
         "SPD_RETRACT": 800,
@@ -300,8 +300,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.15,
-          "PICK_X": 62.626575258,
-          "PICK_Y": 183.7019802007,
+          "PICK_X": 24.3894351766,
+          "PICK_Y": 125.9960616089,
           "SPD_INSERT": 150,
           "SPD_PICK": 300,
           "SPD_RETRACT": 800
@@ -318,8 +318,8 @@
       "gripper_close_delay_s": 0.0,
       "blending_percent": null,
       "variables": {
-        "PICK_X": 61.7070614529,
-        "PICK_Y": 15.8182071296,
+        "PICK_X": 40.4881106326,
+        "PICK_Y": 124.7563702545,
         "SPD_PICK": 300,
         "SPD_INSERT": 150,
         "SPD_RETRACT": 800,
@@ -335,8 +335,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.15,
-          "PICK_X": 61.7070614529,
-          "PICK_Y": 15.8182071296,
+          "PICK_X": 40.4881106326,
+          "PICK_Y": 124.7563702545,
           "SPD_INSERT": 150,
           "SPD_PICK": 300,
           "SPD_RETRACT": 800
@@ -353,8 +353,8 @@
       "gripper_close_delay_s": 0.0,
       "blending_percent": null,
       "variables": {
-        "PICK_X": 48.39866496,
-        "PICK_Y": 152.5729099479,
+        "PICK_X": 15.1378632567,
+        "PICK_Y": 76.4391085501,
         "SPD_PICK": 300,
         "SPD_INSERT": 150,
         "SPD_RETRACT": 800,
@@ -370,8 +370,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.15,
-          "PICK_X": 48.39866496,
-          "PICK_Y": 152.5729099479,
+          "PICK_X": 15.1378632567,
+          "PICK_Y": 76.4391085501,
           "SPD_INSERT": 150,
           "SPD_PICK": 300,
           "SPD_RETRACT": 800
@@ -388,8 +388,8 @@
       "gripper_close_delay_s": 0.0,
       "blending_percent": null,
       "variables": {
-        "PICK_X": 48.8762392315,
-        "PICK_Y": 40.380565402,
+        "PICK_X": 48.9674714002,
+        "PICK_Y": 68.2845469252,
         "SPD_PICK": 300,
         "SPD_INSERT": 150,
         "SPD_RETRACT": 800,
@@ -405,8 +405,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.15,
-          "PICK_X": 48.8762392315,
-          "PICK_Y": 40.380565402,
+          "PICK_X": 48.9674714002,
+          "PICK_Y": 68.2845469252,
           "SPD_INSERT": 150,
           "SPD_PICK": 300,
           "SPD_RETRACT": 800
@@ -423,8 +423,8 @@
       "gripper_close_delay_s": 0.0,
       "blending_percent": null,
       "variables": {
-        "PICK_X": 19.2421001561,
-        "PICK_Y": 147.218741253,
+        "PICK_X": 67.4568329793,
+        "PICK_Y": 138.2134339344,
         "SPD_PICK": 300,
         "SPD_INSERT": 150,
         "SPD_RETRACT": 800,
@@ -440,8 +440,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.15,
-          "PICK_X": 19.2421001561,
-          "PICK_Y": 147.218741253,
+          "PICK_X": 67.4568329793,
+          "PICK_Y": 138.2134339344,
           "SPD_INSERT": 150,
           "SPD_PICK": 300,
           "SPD_RETRACT": 800
@@ -458,8 +458,8 @@
       "gripper_close_delay_s": 0.0,
       "blending_percent": null,
       "variables": {
-        "PICK_X": 52.6575881298,
-        "PICK_Y": 171.4647636326,
+        "PICK_X": 50.9241586501,
+        "PICK_Y": 39.2547068454,
         "SPD_PICK": 300,
         "SPD_INSERT": 150,
         "SPD_RETRACT": 800,
@@ -475,8 +475,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.15,
-          "PICK_X": 52.6575881298,
-          "PICK_Y": 171.4647636326,
+          "PICK_X": 50.9241586501,
+          "PICK_Y": 39.2547068454,
           "SPD_INSERT": 150,
           "SPD_PICK": 300,
           "SPD_RETRACT": 800
@@ -493,8 +493,8 @@
       "gripper_close_delay_s": 0.0,
       "blending_percent": null,
       "variables": {
-        "PICK_X": 17.3766494045,
-        "PICK_Y": 32.3982544349,
+        "PICK_X": 51.6724885385,
+        "PICK_Y": 164.6522344959,
         "SPD_PICK": 300,
         "SPD_INSERT": 150,
         "SPD_RETRACT": 800,
@@ -510,8 +510,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.15,
-          "PICK_X": 17.3766494045,
-          "PICK_Y": 32.3982544349,
+          "PICK_X": 51.6724885385,
+          "PICK_Y": 164.6522344959,
           "SPD_INSERT": 150,
           "SPD_PICK": 300,
           "SPD_RETRACT": 800
@@ -528,8 +528,8 @@
       "gripper_close_delay_s": 0.0,
       "blending_percent": null,
       "variables": {
-        "PICK_X": 27.9819435219,
-        "PICK_Y": 165.4221000496,
+        "PICK_X": 51.4195544909,
+        "PICK_Y": 20.6337251697,
         "SPD_PICK": 300,
         "SPD_INSERT": 150,
         "SPD_RETRACT": 800,
@@ -545,8 +545,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.15,
-          "PICK_X": 27.9819435219,
-          "PICK_Y": 165.4221000496,
+          "PICK_X": 51.4195544909,
+          "PICK_Y": 20.6337251697,
           "SPD_INSERT": 150,
           "SPD_PICK": 300,
           "SPD_RETRACT": 800
@@ -633,8 +633,8 @@
       "gripper_close_delay_s": 0.0,
       "blending_percent": null,
       "variables": {
-        "PICK_X": 26.4978721226,
-        "PICK_Y": 180.3631620759,
+        "PICK_X": 19.8879191719,
+        "PICK_Y": 123.2977534479,
         "SPD_PICK": 200,
         "SPD_INSERT": 50,
         "SPD_RETRACT": 500,
@@ -650,8 +650,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.2,
-          "PICK_X": 26.4978721226,
-          "PICK_Y": 180.3631620759,
+          "PICK_X": 19.8879191719,
+          "PICK_Y": 123.2977534479,
           "SPD_INSERT": 50,
           "SPD_PICK": 200,
           "SPD_RETRACT": 500
@@ -668,8 +668,8 @@
       "gripper_close_delay_s": 0.0,
       "blending_percent": null,
       "variables": {
-        "PICK_X": 44.0746482014,
-        "PICK_Y": 71.5798909093,
+        "PICK_X": 59.8415433351,
+        "PICK_Y": 15.9847371039,
         "SPD_PICK": 200,
         "SPD_INSERT": 50,
         "SPD_RETRACT": 500,
@@ -685,8 +685,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.2,
-          "PICK_X": 44.0746482014,
-          "PICK_Y": 71.5798909093,
+          "PICK_X": 59.8415433351,
+          "PICK_Y": 15.9847371039,
           "SPD_INSERT": 50,
           "SPD_PICK": 200,
           "SPD_RETRACT": 500
@@ -703,8 +703,8 @@
       "gripper_close_delay_s": 0.0,
       "blending_percent": null,
       "variables": {
-        "PICK_X": 60.1420882143,
-        "PICK_Y": 66.451912524,
+        "PICK_X": 51.1943348188,
+        "PICK_Y": 101.4232502114,
         "SPD_PICK": 200,
         "SPD_INSERT": 50,
         "SPD_RETRACT": 500,
@@ -720,8 +720,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.2,
-          "PICK_X": 60.1420882143,
-          "PICK_Y": 66.451912524,
+          "PICK_X": 51.1943348188,
+          "PICK_Y": 101.4232502114,
           "SPD_INSERT": 50,
           "SPD_PICK": 200,
           "SPD_RETRACT": 500
@@ -738,8 +738,8 @@
       "gripper_close_delay_s": 0.0,
       "blending_percent": null,
       "variables": {
-        "PICK_X": 38.3605449304,
-        "PICK_Y": 89.9984955384,
+        "PICK_X": 24.0831572463,
+        "PICK_Y": 123.2696976874,
         "SPD_PICK": 200,
         "SPD_INSERT": 50,
         "SPD_RETRACT": 500,
@@ -755,8 +755,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.2,
-          "PICK_X": 38.3605449304,
-          "PICK_Y": 89.9984955384,
+          "PICK_X": 24.0831572463,
+          "PICK_Y": 123.2696976874,
           "SPD_INSERT": 50,
           "SPD_PICK": 200,
           "SPD_RETRACT": 500
@@ -773,8 +773,8 @@
       "gripper_close_delay_s": 0.0,
       "blending_percent": null,
       "variables": {
-        "PICK_X": 27.8213235127,
-        "PICK_Y": 178.4990841204,
+        "PICK_X": 37.3660964782,
+        "PICK_Y": 80.636109941,
         "SPD_PICK": 200,
         "SPD_INSERT": 50,
         "SPD_RETRACT": 500,
@@ -790,8 +790,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.2,
-          "PICK_X": 27.8213235127,
-          "PICK_Y": 178.4990841204,
+          "PICK_X": 37.3660964782,
+          "PICK_Y": 80.636109941,
           "SPD_INSERT": 50,
           "SPD_PICK": 200,
           "SPD_RETRACT": 500
@@ -808,8 +808,8 @@
       "gripper_close_delay_s": 0.0,
       "blending_percent": null,
       "variables": {
-        "PICK_X": 29.6897290456,
-        "PICK_Y": 171.349608037,
+        "PICK_X": 68.2523356284,
+        "PICK_Y": 150.2961606675,
         "SPD_PICK": 200,
         "SPD_INSERT": 50,
         "SPD_RETRACT": 500,
@@ -825,8 +825,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.2,
-          "PICK_X": 29.6897290456,
-          "PICK_Y": 171.349608037,
+          "PICK_X": 68.2523356284,
+          "PICK_Y": 150.2961606675,
           "SPD_INSERT": 50,
           "SPD_PICK": 200,
           "SPD_RETRACT": 500
@@ -843,8 +843,8 @@
       "gripper_close_delay_s": 0.0,
       "blending_percent": null,
       "variables": {
-        "PICK_X": 19.6952536026,
-        "PICK_Y": 66.5322487489,
+        "PICK_X": 48.2448837975,
+        "PICK_Y": 153.4852825474,
         "SPD_PICK": 200,
         "SPD_INSERT": 50,
         "SPD_RETRACT": 500,
@@ -860,8 +860,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.2,
-          "PICK_X": 19.6952536026,
-          "PICK_Y": 66.5322487489,
+          "PICK_X": 48.2448837975,
+          "PICK_Y": 153.4852825474,
           "SPD_INSERT": 50,
           "SPD_PICK": 200,
           "SPD_RETRACT": 500
@@ -878,8 +878,8 @@
       "gripper_close_delay_s": 0.0,
       "blending_percent": null,
       "variables": {
-        "PICK_X": 69.4643472988,
-        "PICK_Y": 42.2319001443,
+        "PICK_X": 35.9037188845,
+        "PICK_Y": 138.5847622345,
         "SPD_PICK": 200,
         "SPD_INSERT": 50,
         "SPD_RETRACT": 500,
@@ -895,8 +895,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.2,
-          "PICK_X": 69.4643472988,
-          "PICK_Y": 42.2319001443,
+          "PICK_X": 35.9037188845,
+          "PICK_Y": 138.5847622345,
           "SPD_INSERT": 50,
           "SPD_PICK": 200,
           "SPD_RETRACT": 500
@@ -913,8 +913,8 @@
       "gripper_close_delay_s": 0.0,
       "blending_percent": null,
       "variables": {
-        "PICK_X": 18.4450656583,
-        "PICK_Y": 172.531632502,
+        "PICK_X": 39.3087599111,
+        "PICK_Y": 154.1687131955,
         "SPD_PICK": 200,
         "SPD_INSERT": 50,
         "SPD_RETRACT": 500,
@@ -930,8 +930,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.2,
-          "PICK_X": 18.4450656583,
-          "PICK_Y": 172.531632502,
+          "PICK_X": 39.3087599111,
+          "PICK_Y": 154.1687131955,
           "SPD_INSERT": 50,
           "SPD_PICK": 200,
           "SPD_RETRACT": 500
@@ -948,8 +948,8 @@
       "gripper_close_delay_s": 0.0,
       "blending_percent": null,
       "variables": {
-        "PICK_X": 34.8175152726,
-        "PICK_Y": 176.8791695405,
+        "PICK_X": 35.3572478758,
+        "PICK_Y": 68.1431425625,
         "SPD_PICK": 200,
         "SPD_INSERT": 50,
         "SPD_RETRACT": 500,
@@ -965,8 +965,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.2,
-          "PICK_X": 34.8175152726,
-          "PICK_Y": 176.8791695405,
+          "PICK_X": 35.3572478758,
+          "PICK_Y": 68.1431425625,
           "SPD_INSERT": 50,
           "SPD_PICK": 200,
           "SPD_RETRACT": 500
@@ -1026,27 +1026,27 @@
       "metrics": {
         "scenario_name": "baseline",
         "run_index": 1,
-        "total_cycle_s": 2.611009099986404,
+        "total_cycle_s": 2.607248100102879,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.055033499957062304
+            "duration_s": 0.05681939993519336
           },
           {
             "label": "pick_start",
-            "duration_s": 0.000938700046390295
+            "duration_s": 0.0011692000553011894
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.1905435000080615
+            "duration_s": 1.186039699940011
           },
           {
             "label": "return_complete",
-            "duration_s": 1.4172866999870166
+            "duration_s": 1.4169204001082107
           },
           {
             "label": "program_end",
-            "duration_s": 0.002240199944935739
+            "duration_s": 0.00311879999935627
           }
         ],
         "failed": false,
@@ -1056,35 +1056,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.055033499957062304,
+          "elapsed_s": 0.05681939993519336,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.0559722000034526,
+          "elapsed_s": 0.05798859999049455,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.2465157000115141,
+          "elapsed_s": 1.2440282999305055,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 2.6638023999985307,
+          "elapsed_s": 2.660948700038716,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 2.6660425999434665,
+          "elapsed_s": 2.6640675000380725,
           "label": "program_end",
           "detail": null
         }
@@ -1131,27 +1131,27 @@
       "metrics": {
         "scenario_name": "cautious",
         "run_index": 1,
-        "total_cycle_s": 3.8668785999761894,
+        "total_cycle_s": 3.859673999948427,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.04547350003849715
+            "duration_s": 0.05323379999026656
           },
           {
             "label": "pick_start",
-            "duration_s": 0.0032654000679031014
+            "duration_s": 0.0027620999608188868
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.570580399944447
+            "duration_s": 1.5618890000041574
           },
           {
             "label": "return_complete",
-            "duration_s": 2.2907809000462294
+            "duration_s": 2.293251399998553
           },
           {
             "label": "program_end",
-            "duration_s": 0.0022518999176099896
+            "duration_s": 0.0017714999848976731
           }
         ],
         "failed": false,
@@ -1161,35 +1161,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.04547350003849715,
+          "elapsed_s": 0.05323379999026656,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.04873890010640025,
+          "elapsed_s": 0.05599589995108545,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.6193193000508472,
+          "elapsed_s": 1.6178848999552429,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 3.9101002000970766,
+          "elapsed_s": 3.911136299953796,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 3.9123521000146866,
+          "elapsed_s": 3.9129077999386936,
           "label": "program_end",
           "detail": null
         }
@@ -1236,27 +1236,27 @@
       "metrics": {
         "scenario_name": "baseline-pick_position-best",
         "run_index": 1,
-        "total_cycle_s": 3.0311435000039637,
+        "total_cycle_s": 3.023854000028223,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.05292839999310672
+            "duration_s": 0.060112299979664385
           },
           {
             "label": "pick_start",
-            "duration_s": 0.002797099994495511
+            "duration_s": 0.0023473999463021755
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.3961491000372916
+            "duration_s": 1.3920959000242874
           },
           {
             "label": "return_complete",
-            "duration_s": 1.6300136999925599
+            "duration_s": 1.6284065999789163
           },
           {
             "label": "program_end",
-            "duration_s": 0.0021835999796167016
+            "duration_s": 0.0010041000787168741
           }
         ],
         "failed": false,
@@ -1266,35 +1266,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.05292839999310672,
+          "elapsed_s": 0.060112299979664385,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.055725499987602234,
+          "elapsed_s": 0.06245969992596656,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.4518746000248939,
+          "elapsed_s": 1.454555599950254,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 3.0818883000174537,
+          "elapsed_s": 3.0829621999291703,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 3.0840718999970704,
+          "elapsed_s": 3.083966300007887,
           "label": "program_end",
           "detail": null
         }
@@ -1341,27 +1341,27 @@
       "metrics": {
         "scenario_name": "baseline-pick_position-worst",
         "run_index": 1,
-        "total_cycle_s": 2.0989849999314174,
+        "total_cycle_s": 2.097556099994108,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.05182529997546226
+            "duration_s": 0.05608770006801933
           },
           {
             "label": "pick_start",
-            "duration_s": 0.0020385999232530594
+            "duration_s": 0.0035197000252082944
           },
           {
             "label": "transfer_complete",
-            "duration_s": 0.918737200088799
+            "duration_s": 0.9130282999249175
           },
           {
             "label": "return_complete",
-            "duration_s": 1.1762978999176994
+            "duration_s": 1.17793000000529
           },
           {
             "label": "program_end",
-            "duration_s": 0.0019113000016659498
+            "duration_s": 0.003078100038692355
           }
         ],
         "failed": false,
@@ -1371,35 +1371,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.05182529997546226,
+          "elapsed_s": 0.05608770006801933,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.05386389989871532,
+          "elapsed_s": 0.059607400093227625,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 0.9726010999875143,
+          "elapsed_s": 0.9726357000181451,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 2.1488989999052137,
+          "elapsed_s": 2.150565700023435,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 2.1508102999068797,
+          "elapsed_s": 2.1536438000621274,
           "label": "program_end",
           "detail": null
         }
@@ -1418,8 +1418,8 @@
         "gripper_close_delay_s": 0.0,
         "blending_percent": null,
         "variables": {
-          "PICK_X": 54.6055798738,
-          "PICK_Y": 168.0825363077,
+          "PICK_X": 27.785658998,
+          "PICK_Y": 158.1235426828,
           "SPD_PICK": 300,
           "SPD_INSERT": 150,
           "SPD_RETRACT": 800,
@@ -1436,8 +1436,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.15,
-          "PICK_X": 54.6055798738,
-          "PICK_Y": 168.0825363077,
+          "PICK_X": 27.785658998,
+          "PICK_Y": 158.1235426828,
           "SPD_INSERT": 150,
           "SPD_PICK": 300,
           "SPD_RETRACT": 800
@@ -1446,27 +1446,27 @@
       "metrics": {
         "scenario_name": "baseline-pick_position-random",
         "run_index": 1,
-        "total_cycle_s": 2.257647999911569,
+        "total_cycle_s": 2.5351695999270305,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.05447860003914684
+            "duration_s": 0.05771740002091974
           },
           {
             "label": "pick_start",
-            "duration_s": 0.0004608999006450176
+            "duration_s": 0.00220889993943274
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.0109472000040114
+            "duration_s": 1.1179666999960318
           },
           {
             "label": "return_complete",
-            "duration_s": 1.2450027000159025
+            "duration_s": 1.4080118000274524
           },
           {
             "label": "program_end",
-            "duration_s": 0.0012371999910101295
+            "duration_s": 0.0069821999641135335
           }
         ],
         "failed": false,
@@ -1476,35 +1476,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.05447860003914684,
+          "elapsed_s": 0.05771740002091974,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.05493949993979186,
+          "elapsed_s": 0.05992629996035248,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.0658866999438033,
+          "elapsed_s": 1.1778929999563843,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 2.3108893999597058,
+          "elapsed_s": 2.5859047999838367,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 2.312126599950716,
+          "elapsed_s": 2.5928869999479502,
           "label": "program_end",
           "detail": null
         }
@@ -1523,8 +1523,8 @@
         "gripper_close_delay_s": 0.0,
         "blending_percent": null,
         "variables": {
-          "PICK_X": 32.5953388655,
-          "PICK_Y": 119.8356673054,
+          "PICK_X": 15.3086727163,
+          "PICK_Y": 18.9555548658,
           "SPD_PICK": 300,
           "SPD_INSERT": 150,
           "SPD_RETRACT": 800,
@@ -1541,8 +1541,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.15,
-          "PICK_X": 32.5953388655,
-          "PICK_Y": 119.8356673054,
+          "PICK_X": 15.3086727163,
+          "PICK_Y": 18.9555548658,
           "SPD_INSERT": 150,
           "SPD_PICK": 300,
           "SPD_RETRACT": 800
@@ -1551,27 +1551,27 @@
       "metrics": {
         "scenario_name": "baseline-pick_position-random",
         "run_index": 1,
-        "total_cycle_s": 2.3968413999537006,
+        "total_cycle_s": 3.1188983999891207,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.12537779996637255
+            "duration_s": 0.14791279996279627
           },
           {
             "label": "pick_start",
-            "duration_s": 0.000708900042809546
+            "duration_s": 0.0016303000738844275
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.079285899992101
+            "duration_s": 1.4443223999114707
           },
           {
             "label": "return_complete",
-            "duration_s": 1.3103645999217406
+            "duration_s": 1.6721358000067994
           },
           {
             "label": "program_end",
-            "duration_s": 0.00648199999704957
+            "duration_s": 0.0008098999969661236
           }
         ],
         "failed": false,
@@ -1581,35 +1581,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.12537779996637255,
+          "elapsed_s": 0.14791279996279627,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.1260867000091821,
+          "elapsed_s": 0.1495431000366807,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.205372600001283,
+          "elapsed_s": 1.5938654999481514,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 2.5157371999230236,
+          "elapsed_s": 3.266001299954951,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 2.522219199920073,
+          "elapsed_s": 3.266811199951917,
           "label": "program_end",
           "detail": null
         }
@@ -1628,8 +1628,8 @@
         "gripper_close_delay_s": 0.0,
         "blending_percent": null,
         "variables": {
-          "PICK_X": 62.626575258,
-          "PICK_Y": 183.7019802007,
+          "PICK_X": 24.3894351766,
+          "PICK_Y": 125.9960616089,
           "SPD_PICK": 300,
           "SPD_INSERT": 150,
           "SPD_RETRACT": 800,
@@ -1646,8 +1646,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.15,
-          "PICK_X": 62.626575258,
-          "PICK_Y": 183.7019802007,
+          "PICK_X": 24.3894351766,
+          "PICK_Y": 125.9960616089,
           "SPD_INSERT": 150,
           "SPD_PICK": 300,
           "SPD_RETRACT": 800
@@ -1656,27 +1656,27 @@
       "metrics": {
         "scenario_name": "baseline-pick_position-random",
         "run_index": 1,
-        "total_cycle_s": 2.2416078000096604,
+        "total_cycle_s": 2.3289794999873266,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.12377629999537021
+            "duration_s": 0.1415194000583142
           },
           {
             "label": "pick_start",
-            "duration_s": 0.00037509994581341743
+            "duration_s": 0.001768499962054193
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.0052431999938563
+            "duration_s": 1.0425356000196189
           },
           {
             "label": "return_complete",
-            "duration_s": 1.2339880000799894
+            "duration_s": 1.2800159000325948
           },
           {
             "label": "program_end",
-            "duration_s": 0.002001499990001321
+            "duration_s": 0.0046594999730587006
           }
         ],
         "failed": false,
@@ -1686,35 +1686,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.12377629999537021,
+          "elapsed_s": 0.1415194000583142,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.12415139994118363,
+          "elapsed_s": 0.1432879000203684,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.1293945999350399,
+          "elapsed_s": 1.1858235000399873,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 2.3633826000150293,
+          "elapsed_s": 2.465839400072582,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 2.3653841000050306,
+          "elapsed_s": 2.4704989000456408,
           "label": "program_end",
           "detail": null
         }
@@ -1733,8 +1733,8 @@
         "gripper_close_delay_s": 0.0,
         "blending_percent": null,
         "variables": {
-          "PICK_X": 61.7070614529,
-          "PICK_Y": 15.8182071296,
+          "PICK_X": 40.4881106326,
+          "PICK_Y": 124.7563702545,
           "SPD_PICK": 300,
           "SPD_INSERT": 150,
           "SPD_RETRACT": 800,
@@ -1751,8 +1751,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.15,
-          "PICK_X": 61.7070614529,
-          "PICK_Y": 15.8182071296,
+          "PICK_X": 40.4881106326,
+          "PICK_Y": 124.7563702545,
           "SPD_INSERT": 150,
           "SPD_PICK": 300,
           "SPD_RETRACT": 800
@@ -1761,27 +1761,27 @@
       "metrics": {
         "scenario_name": "baseline-pick_position-random",
         "run_index": 1,
-        "total_cycle_s": 3.0409297000151128,
+        "total_cycle_s": 2.388323799939826,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.13326919998507947
+            "duration_s": 0.14863519999198616
           },
           {
             "label": "pick_start",
-            "duration_s": 0.0017188999336212873
+            "duration_s": 0.002253900049254298
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.403070200001821
+            "duration_s": 1.0740436000050977
           },
           {
             "label": "return_complete",
-            "duration_s": 1.6352231000782922
+            "duration_s": 1.3108656998956576
           },
           {
             "label": "program_end",
-            "duration_s": 0.0009175000013783574
+            "duration_s": 0.0011605999898165464
           }
         ],
         "failed": false,
@@ -1791,35 +1791,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.13326919998507947,
+          "elapsed_s": 0.14863519999198616,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.13498809991870075,
+          "elapsed_s": 0.15088910004124045,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.5380582999205217,
+          "elapsed_s": 1.2249327000463381,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 3.173281399998814,
+          "elapsed_s": 2.5357983999419957,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 3.1741989000001922,
+          "elapsed_s": 2.5369589999318123,
           "label": "program_end",
           "detail": null
         }
@@ -1838,8 +1838,8 @@
         "gripper_close_delay_s": 0.0,
         "blending_percent": null,
         "variables": {
-          "PICK_X": 48.39866496,
-          "PICK_Y": 152.5729099479,
+          "PICK_X": 15.1378632567,
+          "PICK_Y": 76.4391085501,
           "SPD_PICK": 300,
           "SPD_INSERT": 150,
           "SPD_RETRACT": 800,
@@ -1856,8 +1856,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.15,
-          "PICK_X": 48.39866496,
-          "PICK_Y": 152.5729099479,
+          "PICK_X": 15.1378632567,
+          "PICK_Y": 76.4391085501,
           "SPD_INSERT": 150,
           "SPD_PICK": 300,
           "SPD_RETRACT": 800
@@ -1866,27 +1866,27 @@
       "metrics": {
         "scenario_name": "baseline-pick_position-random",
         "run_index": 1,
-        "total_cycle_s": 2.2906470999587327,
+        "total_cycle_s": 2.6349303999450058,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.130224599968642
+            "duration_s": 0.1301398000214249
           },
           {
             "label": "pick_start",
-            "duration_s": 0.0016879000468179584
+            "duration_s": 0.004925600020214915
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.0232854000059888
+            "duration_s": 1.200181599939242
           },
           {
             "label": "return_complete",
-            "duration_s": 1.2621267999056727
+            "duration_s": 1.4279443999985233
           },
           {
             "label": "program_end",
-            "duration_s": 0.0035470000002533197
+            "duration_s": 0.001878799987025559
           }
         ],
         "failed": false,
@@ -1896,35 +1896,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.130224599968642,
+          "elapsed_s": 0.1301398000214249,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.13191250001545995,
+          "elapsed_s": 0.1350654000416398,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.1551979000214487,
+          "elapsed_s": 1.3352469999808818,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 2.4173246999271214,
+          "elapsed_s": 2.763191399979405,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 2.4208716999273747,
+          "elapsed_s": 2.7650701999664307,
           "label": "program_end",
           "detail": null
         }
@@ -1943,8 +1943,8 @@
         "gripper_close_delay_s": 0.0,
         "blending_percent": null,
         "variables": {
-          "PICK_X": 48.8762392315,
-          "PICK_Y": 40.380565402,
+          "PICK_X": 48.9674714002,
+          "PICK_Y": 68.2845469252,
           "SPD_PICK": 300,
           "SPD_INSERT": 150,
           "SPD_RETRACT": 800,
@@ -1961,8 +1961,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.15,
-          "PICK_X": 48.8762392315,
-          "PICK_Y": 40.380565402,
+          "PICK_X": 48.9674714002,
+          "PICK_Y": 68.2845469252,
           "SPD_INSERT": 150,
           "SPD_PICK": 300,
           "SPD_RETRACT": 800
@@ -1971,27 +1971,27 @@
       "metrics": {
         "scenario_name": "baseline-pick_position-random",
         "run_index": 1,
-        "total_cycle_s": 2.9112515000160784,
+        "total_cycle_s": 2.734168699942529,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.13385139999445528
+            "duration_s": 0.12877609999850392
           },
           {
             "label": "pick_start",
-            "duration_s": 0.002038600039668381
+            "duration_s": 0.0006633999291807413
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.3382216999307275
+            "duration_s": 1.2515867000911385
           },
           {
             "label": "return_complete",
-            "duration_s": 1.5690158000215888
+            "duration_s": 1.4801622999366373
           },
           {
             "label": "program_end",
-            "duration_s": 0.0019754000240936875
+            "duration_s": 0.0017562999855726957
           }
         ],
         "failed": false,
@@ -2001,35 +2001,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.13385139999445528,
+          "elapsed_s": 0.12877609999850392,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.13589000003412366,
+          "elapsed_s": 0.12943949992768466,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.4741116999648511,
+          "elapsed_s": 1.3810262000188231,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 3.04312749998644,
+          "elapsed_s": 2.8611884999554604,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 3.0451029000105336,
+          "elapsed_s": 2.862944799941033,
           "label": "program_end",
           "detail": null
         }
@@ -2048,8 +2048,8 @@
         "gripper_close_delay_s": 0.0,
         "blending_percent": null,
         "variables": {
-          "PICK_X": 19.2421001561,
-          "PICK_Y": 147.218741253,
+          "PICK_X": 67.4568329793,
+          "PICK_Y": 138.2134339344,
           "SPD_PICK": 300,
           "SPD_INSERT": 150,
           "SPD_RETRACT": 800,
@@ -2066,8 +2066,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.15,
-          "PICK_X": 19.2421001561,
-          "PICK_Y": 147.218741253,
+          "PICK_X": 67.4568329793,
+          "PICK_Y": 138.2134339344,
           "SPD_INSERT": 150,
           "SPD_PICK": 300,
           "SPD_RETRACT": 800
@@ -2076,27 +2076,27 @@
       "metrics": {
         "scenario_name": "baseline-pick_position-random",
         "run_index": 1,
-        "total_cycle_s": 2.3948307000100613,
+        "total_cycle_s": 2.4001881000585854,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.1479348000138998
+            "duration_s": 0.14509070001076907
           },
           {
             "label": "pick_start",
-            "duration_s": 0.0009695999324321747
+            "duration_s": 0.003773600095883012
           },
           {
             "label": "transfer_complete",
-            "duration_s": 0.9846976000117138
+            "duration_s": 1.0755400999914855
           },
           {
             "label": "return_complete",
-            "duration_s": 1.407214600010775
+            "duration_s": 1.3198392000049353
           },
           {
             "label": "program_end",
-            "duration_s": 0.0019489000551402569
+            "duration_s": 0.0010351999662816525
           }
         ],
         "failed": false,
@@ -2106,35 +2106,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.1479348000138998,
+          "elapsed_s": 0.14509070001076907,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.14890439994633198,
+          "elapsed_s": 0.14886430010665208,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.1336019999580458,
+          "elapsed_s": 1.2244044000981376,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 2.540816599968821,
+          "elapsed_s": 2.544243600103073,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 2.542765500023961,
+          "elapsed_s": 2.5452788000693545,
           "label": "program_end",
           "detail": null
         }
@@ -2153,8 +2153,8 @@
         "gripper_close_delay_s": 0.0,
         "blending_percent": null,
         "variables": {
-          "PICK_X": 52.6575881298,
-          "PICK_Y": 171.4647636326,
+          "PICK_X": 50.9241586501,
+          "PICK_Y": 39.2547068454,
           "SPD_PICK": 300,
           "SPD_INSERT": 150,
           "SPD_RETRACT": 800,
@@ -2171,8 +2171,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.15,
-          "PICK_X": 52.6575881298,
-          "PICK_Y": 171.4647636326,
+          "PICK_X": 50.9241586501,
+          "PICK_Y": 39.2547068454,
           "SPD_INSERT": 150,
           "SPD_PICK": 300,
           "SPD_RETRACT": 800
@@ -2181,27 +2181,27 @@
       "metrics": {
         "scenario_name": "baseline-pick_position-random",
         "run_index": 1,
-        "total_cycle_s": 2.37033349997364,
+        "total_cycle_s": 2.915671700029634,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.13365029997657984
+            "duration_s": 0.13551029993686825
           },
           {
             "label": "pick_start",
-            "duration_s": 0.00024860003031790257
+            "duration_s": 0.00222550006583333
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.1285574999637902
+            "duration_s": 1.3382693999446929
           },
           {
             "label": "return_complete",
-            "duration_s": 1.2385584000730887
+            "duration_s": 1.5737738000461832
           },
           {
             "label": "program_end",
-            "duration_s": 0.0029689999064430594
+            "duration_s": 0.0014029999729245901
           }
         ],
         "failed": false,
@@ -2211,35 +2211,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.13365029997657984,
+          "elapsed_s": 0.13551029993686825,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.13389890000689775,
+          "elapsed_s": 0.13773580000270158,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.262456399970688,
+          "elapsed_s": 1.4760051999473944,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 2.5010148000437766,
+          "elapsed_s": 3.0497789999935776,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 2.5039837999502197,
+          "elapsed_s": 3.051181999966502,
           "label": "program_end",
           "detail": null
         }
@@ -2258,8 +2258,8 @@
         "gripper_close_delay_s": 0.0,
         "blending_percent": null,
         "variables": {
-          "PICK_X": 17.3766494045,
-          "PICK_Y": 32.3982544349,
+          "PICK_X": 51.6724885385,
+          "PICK_Y": 164.6522344959,
           "SPD_PICK": 300,
           "SPD_INSERT": 150,
           "SPD_RETRACT": 800,
@@ -2276,8 +2276,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.15,
-          "PICK_X": 17.3766494045,
-          "PICK_Y": 32.3982544349,
+          "PICK_X": 51.6724885385,
+          "PICK_Y": 164.6522344959,
           "SPD_INSERT": 150,
           "SPD_PICK": 300,
           "SPD_RETRACT": 800
@@ -2286,27 +2286,27 @@
       "metrics": {
         "scenario_name": "baseline-pick_position-random",
         "run_index": 1,
-        "total_cycle_s": 3.0108886000234634,
+        "total_cycle_s": 2.2693098000017926,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.1253718000371009
+            "duration_s": 0.12387320003472269
           },
           {
             "label": "pick_start",
-            "duration_s": 0.001742499996908009
+            "duration_s": 0.0060255000134930015
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.3895446000387892
+            "duration_s": 1.0131848000455648
           },
           {
             "label": "return_complete",
-            "duration_s": 1.6166810999857262
+            "duration_s": 1.2477697000140324
           },
           {
             "label": "program_end",
-            "duration_s": 0.002920400002039969
+            "duration_s": 0.002329799928702414
           }
         ],
         "failed": false,
@@ -2316,35 +2316,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.1253718000371009,
+          "elapsed_s": 0.12387320003472269,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.12711430003400892,
+          "elapsed_s": 0.1298987000482157,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.5166589000727981,
+          "elapsed_s": 1.1430835000937805,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 3.1333400000585243,
+          "elapsed_s": 2.390853200107813,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 3.1362604000605643,
+          "elapsed_s": 2.3931830000365153,
           "label": "program_end",
           "detail": null
         }
@@ -2363,8 +2363,8 @@
         "gripper_close_delay_s": 0.0,
         "blending_percent": null,
         "variables": {
-          "PICK_X": 27.9819435219,
-          "PICK_Y": 165.4221000496,
+          "PICK_X": 51.4195544909,
+          "PICK_Y": 20.6337251697,
           "SPD_PICK": 300,
           "SPD_INSERT": 150,
           "SPD_RETRACT": 800,
@@ -2381,8 +2381,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.15,
-          "PICK_X": 27.9819435219,
-          "PICK_Y": 165.4221000496,
+          "PICK_X": 51.4195544909,
+          "PICK_Y": 20.6337251697,
           "SPD_INSERT": 150,
           "SPD_PICK": 300,
           "SPD_RETRACT": 800
@@ -2391,27 +2391,27 @@
       "metrics": {
         "scenario_name": "baseline-pick_position-random",
         "run_index": 1,
-        "total_cycle_s": 2.3691643999191,
+        "total_cycle_s": 3.0276917000301182,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.15636610006913543
+            "duration_s": 0.1396734999725595
           },
           {
             "label": "pick_start",
-            "duration_s": 0.002026399946771562
+            "duration_s": 0.0012570000253617764
           },
           {
             "label": "transfer_complete",
-            "duration_s": 0.9557169999461621
+            "duration_s": 1.3945588000351563
           },
           {
             "label": "return_complete",
-            "duration_s": 1.4094146999996156
+            "duration_s": 1.6308386999880895
           },
           {
             "label": "program_end",
-            "duration_s": 0.002006300026550889
+            "duration_s": 0.0010371999815106392
           }
         ],
         "failed": false,
@@ -2421,35 +2421,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.15636610006913543,
+          "elapsed_s": 0.1396734999725595,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.158392500015907,
+          "elapsed_s": 0.1409304999979213,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.114109499962069,
+          "elapsed_s": 1.5354893000330776,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 2.5235241999616846,
+          "elapsed_s": 3.166328000021167,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 2.5255304999882355,
+          "elapsed_s": 3.1673652000026777,
           "label": "program_end",
           "detail": null
         }
@@ -2496,27 +2496,27 @@
       "metrics": {
         "scenario_name": "cautious-pick_position-best",
         "run_index": 1,
-        "total_cycle_s": 3.7375776999397203,
+        "total_cycle_s": 3.7364019999513403,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.055473700049333274
+            "duration_s": 0.05180579994339496
           },
           {
             "label": "pick_start",
-            "duration_s": 0.0009247999405488372
+            "duration_s": 0.0016150999581441283
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.5053707000333816
+            "duration_s": 1.5008451000321656
           },
           {
             "label": "return_complete",
-            "duration_s": 2.2291214000433683
+            "duration_s": 2.2307923999615014
           },
           {
             "label": "program_end",
-            "duration_s": 0.0021607999224215746
+            "duration_s": 0.0031493999995291233
           }
         ],
         "failed": false,
@@ -2526,35 +2526,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.055473700049333274,
+          "elapsed_s": 0.05180579994339496,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.05639849998988211,
+          "elapsed_s": 0.05342089990153909,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.5617692000232637,
+          "elapsed_s": 1.5542659999337047,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 3.790890600066632,
+          "elapsed_s": 3.785058399895206,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 3.7930513999890536,
+          "elapsed_s": 3.788207799894735,
           "label": "program_end",
           "detail": null
         }
@@ -2601,27 +2601,27 @@
       "metrics": {
         "scenario_name": "cautious-pick_position-worst",
         "run_index": 1,
-        "total_cycle_s": 2.802087999996729,
+        "total_cycle_s": 2.805537199950777,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.057180199888534844
+            "duration_s": 0.05563169997185469
           },
           {
             "label": "pick_start",
-            "duration_s": 0.0024015000090003014
+            "duration_s": 0.0022697000531479716
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.0203769000945613
+            "duration_s": 1.0223797999788076
           },
           {
             "label": "return_complete",
-            "duration_s": 1.7769242000067607
+            "duration_s": 1.778851000010036
           },
           {
             "label": "program_end",
-            "duration_s": 0.002385399886406958
+            "duration_s": 0.002036699908785522
           }
         ],
         "failed": false,
@@ -2631,35 +2631,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.057180199888534844,
+          "elapsed_s": 0.05563169997185469,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.059581699897535145,
+          "elapsed_s": 0.05790140002500266,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.0799585999920964,
+          "elapsed_s": 1.0802812000038102,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 2.856882799998857,
+          "elapsed_s": 2.859132200013846,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 2.859268199885264,
+          "elapsed_s": 2.8611688999226317,
           "label": "program_end",
           "detail": null
         }
@@ -2678,8 +2678,8 @@
         "gripper_close_delay_s": 0.0,
         "blending_percent": null,
         "variables": {
-          "PICK_X": 26.4978721226,
-          "PICK_Y": 180.3631620759,
+          "PICK_X": 19.8879191719,
+          "PICK_Y": 123.2977534479,
           "SPD_PICK": 200,
           "SPD_INSERT": 50,
           "SPD_RETRACT": 500,
@@ -2696,8 +2696,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.2,
-          "PICK_X": 26.4978721226,
-          "PICK_Y": 180.3631620759,
+          "PICK_X": 19.8879191719,
+          "PICK_Y": 123.2977534479,
           "SPD_INSERT": 50,
           "SPD_PICK": 200,
           "SPD_RETRACT": 500
@@ -2706,27 +2706,27 @@
       "metrics": {
         "scenario_name": "cautious-pick_position-random",
         "run_index": 1,
-        "total_cycle_s": 3.2503093000268564,
+        "total_cycle_s": 3.031360999913886,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.06477920000907034
+            "duration_s": 0.3110801000148058
           },
           {
             "label": "pick_start",
-            "duration_s": 0.003881199983879924
+            "duration_s": 0.0019791999366134405
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.225276799988933
+            "duration_s": 1.1493386999936774
           },
           {
             "label": "return_complete",
-            "duration_s": 2.01700280001387
+            "duration_s": 1.877882600063458
           },
           {
             "label": "program_end",
-            "duration_s": 0.004148500040173531
+            "duration_s": 0.0021604999201372266
           }
         ],
         "failed": false,
@@ -2736,35 +2736,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.06477920000907034,
+          "elapsed_s": 0.3110801000148058,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.06866039999295026,
+          "elapsed_s": 0.31305929995141923,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.2939371999818832,
+          "elapsed_s": 1.4623979999450967,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 3.310939999995753,
+          "elapsed_s": 3.3402806000085548,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 3.3150885000359267,
+          "elapsed_s": 3.342441099928692,
           "label": "program_end",
           "detail": null
         }
@@ -2783,8 +2783,8 @@
         "gripper_close_delay_s": 0.0,
         "blending_percent": null,
         "variables": {
-          "PICK_X": 44.0746482014,
-          "PICK_Y": 71.5798909093,
+          "PICK_X": 59.8415433351,
+          "PICK_Y": 15.9847371039,
           "SPD_PICK": 200,
           "SPD_INSERT": 50,
           "SPD_RETRACT": 500,
@@ -2801,8 +2801,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.2,
-          "PICK_X": 44.0746482014,
-          "PICK_Y": 71.5798909093,
+          "PICK_X": 59.8415433351,
+          "PICK_Y": 15.9847371039,
           "SPD_INSERT": 50,
           "SPD_PICK": 200,
           "SPD_RETRACT": 500
@@ -2811,27 +2811,27 @@
       "metrics": {
         "scenario_name": "cautious-pick_position-random",
         "run_index": 1,
-        "total_cycle_s": 3.4119641000870615,
+        "total_cycle_s": 3.7436823999742046,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.14400660002138466
+            "duration_s": 0.12126839999109507
           },
           {
             "label": "pick_start",
-            "duration_s": 0.00487170007545501
+            "duration_s": 0.0010258000111207366
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.3347148000029847
+            "duration_s": 1.502163999946788
           },
           {
             "label": "return_complete",
-            "duration_s": 2.0707792999455705
+            "duration_s": 2.2390949999680743
           },
           {
             "label": "program_end",
-            "duration_s": 0.0015983000630512834
+            "duration_s": 0.0013976000482216477
           }
         ],
         "failed": false,
@@ -2841,35 +2841,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.14400660002138466,
+          "elapsed_s": 0.12126839999109507,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.14887830009683967,
+          "elapsed_s": 0.1222942000022158,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.4835931000998244,
+          "elapsed_s": 1.6244581999490038,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 3.554372400045395,
+          "elapsed_s": 3.863553199917078,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 3.555970700108446,
+          "elapsed_s": 3.8649507999652997,
           "label": "program_end",
           "detail": null
         }
@@ -2888,8 +2888,8 @@
         "gripper_close_delay_s": 0.0,
         "blending_percent": null,
         "variables": {
-          "PICK_X": 60.1420882143,
-          "PICK_Y": 66.451912524,
+          "PICK_X": 51.1943348188,
+          "PICK_Y": 101.4232502114,
           "SPD_PICK": 200,
           "SPD_INSERT": 50,
           "SPD_RETRACT": 500,
@@ -2906,8 +2906,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.2,
-          "PICK_X": 60.1420882143,
-          "PICK_Y": 66.451912524,
+          "PICK_X": 51.1943348188,
+          "PICK_Y": 101.4232502114,
           "SPD_INSERT": 50,
           "SPD_PICK": 200,
           "SPD_RETRACT": 500
@@ -2916,27 +2916,27 @@
       "metrics": {
         "scenario_name": "cautious-pick_position-random",
         "run_index": 1,
-        "total_cycle_s": 3.457958300015889,
+        "total_cycle_s": 3.242928700055927,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.10731830005533993
+            "duration_s": 0.1354365999577567
           },
           {
             "label": "pick_start",
-            "duration_s": 0.00023640005383640528
+            "duration_s": 6.400048732757568e-06
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.3634241999825463
+            "duration_s": 1.2546541999327019
           },
           {
             "label": "return_complete",
-            "duration_s": 2.091256399988197
+            "duration_s": 1.9869089000858366
           },
           {
             "label": "program_end",
-            "duration_s": 0.003041299991309643
+            "duration_s": 0.001359199988655746
           }
         ],
         "failed": false,
@@ -2946,35 +2946,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.10731830005533993,
+          "elapsed_s": 0.1354365999577567,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.10755470010917634,
+          "elapsed_s": 0.13544300000648946,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.4709789000917226,
+          "elapsed_s": 1.3900971999391913,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 3.5622353000799194,
+          "elapsed_s": 3.377006100025028,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 3.565276600071229,
+          "elapsed_s": 3.3783653000136837,
           "label": "program_end",
           "detail": null
         }
@@ -2993,8 +2993,8 @@
         "gripper_close_delay_s": 0.0,
         "blending_percent": null,
         "variables": {
-          "PICK_X": 38.3605449304,
-          "PICK_Y": 89.9984955384,
+          "PICK_X": 24.0831572463,
+          "PICK_Y": 123.2696976874,
           "SPD_PICK": 200,
           "SPD_INSERT": 50,
           "SPD_RETRACT": 500,
@@ -3011,8 +3011,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.2,
-          "PICK_X": 38.3605449304,
-          "PICK_Y": 89.9984955384,
+          "PICK_X": 24.0831572463,
+          "PICK_Y": 123.2696976874,
           "SPD_INSERT": 50,
           "SPD_PICK": 200,
           "SPD_RETRACT": 500
@@ -3021,27 +3021,27 @@
       "metrics": {
         "scenario_name": "cautious-pick_position-random",
         "run_index": 1,
-        "total_cycle_s": 3.2844321000156924,
+        "total_cycle_s": 3.041311200009659,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.1252589999930933
+            "duration_s": 0.12984249996952713
           },
           {
             "label": "pick_start",
-            "duration_s": 0.002793600084260106
+            "duration_s": 2.1799933165311813e-05
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.2745412999065593
+            "duration_s": 1.1521582000423223
           },
           {
             "label": "return_complete",
-            "duration_s": 2.0058311000466347
+            "duration_s": 1.888008699985221
           },
           {
             "label": "program_end",
-            "duration_s": 0.0012660999782383442
+            "duration_s": 0.0011225000489503145
           }
         ],
         "failed": false,
@@ -3051,35 +3051,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.1252589999930933,
+          "elapsed_s": 0.12984249996952713,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.12805260007735342,
+          "elapsed_s": 0.12986429990269244,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.4025938999839127,
+          "elapsed_s": 1.2820224999450147,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 3.4084250000305474,
+          "elapsed_s": 3.1700311999302357,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 3.4096911000087857,
+          "elapsed_s": 3.171153699979186,
           "label": "program_end",
           "detail": null
         }
@@ -3098,8 +3098,8 @@
         "gripper_close_delay_s": 0.0,
         "blending_percent": null,
         "variables": {
-          "PICK_X": 27.8213235127,
-          "PICK_Y": 178.4990841204,
+          "PICK_X": 37.3660964782,
+          "PICK_Y": 80.636109941,
           "SPD_PICK": 200,
           "SPD_INSERT": 50,
           "SPD_RETRACT": 500,
@@ -3116,8 +3116,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.2,
-          "PICK_X": 27.8213235127,
-          "PICK_Y": 178.4990841204,
+          "PICK_X": 37.3660964782,
+          "PICK_Y": 80.636109941,
           "SPD_INSERT": 50,
           "SPD_PICK": 200,
           "SPD_RETRACT": 500
@@ -3126,27 +3126,27 @@
       "metrics": {
         "scenario_name": "cautious-pick_position-random",
         "run_index": 1,
-        "total_cycle_s": 3.0736582999816164,
+        "total_cycle_s": 3.3429299999261275,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.12166049994993955
+            "duration_s": 0.1366940001025796
           },
           {
             "label": "pick_start",
-            "duration_s": 0.0034493000712245703
+            "duration_s": 0.001988799893297255
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.0539371999911964
+            "duration_s": 1.3009568999987096
           },
           {
             "label": "return_complete",
-            "duration_s": 2.0162649999838322
+            "duration_s": 2.0375041000079364
           },
           {
             "label": "program_end",
-            "duration_s": 6.7999353632330894e-06
+            "duration_s": 0.0024802000261843204
           }
         ],
         "failed": false,
@@ -3156,35 +3156,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.12166049994993955,
+          "elapsed_s": 0.1366940001025796,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.12510980002116412,
+          "elapsed_s": 0.13868279999587685,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.1790470000123605,
+          "elapsed_s": 1.4396396999945864,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 3.1953119999961928,
+          "elapsed_s": 3.4771438000025228,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 3.195318799931556,
+          "elapsed_s": 3.479624000028707,
           "label": "program_end",
           "detail": null
         }
@@ -3203,8 +3203,8 @@
         "gripper_close_delay_s": 0.0,
         "blending_percent": null,
         "variables": {
-          "PICK_X": 29.6897290456,
-          "PICK_Y": 171.349608037,
+          "PICK_X": 68.2523356284,
+          "PICK_Y": 150.2961606675,
           "SPD_PICK": 200,
           "SPD_INSERT": 50,
           "SPD_RETRACT": 500,
@@ -3221,8 +3221,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.2,
-          "PICK_X": 29.6897290456,
-          "PICK_Y": 171.349608037,
+          "PICK_X": 68.2523356284,
+          "PICK_Y": 150.2961606675,
           "SPD_INSERT": 50,
           "SPD_PICK": 200,
           "SPD_RETRACT": 500
@@ -3231,27 +3231,27 @@
       "metrics": {
         "scenario_name": "cautious-pick_position-random",
         "run_index": 1,
-        "total_cycle_s": 3.240618799929507,
+        "total_cycle_s": 3.0700601999415085,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.1348851000657305
+            "duration_s": 0.1453249000478536
           },
           {
             "label": "pick_start",
-            "duration_s": 1.0999967344105244e-05
+            "duration_s": 0.0003654999891296029
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.2243098999606445
+            "duration_s": 1.1696509999455884
           },
           {
             "label": "return_complete",
-            "duration_s": 2.013120500021614
+            "duration_s": 1.89909219997935
           },
           {
             "label": "program_end",
-            "duration_s": 0.003177399979904294
+            "duration_s": 0.0009515000274404883
           }
         ],
         "failed": false,
@@ -3261,35 +3261,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.1348851000657305,
+          "elapsed_s": 0.1453249000478536,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.13489610003307462,
+          "elapsed_s": 0.1456904000369832,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.3592059999937192,
+          "elapsed_s": 1.3153413999825716,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 3.3723265000153333,
+          "elapsed_s": 3.2144335999619216,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 3.3755038999952376,
+          "elapsed_s": 3.215385099989362,
           "label": "program_end",
           "detail": null
         }
@@ -3308,8 +3308,8 @@
         "gripper_close_delay_s": 0.0,
         "blending_percent": null,
         "variables": {
-          "PICK_X": 19.6952536026,
-          "PICK_Y": 66.5322487489,
+          "PICK_X": 48.2448837975,
+          "PICK_Y": 153.4852825474,
           "SPD_PICK": 200,
           "SPD_INSERT": 50,
           "SPD_RETRACT": 500,
@@ -3326,8 +3326,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.2,
-          "PICK_X": 19.6952536026,
-          "PICK_Y": 66.5322487489,
+          "PICK_X": 48.2448837975,
+          "PICK_Y": 153.4852825474,
           "SPD_INSERT": 50,
           "SPD_PICK": 200,
           "SPD_RETRACT": 500
@@ -3336,27 +3336,27 @@
       "metrics": {
         "scenario_name": "cautious-pick_position-random",
         "run_index": 1,
-        "total_cycle_s": 3.434410599991679,
+        "total_cycle_s": 2.990854399977252,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.13692750001791865
+            "duration_s": 0.15475800004787743
           },
           {
             "label": "pick_start",
-            "duration_s": 0.00021490000654011965
+            "duration_s": 0.0009477999992668629
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.3555197999812663
+            "duration_s": 1.1231204000068828
           },
           {
             "label": "return_complete",
-            "duration_s": 2.0725883999839425
+            "duration_s": 1.8629948999732733
           },
           {
             "label": "program_end",
-            "duration_s": 0.006087500019930303
+            "duration_s": 0.003791299997828901
           }
         ],
         "failed": false,
@@ -3366,35 +3366,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.13692750001791865,
+          "elapsed_s": 0.15475800004787743,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.13714240002445877,
+          "elapsed_s": 0.1557058000471443,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.492662200005725,
+          "elapsed_s": 1.2788262000540271,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 3.5652505999896675,
+          "elapsed_s": 3.1418211000273004,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 3.571338100009598,
+          "elapsed_s": 3.1456124000251293,
           "label": "program_end",
           "detail": null
         }
@@ -3413,8 +3413,8 @@
         "gripper_close_delay_s": 0.0,
         "blending_percent": null,
         "variables": {
-          "PICK_X": 69.4643472988,
-          "PICK_Y": 42.2319001443,
+          "PICK_X": 35.9037188845,
+          "PICK_Y": 138.5847622345,
           "SPD_PICK": 200,
           "SPD_INSERT": 50,
           "SPD_RETRACT": 500,
@@ -3431,8 +3431,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.2,
-          "PICK_X": 69.4643472988,
-          "PICK_Y": 42.2319001443,
+          "PICK_X": 35.9037188845,
+          "PICK_Y": 138.5847622345,
           "SPD_INSERT": 50,
           "SPD_PICK": 200,
           "SPD_RETRACT": 500
@@ -3441,27 +3441,27 @@
       "metrics": {
         "scenario_name": "cautious-pick_position-random",
         "run_index": 1,
-        "total_cycle_s": 3.5958673000568524,
+        "total_cycle_s": 3.017442300100811,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.1507461000001058
+            "duration_s": 0.17999269999563694
           },
           {
             "label": "pick_start",
-            "duration_s": 1.0200077667832375e-05
+            "duration_s": 0.0007736000698059797
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.429939999943599
+            "duration_s": 1.1395358999725431
           },
           {
             "label": "return_complete",
-            "duration_s": 2.16169900004752
+            "duration_s": 1.8743728999979794
           },
           {
             "label": "program_end",
-            "duration_s": 0.00421809998806566
+            "duration_s": 0.002759900060482323
           }
         ],
         "failed": false,
@@ -3471,35 +3471,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.1507461000001058,
+          "elapsed_s": 0.17999269999563694,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.15075630007777363,
+          "elapsed_s": 0.18076630006544292,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.5806963000213727,
+          "elapsed_s": 1.320302200037986,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 3.7423953000688925,
+          "elapsed_s": 3.1946751000359654,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 3.746613400056958,
+          "elapsed_s": 3.1974350000964478,
           "label": "program_end",
           "detail": null
         }
@@ -3518,8 +3518,8 @@
         "gripper_close_delay_s": 0.0,
         "blending_percent": null,
         "variables": {
-          "PICK_X": 18.4450656583,
-          "PICK_Y": 172.531632502,
+          "PICK_X": 39.3087599111,
+          "PICK_Y": 154.1687131955,
           "SPD_PICK": 200,
           "SPD_INSERT": 50,
           "SPD_RETRACT": 500,
@@ -3536,8 +3536,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.2,
-          "PICK_X": 18.4450656583,
-          "PICK_Y": 172.531632502,
+          "PICK_X": 39.3087599111,
+          "PICK_Y": 154.1687131955,
           "SPD_INSERT": 50,
           "SPD_PICK": 200,
           "SPD_RETRACT": 500
@@ -3546,27 +3546,27 @@
       "metrics": {
         "scenario_name": "cautious-pick_position-random",
         "run_index": 1,
-        "total_cycle_s": 3.0564359000418335,
+        "total_cycle_s": 2.9632324000122026,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.12790800002403557
+            "duration_s": 0.14008889999240637
           },
           {
             "label": "pick_start",
-            "duration_s": 0.0020280000753700733
+            "duration_s": 0.008629400050267577
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.0395315999630839
+            "duration_s": 1.1065343000227585
           },
           {
             "label": "return_complete",
-            "duration_s": 2.013282399973832
+            "duration_s": 1.8469105999683961
           },
           {
             "label": "program_end",
-            "duration_s": 0.0015939000295475125
+            "duration_s": 0.001158099970780313
           }
         ],
         "failed": false,
@@ -3576,35 +3576,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.12790800002403557,
+          "elapsed_s": 0.14008889999240637,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.12993600009940565,
+          "elapsed_s": 0.14871830004267395,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.1694676000624895,
+          "elapsed_s": 1.2552526000654325,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 3.1827500000363216,
+          "elapsed_s": 3.1021632000338286,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 3.184343900065869,
+          "elapsed_s": 3.103321300004609,
           "label": "program_end",
           "detail": null
         }
@@ -3623,8 +3623,8 @@
         "gripper_close_delay_s": 0.0,
         "blending_percent": null,
         "variables": {
-          "PICK_X": 34.8175152726,
-          "PICK_Y": 176.8791695405,
+          "PICK_X": 35.3572478758,
+          "PICK_Y": 68.1431425625,
           "SPD_PICK": 200,
           "SPD_INSERT": 50,
           "SPD_RETRACT": 500,
@@ -3641,8 +3641,8 @@
         "blending_percent": null,
         "variables": {
           "GRP_DELAY": 0.2,
-          "PICK_X": 34.8175152726,
-          "PICK_Y": 176.8791695405,
+          "PICK_X": 35.3572478758,
+          "PICK_Y": 68.1431425625,
           "SPD_INSERT": 50,
           "SPD_PICK": 200,
           "SPD_RETRACT": 500
@@ -3651,27 +3651,27 @@
       "metrics": {
         "scenario_name": "cautious-pick_position-random",
         "run_index": 1,
-        "total_cycle_s": 3.245470500085503,
+        "total_cycle_s": 3.426168499980122,
         "checkpoint_segments": [
           {
             "label": "program_start",
-            "duration_s": 0.13700929994229227
+            "duration_s": 0.13368830003309995
           },
           {
             "label": "pick_start",
-            "duration_s": 6.00004568696022e-06
+            "duration_s": 0.0002711999695748091
           },
           {
             "label": "transfer_complete",
-            "duration_s": 1.2292634999612346
+            "duration_s": 1.3463079000357538
           },
           {
             "label": "return_complete",
-            "duration_s": 2.0129175999900326
+            "duration_s": 2.0776045999955386
           },
           {
             "label": "program_end",
-            "duration_s": 0.0032834000885486603
+            "duration_s": 0.0019847999792546034
           }
         ],
         "failed": false,
@@ -3681,35 +3681,35 @@
         {
           "checkpoint_id": 4,
           "status": "reached",
-          "elapsed_s": 0.13700929994229227,
+          "elapsed_s": 0.13368830003309995,
           "label": "program_start",
           "detail": null
         },
         {
           "checkpoint_id": 1,
           "status": "reached",
-          "elapsed_s": 0.13701529998797923,
+          "elapsed_s": 0.13395950000267476,
           "label": "pick_start",
           "detail": null
         },
         {
           "checkpoint_id": 2,
           "status": "reached",
-          "elapsed_s": 1.3662787999492139,
+          "elapsed_s": 1.4802674000384286,
           "label": "transfer_complete",
           "detail": null
         },
         {
           "checkpoint_id": 3,
           "status": "reached",
-          "elapsed_s": 3.3791963999392465,
+          "elapsed_s": 3.557872000033967,
           "label": "return_complete",
           "detail": null
         },
         {
           "checkpoint_id": 5,
           "status": "reached",
-          "elapsed_s": 3.382479800027795,
+          "elapsed_s": 3.559856800013222,
           "label": "program_end",
           "detail": null
         }
@@ -3719,60 +3719,60 @@
   ],
   "scenario_comparison": {
     "baseline": {
-      "minimum_s": 2.611009099986404,
-      "average_s": 2.611009099986404,
-      "maximum_s": 2.611009099986404,
+      "minimum_s": 2.607248100102879,
+      "average_s": 2.607248100102879,
+      "maximum_s": 2.607248100102879,
       "std_dev_s": 0.0,
-      "contingency_adjusted_average_s": 3.133210919983685
+      "contingency_adjusted_average_s": 3.128697720123455
     },
     "cautious": {
-      "minimum_s": 3.8668785999761894,
-      "average_s": 3.8668785999761894,
-      "maximum_s": 3.8668785999761894,
+      "minimum_s": 3.859673999948427,
+      "average_s": 3.859673999948427,
+      "maximum_s": 3.859673999948427,
       "std_dev_s": 0.0,
-      "contingency_adjusted_average_s": 4.640254319971427
+      "contingency_adjusted_average_s": 4.631608799938112
     },
     "baseline-pick_position-best": {
-      "minimum_s": 3.0311435000039637,
-      "average_s": 3.0311435000039637,
-      "maximum_s": 3.0311435000039637,
+      "minimum_s": 3.023854000028223,
+      "average_s": 3.023854000028223,
+      "maximum_s": 3.023854000028223,
       "std_dev_s": 0.0,
-      "contingency_adjusted_average_s": 3.6373722000047564
+      "contingency_adjusted_average_s": 3.628624800033867
     },
     "baseline-pick_position-worst": {
-      "minimum_s": 2.0989849999314174,
-      "average_s": 2.0989849999314174,
-      "maximum_s": 2.0989849999314174,
+      "minimum_s": 2.097556099994108,
+      "average_s": 2.097556099994108,
+      "maximum_s": 2.097556099994108,
       "std_dev_s": 0.0,
-      "contingency_adjusted_average_s": 2.518781999917701
+      "contingency_adjusted_average_s": 2.5170673199929294
     },
     "baseline-pick_position-random": {
-      "minimum_s": 2.2416078000096604,
-      "average_s": 2.5284142699791117,
-      "maximum_s": 3.0409297000151128,
-      "std_dev_s": 0.3231149576119742,
-      "contingency_adjusted_average_s": 3.034097123974934
+      "minimum_s": 2.2693098000017926,
+      "average_s": 2.635333169985097,
+      "maximum_s": 3.1188983999891207,
+      "std_dev_s": 0.3037367492242543,
+      "contingency_adjusted_average_s": 3.162399803982116
     },
     "cautious-pick_position-best": {
-      "minimum_s": 3.7375776999397203,
-      "average_s": 3.7375776999397203,
-      "maximum_s": 3.7375776999397203,
+      "minimum_s": 3.7364019999513403,
+      "average_s": 3.7364019999513403,
+      "maximum_s": 3.7364019999513403,
       "std_dev_s": 0.0,
-      "contingency_adjusted_average_s": 4.485093239927664
+      "contingency_adjusted_average_s": 4.483682399941608
     },
     "cautious-pick_position-worst": {
-      "minimum_s": 2.802087999996729,
-      "average_s": 2.802087999996729,
-      "maximum_s": 2.802087999996729,
+      "minimum_s": 2.805537199950777,
+      "average_s": 2.805537199950777,
+      "maximum_s": 2.805537199950777,
       "std_dev_s": 0.0,
-      "contingency_adjusted_average_s": 3.362505599996075
+      "contingency_adjusted_average_s": 3.366644639940932
     },
     "cautious-pick_position-random": {
-      "minimum_s": 3.0564359000418335,
-      "average_s": 3.305112520023249,
-      "maximum_s": 3.5958673000568524,
-      "std_dev_s": 0.1708131626100127,
-      "contingency_adjusted_average_s": 3.9661350240278987
+      "minimum_s": 2.9632324000122026,
+      "average_s": 3.18699710998917,
+      "maximum_s": 3.7436823999742046,
+      "std_dev_s": 0.251872441380554,
+      "contingency_adjusted_average_s": 3.824396531987004
     }
   }
 }

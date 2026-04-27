@@ -1,5 +1,5 @@
-SetVariable(PICK_X, 18.4450656583)
-SetVariable(PICK_Y, 172.531632502)
+SetVariable(PICK_X, 39.3087599111)
+SetVariable(PICK_Y, 154.1687131955)
 SetVariable(SPD_PICK, 200)
 SetVariable(SPD_INSERT, 50)
 SetVariable(SPD_RETRACT, 500)
@@ -41,7 +41,6 @@ SetCartLinVel(5000)
 
 
 SetCheckpoint(2)
-
 // RBT_1_ASY_TO_ST1
 SetWRF(130.000, 175.750, 260.000, -0.000, 0.000, -0.000)
 SetTRF(0.000, 0.000, 90.000, -0.000, 0.000, -0.000)

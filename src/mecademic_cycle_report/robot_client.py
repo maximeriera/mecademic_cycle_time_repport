@@ -161,6 +161,7 @@ class MecademicPyRobotClient:
         self.robot.SetJointAcc(self.ENFORCED_JOINT_ACCELERATION_PERCENT)
         self.robot.SetCartAcc(self.ENFORCED_CARTESIAN_ACCELERATION_PERCENT)
         for variable_name, value in scenario.variables.items():
+            self.robot.CreateVariable(variable_name, value, 0, 0)
             self.robot.SetVariable(variable_name, value)
 
     def arm_checkpoints(self, checkpoints: list[ExpectedCheckpoint]) -> None:

@@ -1,5 +1,6 @@
 from pathlib import Path
 
+from mecademic_cycle_report.scenario_matrix import ScenarioProfile
 from mecademic_cycle_report.robot_client import MecademicPyRobotClient, RobotClientError
 
 
@@ -81,6 +82,29 @@ class FakeProgramRobot:
 
     def LoadProgram(self, name: str) -> None:
         self.calls.append(f"LoadProgram:{name}")
+
+
+class FakeScenarioRobot:
+    def __init__(self) -> None:
+        self.calls: list[str] = []
+
+    def SetTimeScaling(self, value: float) -> None:
+        self.calls.append(f"SetTimeScaling:{value}")
+
+    def SetBlending(self, value: float) -> None:
+        self.calls.append(f"SetBlending:{value}")
+
+    def SetJointAcc(self, value: float) -> None:
+        self.calls.append(f"SetJointAcc:{value}")
+
+    def SetCartAcc(self, value: float) -> None:
+        self.calls.append(f"SetCartAcc:{value}")
+
+    def CreateVariable(self, name: str, value, cyclic_id: int = 0, override: int = 0) -> None:
+        self.calls.append(f"CreateVariable:{name}:{value}:{cyclic_id}:{override}")
+
+    def SetVariable(self, name: str, value) -> None:
+        self.calls.append(f"SetVariable:{name}:{value}")
 
 
 def test_ensure_ready_enforces_sim_mode_before_homing() -> None:
@@ -223,4 +247,30 @@ def test_load_program_uses_load_program_after_save_file(tmp_path: Path) -> None:
     assert robot.calls == [
         "SaveFile:program.mxprog:True:True",
         "LoadProgram:program.mxprog",
+    ]
+
+
+def test_apply_scenario_creates_missing_variables_before_setting_values() -> None:
+    robot = FakeScenarioRobot()
+    client = MecademicPyRobotClient(robot_address="192.168.0.100", robot=robot)
+
+    client.apply_scenario(
+        ScenarioProfile(
+            name="baseline",
+            variables={
+                "PICK_X": 35,
+                "GRP_DELAY": 0.15,
+            },
+        )
+    )
+
+    assert robot.calls == [
+        "SetTimeScaling:100.0",
+        "SetBlending:100.0",
+        "SetJointAcc:100.0",
+        "SetCartAcc:100.0",
+        "CreateVariable:PICK_X:35:0:0",
+        "SetVariable:PICK_X:35",
+        "CreateVariable:GRP_DELAY:0.15:0:0",
+        "SetVariable:GRP_DELAY:0.15",
     ]
