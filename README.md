@@ -2,6 +2,8 @@
 
 Checkpoint-driven cycle time analysis for Mecademic robot programs.
 
+For command examples and common run patterns, see [docs/example-usage.md](docs/example-usage.md).
+
 ## Current Status
 
 This repository now contains the first implementation slice:
@@ -63,32 +65,34 @@ This installs `mecademicpy`, which is the official Mecademic Python API used by 
 Validate a config file:
 
 ```powershell
-mecademic-cycle-report validate-config tests/fixtures/scenarios.yaml
+mecademic-cycle-report validate-config configs/my_process.scenarios.yaml
 ```
 
-Run a dry analysis against the sample mxprog fixture:
+Run a dry analysis against your own mxprog:
 
 ```powershell
-mecademic-cycle-report analyze tests/fixtures/sample.mxprog --config tests/fixtures/scenarios.yaml --dry-run
+mecademic-cycle-report analyze programs/my_process.mxprog --config configs/my_process.scenarios.yaml --dry-run
 ```
 
-Run a real robot smoke test with simulation mode enforced:
+Run a real robot program with simulation mode enforced:
 
 ```powershell
-mecademic-cycle-report analyze tests/fixtures/test_RBT2.mxprog --config tests/fixtures/test_RBT2.scenarios.yaml
+mecademic-cycle-report analyze programs/my_process.mxprog --config configs/my_process.scenarios.yaml --enforce-sim-mode
 ```
 
 Print the report payload as JSON:
 
 ```powershell
-mecademic-cycle-report analyze tests/fixtures/sample.mxprog --config tests/fixtures/scenarios.yaml --dry-run --json
+mecademic-cycle-report analyze programs/my_process.mxprog --config configs/my_process.scenarios.yaml --dry-run --json
 ```
 
 Override simulation enforcement for a single run:
 
 ```powershell
-mecademic-cycle-report analyze tests/fixtures/test_RBT2.mxprog --config tests/fixtures/test_RBT2.scenarios.yaml --enforce-sim-mode
+mecademic-cycle-report analyze programs/my_process.mxprog --config configs/my_process.scenarios.yaml --no-enforce-sim-mode
 ```
+
+The `tests/fixtures` directory contains repository samples for development and testing. Treat those as examples to copy from, not as the normal location for your own `.mxprog` files.
 
 The analyze command also writes artifacts into the configured output directory:
 
