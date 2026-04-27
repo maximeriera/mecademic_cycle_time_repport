@@ -1,0 +1,2 @@
+[console_scripts]
+mecademic-cycle-report = mecademic_cycle_report.cli:main

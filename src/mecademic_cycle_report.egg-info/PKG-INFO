@@ -1,0 +1,105 @@
+Metadata-Version: 2.4
+Name: mecademic-cycle-report
+Version: 0.1.0
+Summary: Checkpoint-driven cycle time analysis for Mecademic robot programs
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: mecademicpy>=3.0.0
+Requires-Dist: PyYAML>=6.0
+Provides-Extra: dev
+Requires-Dist: pytest>=8.0; extra == "dev"
+
+# Mecademic Cycle Time Report
+
+Checkpoint-driven cycle time analysis for Mecademic robot programs.
+
+## Current Status
+
+This repository now contains the first implementation slice:
+
+- Python package scaffold with CLI entrypoint
+- YAML or JSON config loading
+- Native Mecademic checkpoint expectations and validation
+- Scenario profile and scenario sweep expansion
+- Run metrics and summary statistics with contingency-adjusted totals
+- Dry-run analysis path that produces report payloads without robot hardware
+- Unit tests for checkpoint validation, scenario expansion, analysis, and runner behavior
+
+The project now includes an initial `mecademicpy` integration path. For real runs, it uploads the `.mxprog` with `SaveFile`, marks it loaded with `SetLoadedPrograms`, arms external checkpoints with `ExpectExternalCheckpoint`, and starts execution with `StartProgram`. Dry-run mode remains available when hardware is not present.
+
+## Project Layout
+
+- `src/mecademic_cycle_report/cli.py`: CLI entrypoint
+- `src/mecademic_cycle_report/config.py`: config schema and loading
+- `src/mecademic_cycle_report/checkpoint_spec.py`: checkpoint definitions and validation
+- `src/mecademic_cycle_report/scenario_matrix.py`: scenario profiles and sweep expansion
+- `src/mecademic_cycle_report/runner.py`: checkpoint-driven run orchestration
+- `src/mecademic_cycle_report/analysis.py`: timing statistics and scenario comparisons
+- `src/mecademic_cycle_report/reporting.py`: terminal summary and structured report payloads
+- `tests/fixtures/scenarios.yaml`: sample config for dry-run analysis
+
+## Config Model
+
+The tool expects a config file with four sections:
+
+- `robot`: robot connection settings such as IP address
+- `analysis`: run counts, warmup count, contingency percentage, output directory, and optional dry-run flag
+- `checkpoints`: the ordered native Mecademic checkpoints expected during the program
+- `scenarios`: named profiles and optional sweep axes for parameter exploration
+
+Variables are treated as scenario inputs, not checkpoint markers. Use them for values your mxprog consumes, such as speed-related parameters or simulated gripper delays.
+
+Example config: `tests/fixtures/scenarios.yaml`
+
+## Usage
+
+Install the package in editable mode with development dependencies:
+
+```powershell
+pip install -e .[dev]
+```
+
+This installs `mecademicpy`, which is the official Mecademic Python API used by the hardware adapter.
+
+Validate a config file:
+
+```powershell
+mecademic-cycle-report validate-config tests/fixtures/scenarios.yaml
+```
+
+Run a dry analysis against the sample mxprog fixture:
+
+```powershell
+mecademic-cycle-report analyze tests/fixtures/sample.mxprog --config tests/fixtures/scenarios.yaml --dry-run
+```
+
+Print the report payload as JSON:
+
+```powershell
+mecademic-cycle-report analyze tests/fixtures/sample.mxprog --config tests/fixtures/scenarios.yaml --dry-run --json
+```
+
+Run the test suite:
+
+```powershell
+pytest
+```
+
+## Checkpoint Convention
+
+This implementation assumes your mxprog program contains native Mecademic checkpoints such as:
+
+```text
+MoveJoints(0,0,0,0,0,0)
+SetCheckpoint(10)
+Delay(0.25)
+SetCheckpoint(20)
+Delay(0.40)
+SetCheckpoint(30)
+```
+
+The config file lists these checkpoints in order. During a real run, the tool calls `ExpectExternalCheckpoint(n)` for each configured checkpoint before `StartProgram`, then waits for those events in sequence. If a checkpoint is discarded or times out, the run fails and the failure is recorded.
+
+## Next Implementation Step
+
+The next concrete step is expanding the hardware adapter with richer runtime controls and observability, especially scenario-variable application details, gripper-related timing controls, and exported real-time data for final reports.

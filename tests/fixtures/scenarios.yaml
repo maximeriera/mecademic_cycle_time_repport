@@ -1,0 +1,42 @@
+robot:
+  address: 192.168.0.100
+analysis:
+  runs: 2
+  warmup_runs: 1
+  contingency_percent: 20
+  dry_run: true
+checkpoints:
+  - checkpoint_id: 10
+    label: start_cycle
+    timeout_s: 5.0
+  - checkpoint_id: 20
+    label: grip_complete
+    timeout_s: 5.0
+  - checkpoint_id: 30
+    label: end_cycle
+    timeout_s: 5.0
+scenarios:
+  profiles:
+    - name: baseline
+      time_scaling_percent: 100
+      variables:
+        PICK_X: 12.5
+        PICK_Y: -18.0
+        SPD_PICK: 1200
+        SPD_INSERT: 800
+        SPD_RETRACT: 2500
+        GRP_DELAY_OPEN: 0.20
+        GRP_DELAY_CLOSE: 0.25
+    - name: cautious
+      time_scaling_percent: 80
+      variables:
+        PICK_X: 12.5
+        PICK_Y: -18.0
+        SPD_PICK: 900
+        SPD_INSERT: 500
+        SPD_RETRACT: 1800
+        GRP_DELAY_OPEN: 0.35
+        GRP_DELAY_CLOSE: 0.40
+  sweep:
+    time_scaling_percent: [80, 100]
+    variables.SPD_INSERT: [500, 800]

@@ -1,0 +1,1809 @@
+{
+  "analysis": {
+    "runs": 1,
+    "warmup_runs": 0,
+    "alignment_run": true,
+    "contingency_percent": 20.0,
+    "dry_run": false
+  },
+  "robot": {
+    "address": "192.168.0.100",
+    "enforce_sim_mode": true,
+    "runtime": {
+      "client": "mecademicpy",
+      "robot_address": "192.168.0.100",
+      "dry_run": false,
+      "enforce_sim_mode": true,
+      "deactivated_for_sim": true,
+      "program_load_method": "LoadProgram",
+      "initial_status": {
+        "activation_state": true,
+        "homing_state": true,
+        "simulation_mode": 1,
+        "recovery_mode": false,
+        "error_status": false,
+        "pause_motion_status": false,
+        "motion_cleared_status": false,
+        "end_of_block_status": true,
+        "brakes_engaged": false,
+        "connection_watchdog_enabled": false
+      },
+      "ready_status": {
+        "activation_state": true,
+        "homing_state": true,
+        "simulation_mode": 1,
+        "recovery_mode": false,
+        "error_status": false,
+        "pause_motion_status": false,
+        "motion_cleared_status": false,
+        "end_of_block_status": true,
+        "brakes_engaged": false,
+        "connection_watchdog_enabled": false
+      }
+    }
+  },
+  "checkpoints": [
+    {
+      "checkpoint_id": 1,
+      "label": "station_1_start",
+      "timeout_s": 10.0,
+      "required": true
+    },
+    {
+      "checkpoint_id": 2,
+      "label": "cycle_complete",
+      "timeout_s": 10.0,
+      "required": true
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "baseline",
+      "analysis_name": null,
+      "pre_run_group": null,
+      "skip_repeated_pre_run_cycles": false,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "SPD_INSERT": 150,
+        "SPD_RETRACT": 800,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800
+        }
+      }
+    },
+    {
+      "name": "cautious",
+      "analysis_name": null,
+      "pre_run_group": null,
+      "skip_repeated_pre_run_cycles": false,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "SPD_INSERT": 50,
+        "SPD_RETRACT": 500,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500
+        }
+      }
+    },
+    {
+      "name": "baseline-variables.SPD_INSERT-minus10pct",
+      "analysis_name": null,
+      "pre_run_group": null,
+      "skip_repeated_pre_run_cycles": false,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "SPD_INSERT": 135,
+        "SPD_RETRACT": 800,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-variables.SPD_INSERT-minus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "SPD_INSERT": 135,
+          "SPD_RETRACT": 800
+        }
+      }
+    },
+    {
+      "name": "baseline-variables.SPD_INSERT-plus10pct",
+      "analysis_name": null,
+      "pre_run_group": null,
+      "skip_repeated_pre_run_cycles": false,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "SPD_INSERT": 165,
+        "SPD_RETRACT": 800,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-variables.SPD_INSERT-plus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "SPD_INSERT": 165,
+          "SPD_RETRACT": 800
+        }
+      }
+    },
+    {
+      "name": "baseline-variables.SPD_RETRACT-minus10pct",
+      "analysis_name": null,
+      "pre_run_group": null,
+      "skip_repeated_pre_run_cycles": false,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "SPD_INSERT": 150,
+        "SPD_RETRACT": 720,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-variables.SPD_RETRACT-minus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 720
+        }
+      }
+    },
+    {
+      "name": "baseline-variables.SPD_RETRACT-plus10pct",
+      "analysis_name": null,
+      "pre_run_group": null,
+      "skip_repeated_pre_run_cycles": false,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "SPD_INSERT": 150,
+        "SPD_RETRACT": 880,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-variables.SPD_RETRACT-plus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 880
+        }
+      }
+    },
+    {
+      "name": "baseline-variables.GRP_DELAY-minus10pct",
+      "analysis_name": null,
+      "pre_run_group": null,
+      "skip_repeated_pre_run_cycles": false,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "SPD_INSERT": 150,
+        "SPD_RETRACT": 800,
+        "GRP_DELAY": 0.18
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-variables.GRP_DELAY-minus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.18,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800
+        }
+      }
+    },
+    {
+      "name": "baseline-variables.GRP_DELAY-plus10pct",
+      "analysis_name": null,
+      "pre_run_group": null,
+      "skip_repeated_pre_run_cycles": false,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "SPD_INSERT": 150,
+        "SPD_RETRACT": 800,
+        "GRP_DELAY": 0.22
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-variables.GRP_DELAY-plus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.22,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800
+        }
+      }
+    },
+    {
+      "name": "cautious-variables.SPD_INSERT-minus10pct",
+      "analysis_name": null,
+      "pre_run_group": null,
+      "skip_repeated_pre_run_cycles": false,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "SPD_INSERT": 45,
+        "SPD_RETRACT": 500,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-variables.SPD_INSERT-minus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "SPD_INSERT": 45,
+          "SPD_RETRACT": 500
+        }
+      }
+    },
+    {
+      "name": "cautious-variables.SPD_INSERT-plus10pct",
+      "analysis_name": null,
+      "pre_run_group": null,
+      "skip_repeated_pre_run_cycles": false,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "SPD_INSERT": 55,
+        "SPD_RETRACT": 500,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-variables.SPD_INSERT-plus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "SPD_INSERT": 55,
+          "SPD_RETRACT": 500
+        }
+      }
+    },
+    {
+      "name": "cautious-variables.SPD_RETRACT-minus10pct",
+      "analysis_name": null,
+      "pre_run_group": null,
+      "skip_repeated_pre_run_cycles": false,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "SPD_INSERT": 50,
+        "SPD_RETRACT": 450,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-variables.SPD_RETRACT-minus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 450
+        }
+      }
+    },
+    {
+      "name": "cautious-variables.SPD_RETRACT-plus10pct",
+      "analysis_name": null,
+      "pre_run_group": null,
+      "skip_repeated_pre_run_cycles": false,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "SPD_INSERT": 50,
+        "SPD_RETRACT": 550,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-variables.SPD_RETRACT-plus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 550
+        }
+      }
+    },
+    {
+      "name": "cautious-variables.GRP_DELAY-minus10pct",
+      "analysis_name": null,
+      "pre_run_group": null,
+      "skip_repeated_pre_run_cycles": false,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "SPD_INSERT": 50,
+        "SPD_RETRACT": 500,
+        "GRP_DELAY": 0.18
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-variables.GRP_DELAY-minus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.18,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500
+        }
+      }
+    },
+    {
+      "name": "cautious-variables.GRP_DELAY-plus10pct",
+      "analysis_name": null,
+      "pre_run_group": null,
+      "skip_repeated_pre_run_cycles": false,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "SPD_INSERT": 50,
+        "SPD_RETRACT": 500,
+        "GRP_DELAY": 0.22
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-variables.GRP_DELAY-plus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.22,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500
+        }
+      }
+    }
+  ],
+  "program": {
+    "referenced_variables": [
+      "GRP_DELAY",
+      "SPD_INSERT",
+      "SPD_RETRACT"
+    ]
+  },
+  "warnings": [],
+  "records": [
+    {
+      "scenario_name": "baseline",
+      "scenario": {
+        "name": "baseline",
+        "analysis_name": null,
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800
+        }
+      },
+      "metrics": {
+        "scenario_name": "baseline",
+        "run_index": 1,
+        "total_cycle_s": 2.4939352000365034,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.03696499997749925
+          },
+          {
+            "label": "station_1_start",
+            "duration_s": 0.006975600030273199
+          },
+          {
+            "label": "cycle_complete",
+            "duration_s": 2.485062299994752
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0018973000114783645
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 0.03696499997749925,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.043940600007772446,
+          "label": "station_1_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 2.5290029000025243,
+          "label": "cycle_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 2.5309002000140026,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT2\\rendered_programs\\test_RBT2__baseline.mxprog"
+    },
+    {
+      "scenario_name": "cautious",
+      "scenario": {
+        "name": "cautious",
+        "analysis_name": null,
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500
+        }
+      },
+      "metrics": {
+        "scenario_name": "cautious",
+        "run_index": 1,
+        "total_cycle_s": 3.56655879993923,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.036417099996469915
+          },
+          {
+            "label": "station_1_start",
+            "duration_s": 0.0029190999921411276
+          },
+          {
+            "label": "cycle_complete",
+            "duration_s": 3.5614237999543548
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.002215899992734194
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 0.036417099996469915,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.03933619998861104,
+          "label": "station_1_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 3.600759999942966,
+          "label": "cycle_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 3.6029758999357,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT2\\rendered_programs\\test_RBT2__cautious.mxprog"
+    },
+    {
+      "scenario_name": "baseline-variables.SPD_INSERT-minus10pct",
+      "scenario": {
+        "name": "baseline-variables.SPD_INSERT-minus10pct",
+        "analysis_name": null,
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "SPD_INSERT": 135,
+          "SPD_RETRACT": 800,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-variables.SPD_INSERT-minus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "SPD_INSERT": 135,
+          "SPD_RETRACT": 800
+        }
+      },
+      "metrics": {
+        "scenario_name": "baseline-variables.SPD_INSERT-minus10pct",
+        "run_index": 1,
+        "total_cycle_s": 2.553884700057097,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.036357700009830296
+          },
+          {
+            "label": "station_1_start",
+            "duration_s": 0.0053486000979319215
+          },
+          {
+            "label": "cycle_complete",
+            "duration_s": 2.546453299932182
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0020828000269830227
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 0.036357700009830296,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.04170630010776222,
+          "label": "station_1_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 2.588159600039944,
+          "label": "cycle_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 2.590242400066927,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT2\\rendered_programs\\test_RBT2__baseline-variables.SPD_INSERT-minus10pct.mxprog"
+    },
+    {
+      "scenario_name": "baseline-variables.SPD_INSERT-plus10pct",
+      "scenario": {
+        "name": "baseline-variables.SPD_INSERT-plus10pct",
+        "analysis_name": null,
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "SPD_INSERT": 165,
+          "SPD_RETRACT": 800,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-variables.SPD_INSERT-plus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "SPD_INSERT": 165,
+          "SPD_RETRACT": 800
+        }
+      },
+      "metrics": {
+        "scenario_name": "baseline-variables.SPD_INSERT-plus10pct",
+        "run_index": 1,
+        "total_cycle_s": 2.4413819001056254,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.0397056998917833
+          },
+          {
+            "label": "station_1_start",
+            "duration_s": 0.001964600058272481
+          },
+          {
+            "label": "cycle_complete",
+            "duration_s": 2.437734300037846
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0016830000095069408
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 0.0397056998917833,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.04167029995005578,
+          "label": "station_1_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 2.4794045999879017,
+          "label": "cycle_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 2.4810875999974087,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT2\\rendered_programs\\test_RBT2__baseline-variables.SPD_INSERT-plus10pct.mxprog"
+    },
+    {
+      "scenario_name": "baseline-variables.SPD_RETRACT-minus10pct",
+      "scenario": {
+        "name": "baseline-variables.SPD_RETRACT-minus10pct",
+        "analysis_name": null,
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 720,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-variables.SPD_RETRACT-minus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 720
+        }
+      },
+      "metrics": {
+        "scenario_name": "baseline-variables.SPD_RETRACT-minus10pct",
+        "run_index": 1,
+        "total_cycle_s": 2.49731970007997,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.03373719996307045
+          },
+          {
+            "label": "station_1_start",
+            "duration_s": 0.00388179998844862
+          },
+          {
+            "label": "cycle_complete",
+            "duration_s": 2.4894295000704005
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.004008400021120906
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 0.03373719996307045,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.03761899995151907,
+          "label": "station_1_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 2.5270485000219196,
+          "label": "cycle_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 2.5310569000430405,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT2\\rendered_programs\\test_RBT2__baseline-variables.SPD_RETRACT-minus10pct.mxprog"
+    },
+    {
+      "scenario_name": "baseline-variables.SPD_RETRACT-plus10pct",
+      "scenario": {
+        "name": "baseline-variables.SPD_RETRACT-plus10pct",
+        "analysis_name": null,
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 880,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-variables.SPD_RETRACT-plus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 880
+        }
+      },
+      "metrics": {
+        "scenario_name": "baseline-variables.SPD_RETRACT-plus10pct",
+        "run_index": 1,
+        "total_cycle_s": 2.4896783999865875,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.0448314999230206
+          },
+          {
+            "label": "station_1_start",
+            "duration_s": 0.005312300054356456
+          },
+          {
+            "label": "cycle_complete",
+            "duration_s": 2.4823687999742106
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0019972999580204487
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 0.0448314999230206,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.05014379997737706,
+          "label": "station_1_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 2.5325125999515876,
+          "label": "cycle_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 2.534509899909608,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT2\\rendered_programs\\test_RBT2__baseline-variables.SPD_RETRACT-plus10pct.mxprog"
+    },
+    {
+      "scenario_name": "baseline-variables.GRP_DELAY-minus10pct",
+      "scenario": {
+        "name": "baseline-variables.GRP_DELAY-minus10pct",
+        "analysis_name": null,
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800,
+          "GRP_DELAY": 0.18
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-variables.GRP_DELAY-minus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.18,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800
+        }
+      },
+      "metrics": {
+        "scenario_name": "baseline-variables.GRP_DELAY-minus10pct",
+        "run_index": 1,
+        "total_cycle_s": 2.4519100999459624,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.04617730004247278
+          },
+          {
+            "label": "station_1_start",
+            "duration_s": 0.0023982999846339226
+          },
+          {
+            "label": "cycle_complete",
+            "duration_s": 2.4463603000622243
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0031514998991042376
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 0.04617730004247278,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.0485756000271067,
+          "label": "station_1_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 2.494935900089331,
+          "label": "cycle_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 2.498087399988435,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT2\\rendered_programs\\test_RBT2__baseline-variables.GRP_DELAY-minus10pct.mxprog"
+    },
+    {
+      "scenario_name": "baseline-variables.GRP_DELAY-plus10pct",
+      "scenario": {
+        "name": "baseline-variables.GRP_DELAY-plus10pct",
+        "analysis_name": null,
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800,
+          "GRP_DELAY": 0.22
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-variables.GRP_DELAY-plus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.22,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800
+        }
+      },
+      "metrics": {
+        "scenario_name": "baseline-variables.GRP_DELAY-plus10pct",
+        "run_index": 1,
+        "total_cycle_s": 2.5352043999591842,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.034321000101044774
+          },
+          {
+            "label": "station_1_start",
+            "duration_s": 0.0028770999051630497
+          },
+          {
+            "label": "cycle_complete",
+            "duration_s": 2.5305514000356197
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.001775900018401444
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 0.034321000101044774,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.037198100006207824,
+          "label": "station_1_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 2.5677495000418276,
+          "label": "cycle_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 2.569525400060229,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT2\\rendered_programs\\test_RBT2__baseline-variables.GRP_DELAY-plus10pct.mxprog"
+    },
+    {
+      "scenario_name": "cautious-variables.SPD_INSERT-minus10pct",
+      "scenario": {
+        "name": "cautious-variables.SPD_INSERT-minus10pct",
+        "analysis_name": null,
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "SPD_INSERT": 45,
+          "SPD_RETRACT": 500,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-variables.SPD_INSERT-minus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "SPD_INSERT": 45,
+          "SPD_RETRACT": 500
+        }
+      },
+      "metrics": {
+        "scenario_name": "cautious-variables.SPD_INSERT-minus10pct",
+        "run_index": 1,
+        "total_cycle_s": 3.7453274000436068,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.03464319999329746
+          },
+          {
+            "label": "station_1_start",
+            "duration_s": 0.003866499988362193
+          },
+          {
+            "label": "cycle_complete",
+            "duration_s": 3.739183400059119
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.002277499996125698
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 0.03464319999329746,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.03850969998165965,
+          "label": "station_1_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 3.7776931000407785,
+          "label": "cycle_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 3.779970600036904,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT2\\rendered_programs\\test_RBT2__cautious-variables.SPD_INSERT-minus10pct.mxprog"
+    },
+    {
+      "scenario_name": "cautious-variables.SPD_INSERT-plus10pct",
+      "scenario": {
+        "name": "cautious-variables.SPD_INSERT-plus10pct",
+        "analysis_name": null,
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "SPD_INSERT": 55,
+          "SPD_RETRACT": 500,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-variables.SPD_INSERT-plus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "SPD_INSERT": 55,
+          "SPD_RETRACT": 500
+        }
+      },
+      "metrics": {
+        "scenario_name": "cautious-variables.SPD_INSERT-plus10pct",
+        "run_index": 1,
+        "total_cycle_s": 3.422781099914573,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.03886130009777844
+          },
+          {
+            "label": "station_1_start",
+            "duration_s": 0.00251409993506968
+          },
+          {
+            "label": "cycle_complete",
+            "duration_s": 3.4171521000098437
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0031148999696597457
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 0.03886130009777844,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.04137540003284812,
+          "label": "station_1_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 3.458527500042692,
+          "label": "cycle_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 3.4616424000123516,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT2\\rendered_programs\\test_RBT2__cautious-variables.SPD_INSERT-plus10pct.mxprog"
+    },
+    {
+      "scenario_name": "cautious-variables.SPD_RETRACT-minus10pct",
+      "scenario": {
+        "name": "cautious-variables.SPD_RETRACT-minus10pct",
+        "analysis_name": null,
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 450,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-variables.SPD_RETRACT-minus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 450
+        }
+      },
+      "metrics": {
+        "scenario_name": "cautious-variables.SPD_RETRACT-minus10pct",
+        "run_index": 1,
+        "total_cycle_s": 3.5715000999625772,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.033962300047278404
+          },
+          {
+            "label": "station_1_start",
+            "duration_s": 0.005786299938336015
+          },
+          {
+            "label": "cycle_complete",
+            "duration_s": 3.563541700015776
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0021721000084653497
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 0.033962300047278404,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.03974859998561442,
+          "label": "station_1_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 3.6032903000013903,
+          "label": "cycle_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 3.6054624000098556,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT2\\rendered_programs\\test_RBT2__cautious-variables.SPD_RETRACT-minus10pct.mxprog"
+    },
+    {
+      "scenario_name": "cautious-variables.SPD_RETRACT-plus10pct",
+      "scenario": {
+        "name": "cautious-variables.SPD_RETRACT-plus10pct",
+        "analysis_name": null,
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 550,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-variables.SPD_RETRACT-plus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 550
+        }
+      },
+      "metrics": {
+        "scenario_name": "cautious-variables.SPD_RETRACT-plus10pct",
+        "run_index": 1,
+        "total_cycle_s": 3.563386800000444,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.04648379993159324
+          },
+          {
+            "label": "station_1_start",
+            "duration_s": 0.007137599983252585
+          },
+          {
+            "label": "cycle_complete",
+            "duration_s": 3.553244600072503
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0030045999446883798
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 0.04648379993159324,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.053621399914845824,
+          "label": "station_1_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 3.606865999987349,
+          "label": "cycle_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 3.6098705999320373,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT2\\rendered_programs\\test_RBT2__cautious-variables.SPD_RETRACT-plus10pct.mxprog"
+    },
+    {
+      "scenario_name": "cautious-variables.GRP_DELAY-minus10pct",
+      "scenario": {
+        "name": "cautious-variables.GRP_DELAY-minus10pct",
+        "analysis_name": null,
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500,
+          "GRP_DELAY": 0.18
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-variables.GRP_DELAY-minus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.18,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500
+        }
+      },
+      "metrics": {
+        "scenario_name": "cautious-variables.GRP_DELAY-minus10pct",
+        "run_index": 1,
+        "total_cycle_s": 3.525326499948278,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.032850999967195094
+          },
+          {
+            "label": "station_1_start",
+            "duration_s": 0.005233700037933886
+          },
+          {
+            "label": "cycle_complete",
+            "duration_s": 3.518940299982205
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0011524999281391501
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 0.032850999967195094,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.03808470000512898,
+          "label": "station_1_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 3.557024999987334,
+          "label": "cycle_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 3.558177499915473,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT2\\rendered_programs\\test_RBT2__cautious-variables.GRP_DELAY-minus10pct.mxprog"
+    },
+    {
+      "scenario_name": "cautious-variables.GRP_DELAY-plus10pct",
+      "scenario": {
+        "name": "cautious-variables.GRP_DELAY-plus10pct",
+        "analysis_name": null,
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500,
+          "GRP_DELAY": 0.22
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-variables.GRP_DELAY-plus10pct",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.22,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500
+        }
+      },
+      "metrics": {
+        "scenario_name": "cautious-variables.GRP_DELAY-plus10pct",
+        "run_index": 1,
+        "total_cycle_s": 3.6082622000249103,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.03881910000927746
+          },
+          {
+            "label": "station_1_start",
+            "duration_s": 0.004674799973145127
+          },
+          {
+            "label": "cycle_complete",
+            "duration_s": 3.600739200017415
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.002848200034350157
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 0.03881910000927746,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.04349389998242259,
+          "label": "station_1_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 3.6442330999998376,
+          "label": "cycle_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 3.6470813000341877,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT2\\rendered_programs\\test_RBT2__cautious-variables.GRP_DELAY-plus10pct.mxprog"
+    }
+  ],
+  "scenario_comparison": {
+    "baseline": {
+      "minimum_s": 2.4939352000365034,
+      "average_s": 2.4939352000365034,
+      "maximum_s": 2.4939352000365034,
+      "std_dev_s": 0.0,
+      "contingency_adjusted_average_s": 2.992722240043804
+    },
+    "cautious": {
+      "minimum_s": 3.56655879993923,
+      "average_s": 3.56655879993923,
+      "maximum_s": 3.56655879993923,
+      "std_dev_s": 0.0,
+      "contingency_adjusted_average_s": 4.279870559927076
+    },
+    "baseline-variables.SPD_INSERT-minus10pct": {
+      "minimum_s": 2.553884700057097,
+      "average_s": 2.553884700057097,
+      "maximum_s": 2.553884700057097,
+      "std_dev_s": 0.0,
+      "contingency_adjusted_average_s": 3.064661640068516
+    },
+    "baseline-variables.SPD_INSERT-plus10pct": {
+      "minimum_s": 2.4413819001056254,
+      "average_s": 2.4413819001056254,
+      "maximum_s": 2.4413819001056254,
+      "std_dev_s": 0.0,
+      "contingency_adjusted_average_s": 2.9296582801267506
+    },
+    "baseline-variables.SPD_RETRACT-minus10pct": {
+      "minimum_s": 2.49731970007997,
+      "average_s": 2.49731970007997,
+      "maximum_s": 2.49731970007997,
+      "std_dev_s": 0.0,
+      "contingency_adjusted_average_s": 2.996783640095964
+    },
+    "baseline-variables.SPD_RETRACT-plus10pct": {
+      "minimum_s": 2.4896783999865875,
+      "average_s": 2.4896783999865875,
+      "maximum_s": 2.4896783999865875,
+      "std_dev_s": 0.0,
+      "contingency_adjusted_average_s": 2.987614079983905
+    },
+    "baseline-variables.GRP_DELAY-minus10pct": {
+      "minimum_s": 2.4519100999459624,
+      "average_s": 2.4519100999459624,
+      "maximum_s": 2.4519100999459624,
+      "std_dev_s": 0.0,
+      "contingency_adjusted_average_s": 2.942292119935155
+    },
+    "baseline-variables.GRP_DELAY-plus10pct": {
+      "minimum_s": 2.5352043999591842,
+      "average_s": 2.5352043999591842,
+      "maximum_s": 2.5352043999591842,
+      "std_dev_s": 0.0,
+      "contingency_adjusted_average_s": 3.042245279951021
+    },
+    "cautious-variables.SPD_INSERT-minus10pct": {
+      "minimum_s": 3.7453274000436068,
+      "average_s": 3.7453274000436068,
+      "maximum_s": 3.7453274000436068,
+      "std_dev_s": 0.0,
+      "contingency_adjusted_average_s": 4.494392880052328
+    },
+    "cautious-variables.SPD_INSERT-plus10pct": {
+      "minimum_s": 3.422781099914573,
+      "average_s": 3.422781099914573,
+      "maximum_s": 3.422781099914573,
+      "std_dev_s": 0.0,
+      "contingency_adjusted_average_s": 4.107337319897487
+    },
+    "cautious-variables.SPD_RETRACT-minus10pct": {
+      "minimum_s": 3.5715000999625772,
+      "average_s": 3.5715000999625772,
+      "maximum_s": 3.5715000999625772,
+      "std_dev_s": 0.0,
+      "contingency_adjusted_average_s": 4.285800119955092
+    },
+    "cautious-variables.SPD_RETRACT-plus10pct": {
+      "minimum_s": 3.563386800000444,
+      "average_s": 3.563386800000444,
+      "maximum_s": 3.563386800000444,
+      "std_dev_s": 0.0,
+      "contingency_adjusted_average_s": 4.276064160000533
+    },
+    "cautious-variables.GRP_DELAY-minus10pct": {
+      "minimum_s": 3.525326499948278,
+      "average_s": 3.525326499948278,
+      "maximum_s": 3.525326499948278,
+      "std_dev_s": 0.0,
+      "contingency_adjusted_average_s": 4.230391799937934
+    },
+    "cautious-variables.GRP_DELAY-plus10pct": {
+      "minimum_s": 3.6082622000249103,
+      "average_s": 3.6082622000249103,
+      "maximum_s": 3.6082622000249103,
+      "std_dev_s": 0.0,
+      "contingency_adjusted_average_s": 4.329914640029892
+    }
+  }
+}

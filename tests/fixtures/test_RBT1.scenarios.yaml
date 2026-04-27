@@ -1,0 +1,55 @@
+robot:
+  address: 192.168.0.100
+  enforce_sim_mode: false
+analysis:
+  runs: 1
+  warmup_runs: 0
+  alignment_run: true
+  contingency_percent: 20
+  output_dir: artifacts/test_RBT1
+checkpoints:
+  - checkpoint_id: 1
+    label: pick_start
+    timeout_s: 10.0
+  - checkpoint_id: 2
+    label: transfer_complete
+    timeout_s: 10.0
+  - checkpoint_id: 3
+    label: return_complete
+    timeout_s: 10.0
+scenarios:
+  profiles:
+    - name: baseline
+      variables:
+        PICK_X: 35
+        PICK_Y: 85
+        SPD_PICK: 300
+        SPD_INSERT: 150
+        SPD_RETRACT: 800
+        GRP_DELAY: 0.15
+    - name: cautious
+      variables:
+        PICK_X: 15
+        PICK_Y: 15
+        SPD_PICK: 200
+        SPD_INSERT: 50
+        SPD_RETRACT: 500
+        GRP_DELAY: 0.20
+  variable_cases:
+    - name: pick_position
+      variables:
+        PICK_X:
+          minimum: 15.0
+          maximum: 75.0
+          best: 75.0
+          worst: 15.0
+        PICK_Y:
+          minimum: 15.0
+          maximum: 185.0
+          best: 15.0
+          worst: 185.0
+      include:
+        - best
+        - worst
+      random_runs: 10
+      continuous_random_cycle: true

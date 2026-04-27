@@ -1,0 +1,10 @@
+checkpoints:
+  - checkpoint_id: 10
+    label: start_cycle
+    timeout_s: 5.0
+  - checkpoint_id: 20
+    label: grip_complete
+    timeout_s: 5.0
+  - checkpoint_id: 30
+    label: end_cycle
+    timeout_s: 5.0

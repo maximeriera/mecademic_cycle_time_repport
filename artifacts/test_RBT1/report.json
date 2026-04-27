@@ -1,0 +1,3778 @@
+{
+  "analysis": {
+    "runs": 1,
+    "warmup_runs": 0,
+    "alignment_run": true,
+    "contingency_percent": 20.0,
+    "dry_run": false
+  },
+  "robot": {
+    "address": "192.168.0.100",
+    "enforce_sim_mode": false,
+    "runtime": {
+      "client": "mecademicpy",
+      "robot_address": "192.168.0.100",
+      "dry_run": false,
+      "enforce_sim_mode": false,
+      "deactivated_for_sim": false,
+      "program_load_method": "LoadProgram",
+      "initial_status": {
+        "activation_state": true,
+        "homing_state": true,
+        "simulation_mode": 1,
+        "recovery_mode": false,
+        "error_status": false,
+        "pause_motion_status": false,
+        "motion_cleared_status": false,
+        "end_of_block_status": true,
+        "brakes_engaged": false,
+        "connection_watchdog_enabled": false
+      },
+      "ready_status": {
+        "activation_state": true,
+        "homing_state": true,
+        "simulation_mode": 0,
+        "recovery_mode": false,
+        "error_status": false,
+        "pause_motion_status": false,
+        "motion_cleared_status": false,
+        "end_of_block_status": true,
+        "brakes_engaged": false,
+        "connection_watchdog_enabled": false
+      }
+    }
+  },
+  "checkpoints": [
+    {
+      "checkpoint_id": 1,
+      "label": "pick_start",
+      "timeout_s": 10.0,
+      "required": true
+    },
+    {
+      "checkpoint_id": 2,
+      "label": "transfer_complete",
+      "timeout_s": 10.0,
+      "required": true
+    },
+    {
+      "checkpoint_id": 3,
+      "label": "return_complete",
+      "timeout_s": 10.0,
+      "required": true
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "baseline",
+      "analysis_name": null,
+      "pre_run_group": null,
+      "skip_repeated_pre_run_cycles": false,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 35,
+        "PICK_Y": 85,
+        "SPD_PICK": 300,
+        "SPD_INSERT": 150,
+        "SPD_RETRACT": 800,
+        "GRP_DELAY": 0.15
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 35,
+          "PICK_Y": 85,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      }
+    },
+    {
+      "name": "cautious",
+      "analysis_name": null,
+      "pre_run_group": null,
+      "skip_repeated_pre_run_cycles": false,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 15,
+        "PICK_Y": 15,
+        "SPD_PICK": 200,
+        "SPD_INSERT": 50,
+        "SPD_RETRACT": 500,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 15,
+          "PICK_Y": 15,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      }
+    },
+    {
+      "name": "baseline-pick_position-best",
+      "analysis_name": "baseline-pick_position-best",
+      "pre_run_group": null,
+      "skip_repeated_pre_run_cycles": false,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 75.0,
+        "PICK_Y": 15.0,
+        "SPD_PICK": 300,
+        "SPD_INSERT": 150,
+        "SPD_RETRACT": 800,
+        "GRP_DELAY": 0.15
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-best",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 75.0,
+          "PICK_Y": 15.0,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      }
+    },
+    {
+      "name": "baseline-pick_position-worst",
+      "analysis_name": "baseline-pick_position-worst",
+      "pre_run_group": null,
+      "skip_repeated_pre_run_cycles": false,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 15.0,
+        "PICK_Y": 185.0,
+        "SPD_PICK": 300,
+        "SPD_INSERT": 150,
+        "SPD_RETRACT": 800,
+        "GRP_DELAY": 0.15
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-worst",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 15.0,
+          "PICK_Y": 185.0,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      }
+    },
+    {
+      "name": "baseline-pick_position-random-1",
+      "analysis_name": "baseline-pick_position-random",
+      "pre_run_group": "baseline-pick_position-random",
+      "skip_repeated_pre_run_cycles": true,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 54.6055798738,
+        "PICK_Y": 168.0825363077,
+        "SPD_PICK": 300,
+        "SPD_INSERT": 150,
+        "SPD_RETRACT": 800,
+        "GRP_DELAY": 0.15
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 54.6055798738,
+          "PICK_Y": 168.0825363077,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      }
+    },
+    {
+      "name": "baseline-pick_position-random-2",
+      "analysis_name": "baseline-pick_position-random",
+      "pre_run_group": "baseline-pick_position-random",
+      "skip_repeated_pre_run_cycles": true,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 32.5953388655,
+        "PICK_Y": 119.8356673054,
+        "SPD_PICK": 300,
+        "SPD_INSERT": 150,
+        "SPD_RETRACT": 800,
+        "GRP_DELAY": 0.15
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 32.5953388655,
+          "PICK_Y": 119.8356673054,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      }
+    },
+    {
+      "name": "baseline-pick_position-random-3",
+      "analysis_name": "baseline-pick_position-random",
+      "pre_run_group": "baseline-pick_position-random",
+      "skip_repeated_pre_run_cycles": true,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 62.626575258,
+        "PICK_Y": 183.7019802007,
+        "SPD_PICK": 300,
+        "SPD_INSERT": 150,
+        "SPD_RETRACT": 800,
+        "GRP_DELAY": 0.15
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 62.626575258,
+          "PICK_Y": 183.7019802007,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      }
+    },
+    {
+      "name": "baseline-pick_position-random-4",
+      "analysis_name": "baseline-pick_position-random",
+      "pre_run_group": "baseline-pick_position-random",
+      "skip_repeated_pre_run_cycles": true,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 61.7070614529,
+        "PICK_Y": 15.8182071296,
+        "SPD_PICK": 300,
+        "SPD_INSERT": 150,
+        "SPD_RETRACT": 800,
+        "GRP_DELAY": 0.15
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 61.7070614529,
+          "PICK_Y": 15.8182071296,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      }
+    },
+    {
+      "name": "baseline-pick_position-random-5",
+      "analysis_name": "baseline-pick_position-random",
+      "pre_run_group": "baseline-pick_position-random",
+      "skip_repeated_pre_run_cycles": true,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 48.39866496,
+        "PICK_Y": 152.5729099479,
+        "SPD_PICK": 300,
+        "SPD_INSERT": 150,
+        "SPD_RETRACT": 800,
+        "GRP_DELAY": 0.15
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 48.39866496,
+          "PICK_Y": 152.5729099479,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      }
+    },
+    {
+      "name": "baseline-pick_position-random-6",
+      "analysis_name": "baseline-pick_position-random",
+      "pre_run_group": "baseline-pick_position-random",
+      "skip_repeated_pre_run_cycles": true,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 48.8762392315,
+        "PICK_Y": 40.380565402,
+        "SPD_PICK": 300,
+        "SPD_INSERT": 150,
+        "SPD_RETRACT": 800,
+        "GRP_DELAY": 0.15
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 48.8762392315,
+          "PICK_Y": 40.380565402,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      }
+    },
+    {
+      "name": "baseline-pick_position-random-7",
+      "analysis_name": "baseline-pick_position-random",
+      "pre_run_group": "baseline-pick_position-random",
+      "skip_repeated_pre_run_cycles": true,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 19.2421001561,
+        "PICK_Y": 147.218741253,
+        "SPD_PICK": 300,
+        "SPD_INSERT": 150,
+        "SPD_RETRACT": 800,
+        "GRP_DELAY": 0.15
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 19.2421001561,
+          "PICK_Y": 147.218741253,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      }
+    },
+    {
+      "name": "baseline-pick_position-random-8",
+      "analysis_name": "baseline-pick_position-random",
+      "pre_run_group": "baseline-pick_position-random",
+      "skip_repeated_pre_run_cycles": true,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 52.6575881298,
+        "PICK_Y": 171.4647636326,
+        "SPD_PICK": 300,
+        "SPD_INSERT": 150,
+        "SPD_RETRACT": 800,
+        "GRP_DELAY": 0.15
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 52.6575881298,
+          "PICK_Y": 171.4647636326,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      }
+    },
+    {
+      "name": "baseline-pick_position-random-9",
+      "analysis_name": "baseline-pick_position-random",
+      "pre_run_group": "baseline-pick_position-random",
+      "skip_repeated_pre_run_cycles": true,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 17.3766494045,
+        "PICK_Y": 32.3982544349,
+        "SPD_PICK": 300,
+        "SPD_INSERT": 150,
+        "SPD_RETRACT": 800,
+        "GRP_DELAY": 0.15
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 17.3766494045,
+          "PICK_Y": 32.3982544349,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      }
+    },
+    {
+      "name": "baseline-pick_position-random-10",
+      "analysis_name": "baseline-pick_position-random",
+      "pre_run_group": "baseline-pick_position-random",
+      "skip_repeated_pre_run_cycles": true,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 27.9819435219,
+        "PICK_Y": 165.4221000496,
+        "SPD_PICK": 300,
+        "SPD_INSERT": 150,
+        "SPD_RETRACT": 800,
+        "GRP_DELAY": 0.15
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 27.9819435219,
+          "PICK_Y": 165.4221000496,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      }
+    },
+    {
+      "name": "cautious-pick_position-best",
+      "analysis_name": "cautious-pick_position-best",
+      "pre_run_group": null,
+      "skip_repeated_pre_run_cycles": false,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 75.0,
+        "PICK_Y": 15.0,
+        "SPD_PICK": 200,
+        "SPD_INSERT": 50,
+        "SPD_RETRACT": 500,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-best",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 75.0,
+          "PICK_Y": 15.0,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      }
+    },
+    {
+      "name": "cautious-pick_position-worst",
+      "analysis_name": "cautious-pick_position-worst",
+      "pre_run_group": null,
+      "skip_repeated_pre_run_cycles": false,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 15.0,
+        "PICK_Y": 185.0,
+        "SPD_PICK": 200,
+        "SPD_INSERT": 50,
+        "SPD_RETRACT": 500,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-worst",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 15.0,
+          "PICK_Y": 185.0,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      }
+    },
+    {
+      "name": "cautious-pick_position-random-1",
+      "analysis_name": "cautious-pick_position-random",
+      "pre_run_group": "cautious-pick_position-random",
+      "skip_repeated_pre_run_cycles": true,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 26.4978721226,
+        "PICK_Y": 180.3631620759,
+        "SPD_PICK": 200,
+        "SPD_INSERT": 50,
+        "SPD_RETRACT": 500,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 26.4978721226,
+          "PICK_Y": 180.3631620759,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      }
+    },
+    {
+      "name": "cautious-pick_position-random-2",
+      "analysis_name": "cautious-pick_position-random",
+      "pre_run_group": "cautious-pick_position-random",
+      "skip_repeated_pre_run_cycles": true,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 44.0746482014,
+        "PICK_Y": 71.5798909093,
+        "SPD_PICK": 200,
+        "SPD_INSERT": 50,
+        "SPD_RETRACT": 500,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 44.0746482014,
+          "PICK_Y": 71.5798909093,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      }
+    },
+    {
+      "name": "cautious-pick_position-random-3",
+      "analysis_name": "cautious-pick_position-random",
+      "pre_run_group": "cautious-pick_position-random",
+      "skip_repeated_pre_run_cycles": true,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 60.1420882143,
+        "PICK_Y": 66.451912524,
+        "SPD_PICK": 200,
+        "SPD_INSERT": 50,
+        "SPD_RETRACT": 500,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 60.1420882143,
+          "PICK_Y": 66.451912524,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      }
+    },
+    {
+      "name": "cautious-pick_position-random-4",
+      "analysis_name": "cautious-pick_position-random",
+      "pre_run_group": "cautious-pick_position-random",
+      "skip_repeated_pre_run_cycles": true,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 38.3605449304,
+        "PICK_Y": 89.9984955384,
+        "SPD_PICK": 200,
+        "SPD_INSERT": 50,
+        "SPD_RETRACT": 500,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 38.3605449304,
+          "PICK_Y": 89.9984955384,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      }
+    },
+    {
+      "name": "cautious-pick_position-random-5",
+      "analysis_name": "cautious-pick_position-random",
+      "pre_run_group": "cautious-pick_position-random",
+      "skip_repeated_pre_run_cycles": true,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 27.8213235127,
+        "PICK_Y": 178.4990841204,
+        "SPD_PICK": 200,
+        "SPD_INSERT": 50,
+        "SPD_RETRACT": 500,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 27.8213235127,
+          "PICK_Y": 178.4990841204,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      }
+    },
+    {
+      "name": "cautious-pick_position-random-6",
+      "analysis_name": "cautious-pick_position-random",
+      "pre_run_group": "cautious-pick_position-random",
+      "skip_repeated_pre_run_cycles": true,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 29.6897290456,
+        "PICK_Y": 171.349608037,
+        "SPD_PICK": 200,
+        "SPD_INSERT": 50,
+        "SPD_RETRACT": 500,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 29.6897290456,
+          "PICK_Y": 171.349608037,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      }
+    },
+    {
+      "name": "cautious-pick_position-random-7",
+      "analysis_name": "cautious-pick_position-random",
+      "pre_run_group": "cautious-pick_position-random",
+      "skip_repeated_pre_run_cycles": true,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 19.6952536026,
+        "PICK_Y": 66.5322487489,
+        "SPD_PICK": 200,
+        "SPD_INSERT": 50,
+        "SPD_RETRACT": 500,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 19.6952536026,
+          "PICK_Y": 66.5322487489,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      }
+    },
+    {
+      "name": "cautious-pick_position-random-8",
+      "analysis_name": "cautious-pick_position-random",
+      "pre_run_group": "cautious-pick_position-random",
+      "skip_repeated_pre_run_cycles": true,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 69.4643472988,
+        "PICK_Y": 42.2319001443,
+        "SPD_PICK": 200,
+        "SPD_INSERT": 50,
+        "SPD_RETRACT": 500,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 69.4643472988,
+          "PICK_Y": 42.2319001443,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      }
+    },
+    {
+      "name": "cautious-pick_position-random-9",
+      "analysis_name": "cautious-pick_position-random",
+      "pre_run_group": "cautious-pick_position-random",
+      "skip_repeated_pre_run_cycles": true,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 18.4450656583,
+        "PICK_Y": 172.531632502,
+        "SPD_PICK": 200,
+        "SPD_INSERT": 50,
+        "SPD_RETRACT": 500,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 18.4450656583,
+          "PICK_Y": 172.531632502,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      }
+    },
+    {
+      "name": "cautious-pick_position-random-10",
+      "analysis_name": "cautious-pick_position-random",
+      "pre_run_group": "cautious-pick_position-random",
+      "skip_repeated_pre_run_cycles": true,
+      "time_scaling_percent": null,
+      "gripper_open_delay_s": 0.0,
+      "gripper_close_delay_s": 0.0,
+      "blending_percent": null,
+      "variables": {
+        "PICK_X": 34.8175152726,
+        "PICK_Y": 176.8791695405,
+        "SPD_PICK": 200,
+        "SPD_INSERT": 50,
+        "SPD_RETRACT": 500,
+        "GRP_DELAY": 0.2
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 34.8175152726,
+          "PICK_Y": 176.8791695405,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      }
+    }
+  ],
+  "program": {
+    "referenced_variables": [
+      "GRP_DELAY",
+      "PICK_X",
+      "PICK_Y",
+      "SPD_INSERT",
+      "SPD_PICK",
+      "SPD_RETRACT"
+    ]
+  },
+  "warnings": [],
+  "records": [
+    {
+      "scenario_name": "baseline",
+      "scenario": {
+        "name": "baseline",
+        "analysis_name": null,
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 35,
+          "PICK_Y": 85,
+          "SPD_PICK": 300,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800,
+          "GRP_DELAY": 0.15
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 35,
+          "PICK_Y": 85,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      },
+      "metrics": {
+        "scenario_name": "baseline",
+        "run_index": 1,
+        "total_cycle_s": 2.611009099986404,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.055033499957062304
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.000938700046390295
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.1905435000080615
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 1.4172866999870166
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.002240199944935739
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.055033499957062304,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.0559722000034526,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.2465157000115141,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 2.6638023999985307,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 2.6660425999434665,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__baseline.mxprog"
+    },
+    {
+      "scenario_name": "cautious",
+      "scenario": {
+        "name": "cautious",
+        "analysis_name": null,
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 15,
+          "PICK_Y": 15,
+          "SPD_PICK": 200,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 15,
+          "PICK_Y": 15,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      },
+      "metrics": {
+        "scenario_name": "cautious",
+        "run_index": 1,
+        "total_cycle_s": 3.8668785999761894,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.04547350003849715
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.0032654000679031014
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.570580399944447
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 2.2907809000462294
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0022518999176099896
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.04547350003849715,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.04873890010640025,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.6193193000508472,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 3.9101002000970766,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 3.9123521000146866,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__cautious.mxprog"
+    },
+    {
+      "scenario_name": "baseline-pick_position-best",
+      "scenario": {
+        "name": "baseline-pick_position-best",
+        "analysis_name": "baseline-pick_position-best",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 75.0,
+          "PICK_Y": 15.0,
+          "SPD_PICK": 300,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800,
+          "GRP_DELAY": 0.15
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-best",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 75.0,
+          "PICK_Y": 15.0,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      },
+      "metrics": {
+        "scenario_name": "baseline-pick_position-best",
+        "run_index": 1,
+        "total_cycle_s": 3.0311435000039637,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.05292839999310672
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.002797099994495511
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.3961491000372916
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 1.6300136999925599
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0021835999796167016
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.05292839999310672,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.055725499987602234,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.4518746000248939,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 3.0818883000174537,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 3.0840718999970704,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__baseline-pick_position-best.mxprog"
+    },
+    {
+      "scenario_name": "baseline-pick_position-worst",
+      "scenario": {
+        "name": "baseline-pick_position-worst",
+        "analysis_name": "baseline-pick_position-worst",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 15.0,
+          "PICK_Y": 185.0,
+          "SPD_PICK": 300,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800,
+          "GRP_DELAY": 0.15
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-worst",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 15.0,
+          "PICK_Y": 185.0,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      },
+      "metrics": {
+        "scenario_name": "baseline-pick_position-worst",
+        "run_index": 1,
+        "total_cycle_s": 2.0989849999314174,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.05182529997546226
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.0020385999232530594
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 0.918737200088799
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 1.1762978999176994
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0019113000016659498
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.05182529997546226,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.05386389989871532,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 0.9726010999875143,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 2.1488989999052137,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 2.1508102999068797,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__baseline-pick_position-worst.mxprog"
+    },
+    {
+      "scenario_name": "baseline-pick_position-random-1",
+      "scenario": {
+        "name": "baseline-pick_position-random-1",
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 54.6055798738,
+          "PICK_Y": 168.0825363077,
+          "SPD_PICK": 300,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800,
+          "GRP_DELAY": 0.15
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 54.6055798738,
+          "PICK_Y": 168.0825363077,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      },
+      "metrics": {
+        "scenario_name": "baseline-pick_position-random",
+        "run_index": 1,
+        "total_cycle_s": 2.257647999911569,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.05447860003914684
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.0004608999006450176
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.0109472000040114
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 1.2450027000159025
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0012371999910101295
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.05447860003914684,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.05493949993979186,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.0658866999438033,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 2.3108893999597058,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 2.312126599950716,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__baseline-pick_position-random-1.mxprog"
+    },
+    {
+      "scenario_name": "baseline-pick_position-random-2",
+      "scenario": {
+        "name": "baseline-pick_position-random-2",
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 32.5953388655,
+          "PICK_Y": 119.8356673054,
+          "SPD_PICK": 300,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800,
+          "GRP_DELAY": 0.15
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 32.5953388655,
+          "PICK_Y": 119.8356673054,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      },
+      "metrics": {
+        "scenario_name": "baseline-pick_position-random",
+        "run_index": 1,
+        "total_cycle_s": 2.3968413999537006,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.12537779996637255
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.000708900042809546
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.079285899992101
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 1.3103645999217406
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.00648199999704957
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.12537779996637255,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.1260867000091821,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.205372600001283,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 2.5157371999230236,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 2.522219199920073,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__baseline-pick_position-random-2.mxprog"
+    },
+    {
+      "scenario_name": "baseline-pick_position-random-3",
+      "scenario": {
+        "name": "baseline-pick_position-random-3",
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 62.626575258,
+          "PICK_Y": 183.7019802007,
+          "SPD_PICK": 300,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800,
+          "GRP_DELAY": 0.15
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 62.626575258,
+          "PICK_Y": 183.7019802007,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      },
+      "metrics": {
+        "scenario_name": "baseline-pick_position-random",
+        "run_index": 1,
+        "total_cycle_s": 2.2416078000096604,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.12377629999537021
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.00037509994581341743
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.0052431999938563
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 1.2339880000799894
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.002001499990001321
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.12377629999537021,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.12415139994118363,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.1293945999350399,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 2.3633826000150293,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 2.3653841000050306,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__baseline-pick_position-random-3.mxprog"
+    },
+    {
+      "scenario_name": "baseline-pick_position-random-4",
+      "scenario": {
+        "name": "baseline-pick_position-random-4",
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 61.7070614529,
+          "PICK_Y": 15.8182071296,
+          "SPD_PICK": 300,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800,
+          "GRP_DELAY": 0.15
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 61.7070614529,
+          "PICK_Y": 15.8182071296,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      },
+      "metrics": {
+        "scenario_name": "baseline-pick_position-random",
+        "run_index": 1,
+        "total_cycle_s": 3.0409297000151128,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.13326919998507947
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.0017188999336212873
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.403070200001821
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 1.6352231000782922
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0009175000013783574
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.13326919998507947,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.13498809991870075,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.5380582999205217,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 3.173281399998814,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 3.1741989000001922,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__baseline-pick_position-random-4.mxprog"
+    },
+    {
+      "scenario_name": "baseline-pick_position-random-5",
+      "scenario": {
+        "name": "baseline-pick_position-random-5",
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 48.39866496,
+          "PICK_Y": 152.5729099479,
+          "SPD_PICK": 300,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800,
+          "GRP_DELAY": 0.15
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 48.39866496,
+          "PICK_Y": 152.5729099479,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      },
+      "metrics": {
+        "scenario_name": "baseline-pick_position-random",
+        "run_index": 1,
+        "total_cycle_s": 2.2906470999587327,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.130224599968642
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.0016879000468179584
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.0232854000059888
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 1.2621267999056727
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0035470000002533197
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.130224599968642,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.13191250001545995,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.1551979000214487,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 2.4173246999271214,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 2.4208716999273747,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__baseline-pick_position-random-5.mxprog"
+    },
+    {
+      "scenario_name": "baseline-pick_position-random-6",
+      "scenario": {
+        "name": "baseline-pick_position-random-6",
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 48.8762392315,
+          "PICK_Y": 40.380565402,
+          "SPD_PICK": 300,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800,
+          "GRP_DELAY": 0.15
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 48.8762392315,
+          "PICK_Y": 40.380565402,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      },
+      "metrics": {
+        "scenario_name": "baseline-pick_position-random",
+        "run_index": 1,
+        "total_cycle_s": 2.9112515000160784,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.13385139999445528
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.002038600039668381
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.3382216999307275
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 1.5690158000215888
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0019754000240936875
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.13385139999445528,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.13589000003412366,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.4741116999648511,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 3.04312749998644,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 3.0451029000105336,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__baseline-pick_position-random-6.mxprog"
+    },
+    {
+      "scenario_name": "baseline-pick_position-random-7",
+      "scenario": {
+        "name": "baseline-pick_position-random-7",
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 19.2421001561,
+          "PICK_Y": 147.218741253,
+          "SPD_PICK": 300,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800,
+          "GRP_DELAY": 0.15
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 19.2421001561,
+          "PICK_Y": 147.218741253,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      },
+      "metrics": {
+        "scenario_name": "baseline-pick_position-random",
+        "run_index": 1,
+        "total_cycle_s": 2.3948307000100613,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.1479348000138998
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.0009695999324321747
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 0.9846976000117138
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 1.407214600010775
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0019489000551402569
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.1479348000138998,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.14890439994633198,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.1336019999580458,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 2.540816599968821,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 2.542765500023961,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__baseline-pick_position-random-7.mxprog"
+    },
+    {
+      "scenario_name": "baseline-pick_position-random-8",
+      "scenario": {
+        "name": "baseline-pick_position-random-8",
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 52.6575881298,
+          "PICK_Y": 171.4647636326,
+          "SPD_PICK": 300,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800,
+          "GRP_DELAY": 0.15
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 52.6575881298,
+          "PICK_Y": 171.4647636326,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      },
+      "metrics": {
+        "scenario_name": "baseline-pick_position-random",
+        "run_index": 1,
+        "total_cycle_s": 2.37033349997364,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.13365029997657984
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.00024860003031790257
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.1285574999637902
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 1.2385584000730887
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0029689999064430594
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.13365029997657984,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.13389890000689775,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.262456399970688,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 2.5010148000437766,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 2.5039837999502197,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__baseline-pick_position-random-8.mxprog"
+    },
+    {
+      "scenario_name": "baseline-pick_position-random-9",
+      "scenario": {
+        "name": "baseline-pick_position-random-9",
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 17.3766494045,
+          "PICK_Y": 32.3982544349,
+          "SPD_PICK": 300,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800,
+          "GRP_DELAY": 0.15
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 17.3766494045,
+          "PICK_Y": 32.3982544349,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      },
+      "metrics": {
+        "scenario_name": "baseline-pick_position-random",
+        "run_index": 1,
+        "total_cycle_s": 3.0108886000234634,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.1253718000371009
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.001742499996908009
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.3895446000387892
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 1.6166810999857262
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.002920400002039969
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.1253718000371009,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.12711430003400892,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.5166589000727981,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 3.1333400000585243,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 3.1362604000605643,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__baseline-pick_position-random-9.mxprog"
+    },
+    {
+      "scenario_name": "baseline-pick_position-random-10",
+      "scenario": {
+        "name": "baseline-pick_position-random-10",
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 27.9819435219,
+          "PICK_Y": 165.4221000496,
+          "SPD_PICK": 300,
+          "SPD_INSERT": 150,
+          "SPD_RETRACT": 800,
+          "GRP_DELAY": 0.15
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "baseline-pick_position-random",
+        "pre_run_group": "baseline-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.15,
+          "PICK_X": 27.9819435219,
+          "PICK_Y": 165.4221000496,
+          "SPD_INSERT": 150,
+          "SPD_PICK": 300,
+          "SPD_RETRACT": 800
+        }
+      },
+      "metrics": {
+        "scenario_name": "baseline-pick_position-random",
+        "run_index": 1,
+        "total_cycle_s": 2.3691643999191,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.15636610006913543
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.002026399946771562
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 0.9557169999461621
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 1.4094146999996156
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.002006300026550889
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.15636610006913543,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.158392500015907,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.114109499962069,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 2.5235241999616846,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 2.5255304999882355,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__baseline-pick_position-random-10.mxprog"
+    },
+    {
+      "scenario_name": "cautious-pick_position-best",
+      "scenario": {
+        "name": "cautious-pick_position-best",
+        "analysis_name": "cautious-pick_position-best",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 75.0,
+          "PICK_Y": 15.0,
+          "SPD_PICK": 200,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-best",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 75.0,
+          "PICK_Y": 15.0,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      },
+      "metrics": {
+        "scenario_name": "cautious-pick_position-best",
+        "run_index": 1,
+        "total_cycle_s": 3.7375776999397203,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.055473700049333274
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.0009247999405488372
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.5053707000333816
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 2.2291214000433683
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0021607999224215746
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.055473700049333274,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.05639849998988211,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.5617692000232637,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 3.790890600066632,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 3.7930513999890536,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__cautious-pick_position-best.mxprog"
+    },
+    {
+      "scenario_name": "cautious-pick_position-worst",
+      "scenario": {
+        "name": "cautious-pick_position-worst",
+        "analysis_name": "cautious-pick_position-worst",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 15.0,
+          "PICK_Y": 185.0,
+          "SPD_PICK": 200,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-worst",
+        "pre_run_group": null,
+        "skip_repeated_pre_run_cycles": false,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 15.0,
+          "PICK_Y": 185.0,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      },
+      "metrics": {
+        "scenario_name": "cautious-pick_position-worst",
+        "run_index": 1,
+        "total_cycle_s": 2.802087999996729,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.057180199888534844
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.0024015000090003014
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.0203769000945613
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 1.7769242000067607
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.002385399886406958
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.057180199888534844,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.059581699897535145,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.0799585999920964,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 2.856882799998857,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 2.859268199885264,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__cautious-pick_position-worst.mxprog"
+    },
+    {
+      "scenario_name": "cautious-pick_position-random-1",
+      "scenario": {
+        "name": "cautious-pick_position-random-1",
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 26.4978721226,
+          "PICK_Y": 180.3631620759,
+          "SPD_PICK": 200,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 26.4978721226,
+          "PICK_Y": 180.3631620759,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      },
+      "metrics": {
+        "scenario_name": "cautious-pick_position-random",
+        "run_index": 1,
+        "total_cycle_s": 3.2503093000268564,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.06477920000907034
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.003881199983879924
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.225276799988933
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 2.01700280001387
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.004148500040173531
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.06477920000907034,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.06866039999295026,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.2939371999818832,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 3.310939999995753,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 3.3150885000359267,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__cautious-pick_position-random-1.mxprog"
+    },
+    {
+      "scenario_name": "cautious-pick_position-random-2",
+      "scenario": {
+        "name": "cautious-pick_position-random-2",
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 44.0746482014,
+          "PICK_Y": 71.5798909093,
+          "SPD_PICK": 200,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 44.0746482014,
+          "PICK_Y": 71.5798909093,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      },
+      "metrics": {
+        "scenario_name": "cautious-pick_position-random",
+        "run_index": 1,
+        "total_cycle_s": 3.4119641000870615,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.14400660002138466
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.00487170007545501
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.3347148000029847
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 2.0707792999455705
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0015983000630512834
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.14400660002138466,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.14887830009683967,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.4835931000998244,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 3.554372400045395,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 3.555970700108446,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__cautious-pick_position-random-2.mxprog"
+    },
+    {
+      "scenario_name": "cautious-pick_position-random-3",
+      "scenario": {
+        "name": "cautious-pick_position-random-3",
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 60.1420882143,
+          "PICK_Y": 66.451912524,
+          "SPD_PICK": 200,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 60.1420882143,
+          "PICK_Y": 66.451912524,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      },
+      "metrics": {
+        "scenario_name": "cautious-pick_position-random",
+        "run_index": 1,
+        "total_cycle_s": 3.457958300015889,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.10731830005533993
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.00023640005383640528
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.3634241999825463
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 2.091256399988197
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.003041299991309643
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.10731830005533993,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.10755470010917634,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.4709789000917226,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 3.5622353000799194,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 3.565276600071229,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__cautious-pick_position-random-3.mxprog"
+    },
+    {
+      "scenario_name": "cautious-pick_position-random-4",
+      "scenario": {
+        "name": "cautious-pick_position-random-4",
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 38.3605449304,
+          "PICK_Y": 89.9984955384,
+          "SPD_PICK": 200,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 38.3605449304,
+          "PICK_Y": 89.9984955384,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      },
+      "metrics": {
+        "scenario_name": "cautious-pick_position-random",
+        "run_index": 1,
+        "total_cycle_s": 3.2844321000156924,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.1252589999930933
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.002793600084260106
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.2745412999065593
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 2.0058311000466347
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0012660999782383442
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.1252589999930933,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.12805260007735342,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.4025938999839127,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 3.4084250000305474,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 3.4096911000087857,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__cautious-pick_position-random-4.mxprog"
+    },
+    {
+      "scenario_name": "cautious-pick_position-random-5",
+      "scenario": {
+        "name": "cautious-pick_position-random-5",
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 27.8213235127,
+          "PICK_Y": 178.4990841204,
+          "SPD_PICK": 200,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 27.8213235127,
+          "PICK_Y": 178.4990841204,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      },
+      "metrics": {
+        "scenario_name": "cautious-pick_position-random",
+        "run_index": 1,
+        "total_cycle_s": 3.0736582999816164,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.12166049994993955
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.0034493000712245703
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.0539371999911964
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 2.0162649999838322
+          },
+          {
+            "label": "program_end",
+            "duration_s": 6.7999353632330894e-06
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.12166049994993955,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.12510980002116412,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.1790470000123605,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 3.1953119999961928,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 3.195318799931556,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__cautious-pick_position-random-5.mxprog"
+    },
+    {
+      "scenario_name": "cautious-pick_position-random-6",
+      "scenario": {
+        "name": "cautious-pick_position-random-6",
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 29.6897290456,
+          "PICK_Y": 171.349608037,
+          "SPD_PICK": 200,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 29.6897290456,
+          "PICK_Y": 171.349608037,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      },
+      "metrics": {
+        "scenario_name": "cautious-pick_position-random",
+        "run_index": 1,
+        "total_cycle_s": 3.240618799929507,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.1348851000657305
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 1.0999967344105244e-05
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.2243098999606445
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 2.013120500021614
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.003177399979904294
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.1348851000657305,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.13489610003307462,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.3592059999937192,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 3.3723265000153333,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 3.3755038999952376,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__cautious-pick_position-random-6.mxprog"
+    },
+    {
+      "scenario_name": "cautious-pick_position-random-7",
+      "scenario": {
+        "name": "cautious-pick_position-random-7",
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 19.6952536026,
+          "PICK_Y": 66.5322487489,
+          "SPD_PICK": 200,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 19.6952536026,
+          "PICK_Y": 66.5322487489,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      },
+      "metrics": {
+        "scenario_name": "cautious-pick_position-random",
+        "run_index": 1,
+        "total_cycle_s": 3.434410599991679,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.13692750001791865
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.00021490000654011965
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.3555197999812663
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 2.0725883999839425
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.006087500019930303
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.13692750001791865,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.13714240002445877,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.492662200005725,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 3.5652505999896675,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 3.571338100009598,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__cautious-pick_position-random-7.mxprog"
+    },
+    {
+      "scenario_name": "cautious-pick_position-random-8",
+      "scenario": {
+        "name": "cautious-pick_position-random-8",
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 69.4643472988,
+          "PICK_Y": 42.2319001443,
+          "SPD_PICK": 200,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 69.4643472988,
+          "PICK_Y": 42.2319001443,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      },
+      "metrics": {
+        "scenario_name": "cautious-pick_position-random",
+        "run_index": 1,
+        "total_cycle_s": 3.5958673000568524,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.1507461000001058
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 1.0200077667832375e-05
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.429939999943599
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 2.16169900004752
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.00421809998806566
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.1507461000001058,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.15075630007777363,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.5806963000213727,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 3.7423953000688925,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 3.746613400056958,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__cautious-pick_position-random-8.mxprog"
+    },
+    {
+      "scenario_name": "cautious-pick_position-random-9",
+      "scenario": {
+        "name": "cautious-pick_position-random-9",
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 18.4450656583,
+          "PICK_Y": 172.531632502,
+          "SPD_PICK": 200,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 18.4450656583,
+          "PICK_Y": 172.531632502,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      },
+      "metrics": {
+        "scenario_name": "cautious-pick_position-random",
+        "run_index": 1,
+        "total_cycle_s": 3.0564359000418335,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.12790800002403557
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 0.0020280000753700733
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.0395315999630839
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 2.013282399973832
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0015939000295475125
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.12790800002403557,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.12993600009940565,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.1694676000624895,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 3.1827500000363216,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 3.184343900065869,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__cautious-pick_position-random-9.mxprog"
+    },
+    {
+      "scenario_name": "cautious-pick_position-random-10",
+      "scenario": {
+        "name": "cautious-pick_position-random-10",
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "PICK_X": 34.8175152726,
+          "PICK_Y": 176.8791695405,
+          "SPD_PICK": 200,
+          "SPD_INSERT": 50,
+          "SPD_RETRACT": 500,
+          "GRP_DELAY": 0.2
+        }
+      },
+      "applied_inputs": {
+        "analysis_name": "cautious-pick_position-random",
+        "pre_run_group": "cautious-pick_position-random",
+        "skip_repeated_pre_run_cycles": true,
+        "time_scaling_percent": null,
+        "gripper_open_delay_s": 0.0,
+        "gripper_close_delay_s": 0.0,
+        "blending_percent": null,
+        "variables": {
+          "GRP_DELAY": 0.2,
+          "PICK_X": 34.8175152726,
+          "PICK_Y": 176.8791695405,
+          "SPD_INSERT": 50,
+          "SPD_PICK": 200,
+          "SPD_RETRACT": 500
+        }
+      },
+      "metrics": {
+        "scenario_name": "cautious-pick_position-random",
+        "run_index": 1,
+        "total_cycle_s": 3.245470500085503,
+        "checkpoint_segments": [
+          {
+            "label": "program_start",
+            "duration_s": 0.13700929994229227
+          },
+          {
+            "label": "pick_start",
+            "duration_s": 6.00004568696022e-06
+          },
+          {
+            "label": "transfer_complete",
+            "duration_s": 1.2292634999612346
+          },
+          {
+            "label": "return_complete",
+            "duration_s": 2.0129175999900326
+          },
+          {
+            "label": "program_end",
+            "duration_s": 0.0032834000885486603
+          }
+        ],
+        "failed": false,
+        "failure_reason": null
+      },
+      "observations": [
+        {
+          "checkpoint_id": 4,
+          "status": "reached",
+          "elapsed_s": 0.13700929994229227,
+          "label": "program_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 1,
+          "status": "reached",
+          "elapsed_s": 0.13701529998797923,
+          "label": "pick_start",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 2,
+          "status": "reached",
+          "elapsed_s": 1.3662787999492139,
+          "label": "transfer_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 3,
+          "status": "reached",
+          "elapsed_s": 3.3791963999392465,
+          "label": "return_complete",
+          "detail": null
+        },
+        {
+          "checkpoint_id": 5,
+          "status": "reached",
+          "elapsed_s": 3.382479800027795,
+          "label": "program_end",
+          "detail": null
+        }
+      ],
+      "rendered_program_path": "artifacts\\test_RBT1\\rendered_programs\\test_RBT1__cautious-pick_position-random-10.mxprog"
+    }
+  ],
+  "scenario_comparison": {
+    "baseline": {
+      "minimum_s": 2.611009099986404,
+      "average_s": 2.611009099986404,
+      "maximum_s": 2.611009099986404,
+      "std_dev_s": 0.0,
+      "contingency_adjusted_average_s": 3.133210919983685
+    },
+    "cautious": {
+      "minimum_s": 3.8668785999761894,
+      "average_s": 3.8668785999761894,
+      "maximum_s": 3.8668785999761894,
+      "std_dev_s": 0.0,
+      "contingency_adjusted_average_s": 4.640254319971427
+    },
+    "baseline-pick_position-best": {
+      "minimum_s": 3.0311435000039637,
+      "average_s": 3.0311435000039637,
+      "maximum_s": 3.0311435000039637,
+      "std_dev_s": 0.0,
+      "contingency_adjusted_average_s": 3.6373722000047564
+    },
+    "baseline-pick_position-worst": {
+      "minimum_s": 2.0989849999314174,
+      "average_s": 2.0989849999314174,
+      "maximum_s": 2.0989849999314174,
+      "std_dev_s": 0.0,
+      "contingency_adjusted_average_s": 2.518781999917701
+    },
+    "baseline-pick_position-random": {
+      "minimum_s": 2.2416078000096604,
+      "average_s": 2.5284142699791117,
+      "maximum_s": 3.0409297000151128,
+      "std_dev_s": 0.3231149576119742,
+      "contingency_adjusted_average_s": 3.034097123974934
+    },
+    "cautious-pick_position-best": {
+      "minimum_s": 3.7375776999397203,
+      "average_s": 3.7375776999397203,
+      "maximum_s": 3.7375776999397203,
+      "std_dev_s": 0.0,
+      "contingency_adjusted_average_s": 4.485093239927664
+    },
+    "cautious-pick_position-worst": {
+      "minimum_s": 2.802087999996729,
+      "average_s": 2.802087999996729,
+      "maximum_s": 2.802087999996729,
+      "std_dev_s": 0.0,
+      "contingency_adjusted_average_s": 3.362505599996075
+    },
+    "cautious-pick_position-random": {
+      "minimum_s": 3.0564359000418335,
+      "average_s": 3.305112520023249,
+      "maximum_s": 3.5958673000568524,
+      "std_dev_s": 0.1708131626100127,
+      "contingency_adjusted_average_s": 3.9661350240278987
+    }
+  }
+}

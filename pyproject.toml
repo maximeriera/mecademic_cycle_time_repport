@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mecademic-cycle-report"
+version = "0.1.0"
+description = "Checkpoint-driven cycle time analysis for Mecademic robot programs"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mecademicpy>=3.0.0",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+mecademic-cycle-report = "mecademic_cycle_report.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
