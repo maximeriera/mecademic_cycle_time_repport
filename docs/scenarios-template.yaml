@@ -1,0 +1,92 @@
+# Copy this file into your own workspace, for example:
+#   configs/my_process.scenarios.yaml
+
+robot:
+  # Robot IP address or hostname.
+  address: 192.168.0.100
+
+  # Keep true for simulation-backed runs unless you intentionally want real motion.
+  enforce_sim_mode: true
+
+analysis:
+  # Number of measured runs per scenario.
+  runs: 1
+
+  # Extra warmup cycles before measured runs.
+  warmup_runs: 0
+
+  # Run one unmeasured alignment cycle before measurements.
+  alignment_run: true
+
+  # Extra margin applied in summaries.
+  contingency_percent: 20
+
+  # Output directory for generated reports and rendered programs.
+  output_dir: artifacts/my_process
+
+checkpoints:
+  # List the checkpoints expected inside your original mxprog body.
+  - checkpoint_id: 1
+    label: operation_start
+    timeout_s: 10.0
+
+  - checkpoint_id: 2
+    label: operation_midpoint
+    timeout_s: 10.0
+
+  - checkpoint_id: 3
+    label: operation_complete
+    timeout_s: 10.0
+
+scenarios:
+  profiles:
+    # Define one or more named baseline scenarios.
+    - name: baseline
+      variables:
+        PICK_X: 35
+        PICK_Y: 85
+        SPD_PICK: 300
+        SPD_INSERT: 150
+        SPD_RETRACT: 800
+        GRP_DELAY: 0.15
+
+    - name: cautious
+      variables:
+        PICK_X: 20
+        PICK_Y: 20
+        SPD_PICK: 200
+        SPD_INSERT: 80
+        SPD_RETRACT: 500
+        GRP_DELAY: 0.20
+
+  # Optional: add one-factor or cartesian sweep values.
+  # Each key is merged into every profile.
+  # sweep:
+  #   variables.SPD_INSERT: [100, 150, 200]
+  #   variables.GRP_DELAY: [0.10, 0.15, 0.20]
+
+  # Optional: generate plus/minus percentage variations around each profile.
+  # perturbations:
+  #   variables.SPD_INSERT: [-10, 10]
+  #   variables.SPD_RETRACT: [-10, 10]
+
+  # Optional: create best/worst/random studies for position-like variables.
+  # variable_cases:
+  #   - name: pick_position
+  #     variables:
+  #       PICK_X:
+  #         minimum: 15.0
+  #         maximum: 75.0
+  #         best: 75.0
+  #         worst: 15.0
+  #       PICK_Y:
+  #         minimum: 15.0
+  #         maximum: 185.0
+  #         best: 15.0
+  #         worst: 185.0
+  #     include:
+  #       - best
+  #       - worst
+  #     random_runs: 10
+  #     random_seed: 123
+  #     continuous_random_cycle: true

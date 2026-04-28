@@ -4,6 +4,8 @@ This document shows concrete ways to run the Mecademic cycle time analyzer with 
 
 The files under `tests/fixtures` are repository samples only. They are useful as references, but they are not intended to be the place where users store production programs.
 
+To start from a copyable config, see `docs/scenarios-template.yaml` in this repository.
+
 ## Prerequisites
 
 Install the package in editable mode:
@@ -28,6 +30,8 @@ configs/
 reports/
 ```
 
+A practical first step is to copy `docs/scenarios-template.yaml` to `configs/my_process.scenarios.yaml`, then edit the robot address, checkpoints, and scenario variables for your program.
+
 ## 1. Validate a Scenario Config
 
 Use this before a run to catch invalid config structure or missing required fields.
@@ -42,7 +46,32 @@ Equivalent module invocation:
 .venv\Scripts\python.exe -m mecademic_cycle_report.cli validate-config configs/my_process.scenarios.yaml
 ```
 
-## 2. Run a Dry Analysis
+## 2. Generate Starter Scenario Files For a Folder
+
+If you have several `.mxprog` files and want a starter config for each one:
+
+```powershell
+mecademic-cycle-report generate-scenarios programs --output-dir configs/generated
+```
+
+This creates one YAML file per program, for example:
+
+- `configs/generated/cell_a.scenarios.yaml`
+- `configs/generated/cell_b.scenarios.yaml`
+
+The generated files include:
+
+- detected `SetCheckpoint(...)` ids
+- detected `vars.NAME` variable references
+- a single `baseline` scenario with `__TODO__` placeholders
+
+Useful optional overrides:
+
+```powershell
+mecademic-cycle-report generate-scenarios programs --output-dir configs/generated --robot-address 192.168.0.100 --no-enforce-sim-mode --analysis-output-root artifacts/generated
+```
+
+## 3. Run a Dry Analysis
 
 Dry-run mode builds the scenario matrix and report payload without talking to a robot.
 
@@ -57,7 +86,7 @@ This is the safest way to verify:
 - scenario variables expand as intended
 - report artifacts are generated in the configured output folder
 
-## 3. Print the Full Report as JSON
+## 4. Print the Full Report as JSON
 
 Useful for automation or quick inspection from the terminal.
 
@@ -65,7 +94,7 @@ Useful for automation or quick inspection from the terminal.
 mecademic-cycle-report analyze programs/my_process.mxprog --config configs/my_process.scenarios.yaml --dry-run --json
 ```
 
-## 4. Run a Real Program With Simulation Enforced
+## 5. Run a Real Program With Simulation Enforced
 
 If the config enables simulation mode, or you want to force it from the command line:
 
@@ -75,7 +104,7 @@ mecademic-cycle-report analyze programs/my_process.mxprog --config configs/my_pr
 
 Use this when you want the controller in Mecademic simulation mode before homing and execution.
 
-## 5. Run a Real Program Without Simulation Enforcement
+## 6. Run a Real Program Without Simulation Enforcement
 
 Use this only when you intentionally want to execute against the real robot state.
 
@@ -85,7 +114,7 @@ mecademic-cycle-report analyze programs/my_process.mxprog --config configs/my_pr
 
 If you want concrete examples from this repository, inspect `tests/fixtures/test_RBT1.*` and `tests/fixtures/test_RBT2.*`, then copy that structure into your own program and config files.
 
-## 6. Example With the Current Workspace Virtual Environment
+## 7. Example With the Current Workspace Virtual Environment
 
 This is the exact command style used in this repository when running from PowerShell on Windows:
 
@@ -93,7 +122,7 @@ This is the exact command style used in this repository when running from PowerS
 .venv\Scripts\python.exe -m mecademic_cycle_report.cli analyze programs/my_process.mxprog --config configs/my_process.scenarios.yaml
 ```
 
-## 7. Generated Artifacts
+## 8. Generated Artifacts
 
 After `analyze`, the tool writes report artifacts to the configured output directory.
 
@@ -112,7 +141,7 @@ These rendered programs include:
 - the original program body
 - a synthetic `program_end` checkpoint
 
-## 8. Common Workflows
+## 9. Common Workflows
 
 ### Check a config before touching hardware
 
@@ -133,7 +162,7 @@ mecademic-cycle-report analyze programs/my_process.mxprog --config configs/my_pr
 mecademic-cycle-report analyze programs/my_process.mxprog --config configs/my_process.scenarios.yaml --enforce-sim-mode
 ```
 
-## 9. Repository Samples
+## 10. Repository Samples
 
 This repository includes sample programs and configs under `tests/fixtures` for development and regression testing.
 
@@ -146,7 +175,7 @@ Examples:
 
 Use them as reference material, not as the normal storage location for your own robot programs.
 
-## 10. Notes on What the Tool Measures
+## 11. Notes on What the Tool Measures
 
 The total cycle time is measured as the delta between the synthetic wrapper checkpoints:
 
@@ -155,7 +184,7 @@ The total cycle time is measured as the delta between the synthetic wrapper chec
 
 Any checkpoints inside the original `.mxprog` are still recorded and used for segment-level timing inside that execution window.
 
-## 11. Troubleshooting
+## 12. Troubleshooting
 
 If a run fails early, check these first:
 

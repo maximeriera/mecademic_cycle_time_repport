@@ -3,6 +3,7 @@
 Checkpoint-driven cycle time analysis for Mecademic robot programs.
 
 For command examples and common run patterns, see [docs/example-usage.md](docs/example-usage.md).
+For a copyable scenario config starter, see [docs/scenarios-template.yaml](docs/scenarios-template.yaml).
 
 ## Current Status
 
@@ -66,6 +67,12 @@ Validate a config file:
 
 ```powershell
 mecademic-cycle-report validate-config configs/my_process.scenarios.yaml
+```
+
+Generate starter scenario configs for every `.mxprog` in a folder:
+
+```powershell
+mecademic-cycle-report generate-scenarios programs --output-dir configs/generated
 ```
 
 Run a dry analysis against your own mxprog:

@@ -5,6 +5,8 @@ src/mecademic_cycle_report/analysis.py
 src/mecademic_cycle_report/checkpoint_spec.py
 src/mecademic_cycle_report/cli.py
 src/mecademic_cycle_report/config.py
+src/mecademic_cycle_report/mxprog_inspection.py
+src/mecademic_cycle_report/program_template.py
 src/mecademic_cycle_report/reporting.py
 src/mecademic_cycle_report/robot_client.py
 src/mecademic_cycle_report/runner.py
@@ -17,5 +19,10 @@ src/mecademic_cycle_report.egg-info/requires.txt
 src/mecademic_cycle_report.egg-info/top_level.txt
 tests/test_analysis.py
 tests/test_checkpoint_spec.py
+tests/test_cli.py
+tests/test_mxprog_inspection.py
+tests/test_program_template.py
+tests/test_reporting.py
+tests/test_robot_client.py
 tests/test_runner.py
 tests/test_scenario_matrix.py
