@@ -1,5 +1,11 @@
 # Copy this file into your own workspace, for example:
 #   configs/my_process.scenarios.yaml
+#
+# If you already have several .mxprog files, you can also generate starter files with:
+#   mecademic-cycle-report generate-scenarios programs --output-dir configs/generated
+#
+# The generated files contain checkpoint and variable discoveries from each program,
+# while this template is a hand-edited clean starting point.
 
 robot:
   # Robot IP address or hostname.

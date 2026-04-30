@@ -12,6 +12,10 @@ from .runner import RunRecord
 from .scenario_matrix import scenario_runtime_inputs
 
 
+REPORT_LOGO_FILENAME = "logo.png"
+REPORT_LOGO_SOURCE = Path(__file__).resolve().parent / "assets" / REPORT_LOGO_FILENAME
+
+
 def _format_scalar_value(value: Any) -> str:
     if isinstance(value, float):
         return f"{value:.4f}".rstrip("0").rstrip(".")
@@ -62,10 +66,16 @@ def _append_grouped_variable_inputs(lines: list[str], scenarios: list[dict[str, 
         lines.append(f"  - `{variable_name}` sampled values: {formatted_values}")
 
 
+def _effective_time_scaling_percent(applied_inputs: dict[str, Any]) -> float:
+    time_scaling = applied_inputs.get("time_scaling_percent")
+    return 100.0 if time_scaling is None else float(time_scaling)
+
+
 def build_report_payload(
     config: AppConfig,
     records: list[RunRecord],
     *,
+    program_path: str | None = None,
     referenced_program_variables: set[str] | None = None,
     warnings: list[str] | None = None,
     robot_runtime: dict[str, Any] | None = None,
@@ -102,6 +112,8 @@ def build_report_payload(
             for scenario in config.scenarios
         ],
         "program": {
+            "path": program_path,
+            "name": Path(program_path).name if program_path else None,
             "referenced_variables": sorted(referenced_program_variables or []),
         },
         "warnings": warnings or [],
@@ -165,8 +177,12 @@ def render_terminal_summary(payload: dict[str, Any]) -> str:
 
 
 def render_markdown_report(payload: dict[str, Any]) -> str:
+    program_name = payload["program"].get("name")
     lines = [
-        "# Mecademic Cycle Time Report",
+        f"![Mecademic logo]({REPORT_LOGO_FILENAME})",
+        "",
+        "# Mecademic Cycle Time Report"
+        + (f" - {program_name}" if program_name else ""),
         "",
         "## Overview",
         "",
@@ -221,16 +237,18 @@ def render_markdown_report(payload: dict[str, Any]) -> str:
 
     if "baseline" in payload["scenario_comparison"]:
         baseline_avg = payload["scenario_comparison"]["baseline"]["average_s"]
-        lines.extend(["", "## Impact Insights", ""])
+        insight_lines: list[str] = []
         for scenario_name, stats in payload["scenario_comparison"].items():
             if scenario_name == "baseline":
                 continue
             delta_s = stats["average_s"] - baseline_avg
             delta_pct = 0.0 if baseline_avg == 0 else (delta_s / baseline_avg) * 100.0
             direction = "increase" if delta_s >= 0 else "decrease"
-            lines.append(
+            insight_lines.append(
                 f"- `{scenario_name}` shifts average cycle time by `{abs(delta_s):.3f}s` ({abs(delta_pct):.1f}% {direction}) relative to `baseline`."
             )
+        if insight_lines:
+            lines.extend(["", "## Impact Insights", "", *insight_lines])
 
     lines.extend(["", "## Scenario Inputs", ""])
     for analysis_name, scenarios in _group_scenarios_by_analysis_name(payload):
@@ -240,14 +258,7 @@ def render_markdown_report(payload: dict[str, Any]) -> str:
         if len(scenarios) > 1:
             lines.append(f"- Random samples summarized: `{len(scenarios)}`")
         lines.append(
-            f"- Time scaling: `{representative['applied_inputs']['time_scaling_percent']}`"
-        )
-        lines.append(f"- Blending: `{representative['applied_inputs']['blending_percent']}`")
-        lines.append(
-            f"- Gripper open delay: `{representative['applied_inputs']['gripper_open_delay_s']}`"
-        )
-        lines.append(
-            f"- Gripper close delay: `{representative['applied_inputs']['gripper_close_delay_s']}`"
+            f"- Applied time scaling: `{_format_scalar_value(_effective_time_scaling_percent(representative['applied_inputs']))}%`"
         )
         _append_grouped_variable_inputs(lines, scenarios)
         lines.append("")
@@ -260,7 +271,9 @@ def render_markdown_report(payload: dict[str, Any]) -> str:
         lines.append(heading)
         lines.append("")
         lines.append(f"- Total cycle time: `{record['metrics']['total_cycle_s']:.3f}s`")
-        lines.append(f"- Rendered program: `{record['rendered_program_path']}`")
+        rendered_program = Path(record["rendered_program_path"])
+        lines.append(f"- Rendered program file: `{rendered_program.name}`")
+        lines.append(f"- Rendered program path: `{record['rendered_program_path']}`")
         lines.append("")
         lines.append("| Checkpoint | Elapsed (s) | Status |")
         lines.append("| --- | ---: | --- |")
@@ -276,6 +289,9 @@ def render_markdown_report(payload: dict[str, Any]) -> str:
 def write_report_artifacts(payload: dict[str, Any], output_dir: str | Path) -> dict[str, str]:
     base_dir = Path(output_dir)
     base_dir.mkdir(parents=True, exist_ok=True)
+
+    if REPORT_LOGO_SOURCE.exists():
+        (base_dir / REPORT_LOGO_FILENAME).write_bytes(REPORT_LOGO_SOURCE.read_bytes())
 
     json_path = base_dir / "report.json"
     json_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")

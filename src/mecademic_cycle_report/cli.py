@@ -20,6 +20,20 @@ from .runner import CycleRunner, RunFailure
 from .robot_client import RobotClientError, create_robot_client
 
 
+def _derive_generated_analysis_subdir(output_dir: Path) -> str:
+    normalized_parts = [part for part in output_dir.parts if part not in (".", "")]
+    lowered_parts = [part.lower() for part in normalized_parts]
+    if "configs" in lowered_parts:
+        configs_index = lowered_parts.index("configs")
+        tail_parts = normalized_parts[configs_index + 1 :]
+    elif output_dir.is_absolute():
+        tail_parts = [output_dir.name] if output_dir.name else []
+    else:
+        tail_parts = normalized_parts
+
+    return Path(*tail_parts).as_posix() if tail_parts else ""
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="mecademic-cycle-report")
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -106,6 +120,7 @@ def main(argv: Sequence[str] | None = None) -> int:
 
             output_dir = Path(args.output_dir)
             output_dir.mkdir(parents=True, exist_ok=True)
+            analysis_output_subdir = _derive_generated_analysis_subdir(output_dir)
             enforce_sim_mode = True
             if args.no_enforce_sim_mode:
                 enforce_sim_mode = False
@@ -123,6 +138,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                     robot_address=args.robot_address,
                     enforce_sim_mode=enforce_sim_mode,
                     output_root=args.analysis_output_root,
+                    output_subdir=analysis_output_subdir,
                 )
                 generated_path = output_dir / f"{mxprog_path.stem}.scenarios.yaml"
                 generated_path.write_text(
@@ -179,6 +195,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         payload = build_report_payload(
             config,
             records,
+            program_path=str(Path(args.mxprog)),
             referenced_program_variables=referenced_program_variables,
             warnings=warnings,
             robot_runtime=runner.robot_client.get_runtime_details(),

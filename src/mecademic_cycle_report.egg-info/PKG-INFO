@@ -23,6 +23,7 @@ This repository now contains the first implementation slice:
 - Python package scaffold with CLI entrypoint
 - YAML or JSON config loading
 - Native Mecademic checkpoint expectations and validation
+- Folder-based scenario starter generation from `.mxprog` inspection
 - Scenario profile and scenario sweep expansion
 - Run metrics and summary statistics with contingency-adjusted totals
 - Scenario-based mxprog template rendering for optional preprocessing
@@ -39,10 +40,12 @@ For safety, real runs force robot simulation mode by default with `ActivateSim()
 - `src/mecademic_cycle_report/cli.py`: CLI entrypoint
 - `src/mecademic_cycle_report/config.py`: config schema and loading
 - `src/mecademic_cycle_report/checkpoint_spec.py`: checkpoint definitions and validation
+- `src/mecademic_cycle_report/mxprog_inspection.py`: `.mxprog` variable and checkpoint inspection helpers
 - `src/mecademic_cycle_report/scenario_matrix.py`: scenario profiles and sweep expansion
 - `src/mecademic_cycle_report/runner.py`: checkpoint-driven run orchestration
 - `src/mecademic_cycle_report/analysis.py`: timing statistics and scenario comparisons
 - `src/mecademic_cycle_report/reporting.py`: terminal summary and structured report payloads
+- `docs/scenarios-template.yaml`: copyable scenario config starter
 - `tests/fixtures/scenarios.yaml`: sample config for dry-run analysis
 
 ## Config Model
@@ -57,6 +60,8 @@ The tool expects a config file with four sections:
 Variables are treated as scenario inputs, not checkpoint markers. This is the primary workflow for real `.mxprog` files: the program references robot variables through `vars.NAME`, and the tool applies scenario values before each run. Rendered programs also inject `SetVariable(name, value)` commands at the top of the wrapper so the saved program carries its scenario inputs explicitly.
 
 The analyzer scans the input `.mxprog` for `vars.NAME` references and emits warnings when a scenario does not define one of the required variables. That gives you an early config mismatch signal before a real robot run.
+
+The CLI also includes a starter-config helper. `generate-scenarios` scans every `.mxprog` in a folder, extracts the `SetCheckpoint(...)` ids and `vars.NAME` references from each file, and writes one `.scenarios.yaml` starter per program.
 
 Optional template preprocessing is also supported for programs that need literal substitution before upload. Templates can reference placeholders such as `{{ gripper_open_delay_s }}`, `{{ gripper_close_delay_s }}`, `{{ time_scaling_percent }}`, `{{ blending_percent }}`, or nested values like `{{ scenario.name }}` and `{{ variables.SPD_PICK }}`. In normal cycle-time studies, treat `blending_percent` as an advanced override for trajectory-planning validation rather than a routine process parameter.
 
@@ -79,6 +84,25 @@ Validate a config file:
 ```powershell
 mecademic-cycle-report validate-config configs/my_process.scenarios.yaml
 ```
+
+Generate starter scenario configs for every `.mxprog` in a folder:
+
+```powershell
+mecademic-cycle-report generate-scenarios programs --output-dir configs/generated
+```
+
+Useful generator options:
+
+```powershell
+mecademic-cycle-report generate-scenarios programs --output-dir configs/generated --robot-address 192.168.0.100 --no-enforce-sim-mode --analysis-output-root artifacts/generated
+```
+
+Each generated file contains:
+
+- detected checkpoint ids from `SetCheckpoint(...)`
+- detected variables from `vars.NAME`
+- a single `baseline` scenario
+- `__TODO__` placeholders for variable values that you must replace before running analysis
 
 Run a dry analysis against your own mxprog:
 
@@ -105,6 +129,8 @@ mecademic-cycle-report analyze programs/my_process.mxprog --config configs/my_pr
 ```
 
 The `tests/fixtures` directory contains repository samples for development and testing. Treat those as examples to copy from, not as the normal location for your own `.mxprog` files.
+
+The generated starter configs are meant to accelerate setup, not to be final run-ready files. Review checkpoint labels, fill in real variable values, and add extra profiles or scenario studies as needed.
 
 The analyze command also writes artifacts into the configured output directory:
 

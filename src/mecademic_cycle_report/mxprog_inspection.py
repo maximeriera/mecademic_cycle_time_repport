@@ -11,6 +11,24 @@ VARIABLE_REFERENCE_PATTERN = re.compile(r"\bvars\.([A-Za-z_][A-Za-z0-9_]*)\b")
 CHECKPOINT_PATTERN = re.compile(r"\bSetCheckpoint\(\s*(\d+)\s*\)")
 
 
+def _append_path_suffix_without_duplicate(base_path: Path, suffix: Path) -> Path:
+    if not suffix.parts:
+        return base_path
+
+    base_parts = base_path.parts
+    suffix_parts = suffix.parts
+    max_overlap = min(len(base_parts), len(suffix_parts))
+    overlap = 0
+    for size in range(max_overlap, 0, -1):
+        if tuple(part.lower() for part in base_parts[-size:]) == tuple(
+            part.lower() for part in suffix_parts[:size]
+        ):
+            overlap = size
+            break
+
+    return base_path / Path(*suffix_parts[overlap:])
+
+
 def extract_program_variables(mxprog_path: str | Path) -> set[str]:
     program_text = Path(mxprog_path).read_text(encoding="utf-8")
     return set(VARIABLE_REFERENCE_PATTERN.findall(program_text))
@@ -37,6 +55,7 @@ def build_scenario_template_payload(
     robot_address: str = "192.168.0.100",
     enforce_sim_mode: bool = True,
     output_root: str = "artifacts",
+    output_subdir: str = "",
 ) -> dict[str, Any]:
     program_path = Path(mxprog_path)
     checkpoint_ids = extract_program_checkpoint_ids(program_path)
@@ -51,6 +70,10 @@ def build_scenario_template_payload(
         for checkpoint_id in checkpoint_ids
     ]
     variables = {variable_name: "__TODO__" for variable_name in variable_names}
+    output_dir = Path(output_root)
+    if output_subdir:
+        output_dir = _append_path_suffix_without_duplicate(output_dir, Path(output_subdir))
+    output_dir /= program_path.stem
 
     return {
         "robot": {
@@ -62,7 +85,7 @@ def build_scenario_template_payload(
             "warmup_runs": 0,
             "alignment_run": True,
             "contingency_percent": 20,
-            "output_dir": f"{output_root}/{program_path.stem}",
+            "output_dir": output_dir.as_posix(),
         },
         "checkpoints": checkpoints,
         "scenarios": {

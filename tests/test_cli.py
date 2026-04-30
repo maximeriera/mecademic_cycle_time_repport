@@ -2,7 +2,7 @@ from pathlib import Path
 
 import yaml
 
-from mecademic_cycle_report.cli import build_parser, main
+from mecademic_cycle_report.cli import build_parser, main, _derive_generated_analysis_subdir
 
 
 def test_analyze_parser_accepts_enforce_sim_mode_override() -> None:
@@ -55,10 +55,17 @@ def test_generate_scenarios_parser_accepts_folder_and_output_dir() -> None:
     assert args.output_dir == "configs"
 
 
+def test_derive_generated_analysis_subdir_drops_configs_prefix() -> None:
+    assert _derive_generated_analysis_subdir(Path("configs/generated")) == "generated"
+    assert _derive_generated_analysis_subdir(Path("generated-scenarios")) == "generated-scenarios"
+    assert _derive_generated_analysis_subdir(Path("configs")) == ""
+
+
 def test_generate_scenarios_writes_one_config_per_program(tmp_path: Path) -> None:
     programs_dir = tmp_path / "programs"
-    output_dir = tmp_path / "configs"
+    output_dir = tmp_path / "configs" / "generated"
     programs_dir.mkdir()
+    output_dir.mkdir(parents=True)
     (programs_dir / "alpha.mxprog").write_text(
         "SetCheckpoint(1)\nMovePose(vars.PICK_X, vars.PICK_Y, 0, 0, 0, 0)\nSetCheckpoint(2)\n",
         encoding="utf-8",

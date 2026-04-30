@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from mecademic_cycle_report.mxprog_inspection import (
+    _append_path_suffix_without_duplicate,
     build_scenario_template_payload,
     extract_program_checkpoint_ids,
     extract_program_variables,
@@ -56,10 +57,11 @@ def test_build_scenario_template_payload_uses_detected_variables_and_checkpoints
         robot_address="10.0.0.5",
         enforce_sim_mode=False,
         output_root="artifacts/generated",
+        output_subdir="batch_a",
     )
 
     assert payload["robot"] == {"address": "10.0.0.5", "enforce_sim_mode": False}
-    assert payload["analysis"]["output_dir"] == "artifacts/generated/cell"
+    assert payload["analysis"]["output_dir"] == "artifacts/generated/batch_a/cell"
     assert payload["checkpoints"] == [
         {"checkpoint_id": 1, "label": "checkpoint_1", "timeout_s": 10.0},
         {"checkpoint_id": 2, "label": "checkpoint_2", "timeout_s": 10.0},
@@ -74,3 +76,14 @@ def test_build_scenario_template_payload_uses_detected_variables_and_checkpoints
             },
         }
     ]
+
+
+def test_append_path_suffix_without_duplicate_avoids_repeating_tail() -> None:
+    assert _append_path_suffix_without_duplicate(
+        Path("artifacts/generated"),
+        Path("generated"),
+    ) == Path("artifacts/generated")
+    assert _append_path_suffix_without_duplicate(
+        Path("artifacts"),
+        Path("generated"),
+    ) == Path("artifacts/generated")

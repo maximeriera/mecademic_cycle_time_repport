@@ -1,10 +1,16 @@
 # Example Usage
 
-This document shows concrete ways to run the Mecademic cycle time analyzer with your own `.mxprog` and config files.
+This guide is organized as the normal user workflow:
+
+1. place your `.mxprog` in your own workspace
+2. generate a starter scenario file
+3. edit the scenario file
+4. run the analysis
+5. inspect the report
 
 The files under `tests/fixtures` are repository samples only. They are useful as references, but they are not intended to be the place where users store production programs.
 
-To start from a copyable config, see `docs/scenarios-template.yaml` in this repository.
+To start from a hand-edited config instead of a generated one, see `docs/scenarios-template.yaml`.
 
 ## Prerequisites
 
@@ -14,13 +20,13 @@ Install the package in editable mode:
 pip install -e .[dev]
 ```
 
-On Windows, if you want to call the CLI through the workspace virtual environment explicitly, you can also use:
+On Windows, you can also call the CLI explicitly through the workspace virtual environment:
 
 ```powershell
 .venv\Scripts\python.exe -m mecademic_cycle_report.cli --help
 ```
 
-Recommended layout in your own workspace:
+Recommended workspace layout:
 
 ```text
 programs/
@@ -30,40 +36,45 @@ configs/
 reports/
 ```
 
-A practical first step is to copy `docs/scenarios-template.yaml` to `configs/my_process.scenarios.yaml`, then edit the robot address, checkpoints, and scenario variables for your program.
+## Step 1: Put Your `.mxprog` In Your Workspace
 
-## 1. Validate a Scenario Config
+Store your own program in a user-owned folder such as `programs/`:
 
-Use this before a run to catch invalid config structure or missing required fields.
-
-```powershell
-mecademic-cycle-report validate-config configs/my_process.scenarios.yaml
+```text
+programs/my_process.mxprog
 ```
 
-Equivalent module invocation:
+If you have several programs, put them all in the same folder:
 
-```powershell
-.venv\Scripts\python.exe -m mecademic_cycle_report.cli validate-config configs/my_process.scenarios.yaml
+```text
+programs/
+	cell_a.mxprog
+	cell_b.mxprog
+	cell_c.mxprog
 ```
 
-## 2. Generate Starter Scenario Files For a Folder
+## Step 2: Generate Starter Scenario Files
 
-If you have several `.mxprog` files and want a starter config for each one:
+Generate one starter scenario config per `.mxprog` file:
 
 ```powershell
 mecademic-cycle-report generate-scenarios programs --output-dir configs/generated
 ```
 
-This creates one YAML file per program, for example:
+This creates files such as:
 
 - `configs/generated/cell_a.scenarios.yaml`
 - `configs/generated/cell_b.scenarios.yaml`
+- `configs/generated/cell_c.scenarios.yaml`
 
 The generated files include:
 
 - detected `SetCheckpoint(...)` ids
 - detected `vars.NAME` variable references
-- a single `baseline` scenario with `__TODO__` placeholders
+- a single `baseline` scenario
+- `__TODO__` placeholders for the variable values you still need to define
+
+By default, the generated `analysis.output_dir` mirrors the scenario-file folder structure under `artifacts/`. For example, `configs/generated/my_process.scenarios.yaml` defaults to `artifacts/generated/my_process`.
 
 Useful optional overrides:
 
@@ -71,58 +82,73 @@ Useful optional overrides:
 mecademic-cycle-report generate-scenarios programs --output-dir configs/generated --robot-address 192.168.0.100 --no-enforce-sim-mode --analysis-output-root artifacts/generated
 ```
 
-## 3. Run a Dry Analysis
+## Step 3: Edit The Generated Scenario File
 
-Dry-run mode builds the scenario matrix and report payload without talking to a robot.
+Open the generated file for your program, for example:
 
-```powershell
-mecademic-cycle-report analyze programs/my_process.mxprog --config configs/my_process.scenarios.yaml --dry-run
+```text
+configs/generated/my_process.scenarios.yaml
 ```
 
-This is the safest way to verify:
+Then update it before running anything:
 
-- the config loads correctly
-- checkpoints are defined in the expected order
-- scenario variables expand as intended
-- report artifacts are generated in the configured output folder
+- replace every `__TODO__` value with a real value used by your program
+- review the auto-generated checkpoint labels and rename them to something meaningful
+- set the correct robot address
+- decide whether `enforce_sim_mode` should stay `true` or be set to `false`
+- add more scenario profiles if you want comparisons such as `baseline`, `fast`, or `cautious`
+- add optional `sweep`, `perturbations`, or `variable_cases` only if you need them
 
-## 4. Print the Full Report as JSON
+If you prefer to start from a clean hand-written config, copy `docs/scenarios-template.yaml` to `configs/my_process.scenarios.yaml` and edit it directly.
 
-Useful for automation or quick inspection from the terminal.
+## Step 4: Validate The Scenario File
 
-```powershell
-mecademic-cycle-report analyze programs/my_process.mxprog --config configs/my_process.scenarios.yaml --dry-run --json
-```
-
-## 5. Run a Real Program With Simulation Enforced
-
-If the config enables simulation mode, or you want to force it from the command line:
+Validate the edited config before running analysis:
 
 ```powershell
-mecademic-cycle-report analyze programs/my_process.mxprog --config configs/my_process.scenarios.yaml --enforce-sim-mode
+mecademic-cycle-report validate-config configs/generated/my_process.scenarios.yaml
 ```
 
-Use this when you want the controller in Mecademic simulation mode before homing and execution.
-
-## 6. Run a Real Program Without Simulation Enforcement
-
-Use this only when you intentionally want to execute against the real robot state.
+Equivalent module invocation:
 
 ```powershell
-mecademic-cycle-report analyze programs/my_process.mxprog --config configs/my_process.scenarios.yaml --no-enforce-sim-mode
+.venv\Scripts\python.exe -m mecademic_cycle_report.cli validate-config configs/generated/my_process.scenarios.yaml
 ```
 
-If you want concrete examples from this repository, inspect `tests/fixtures/test_RBT1.*` and `tests/fixtures/test_RBT2.*`, then copy that structure into your own program and config files.
+Note:
 
-## 7. Example With the Current Workspace Virtual Environment
+- validation will fail if `__TODO__` placeholders are still present
+- validation will fail if required config sections are missing or malformed
 
-This is the exact command style used in this repository when running from PowerShell on Windows:
+## Step 5: Run The Analysis
+
+Start with a dry run to check the scenario expansion and report generation without talking to the robot:
 
 ```powershell
-.venv\Scripts\python.exe -m mecademic_cycle_report.cli analyze programs/my_process.mxprog --config configs/my_process.scenarios.yaml
+mecademic-cycle-report analyze programs/my_process.mxprog --config configs/generated/my_process.scenarios.yaml --dry-run
 ```
 
-## 8. Generated Artifacts
+Then run against the robot when ready.
+
+Run with simulation enforced:
+
+```powershell
+mecademic-cycle-report analyze programs/my_process.mxprog --config configs/generated/my_process.scenarios.yaml --enforce-sim-mode
+```
+
+Run without simulation enforcement:
+
+```powershell
+mecademic-cycle-report analyze programs/my_process.mxprog --config configs/generated/my_process.scenarios.yaml --no-enforce-sim-mode
+```
+
+If you want the raw report payload in the terminal:
+
+```powershell
+mecademic-cycle-report analyze programs/my_process.mxprog --config configs/generated/my_process.scenarios.yaml --dry-run --json
+```
+
+## Step 6: Inspect The Report
 
 After `analyze`, the tool writes report artifacts to the configured output directory.
 
@@ -134,35 +160,35 @@ Typical outputs are:
 - `scenario_summary.csv`
 - `rendered_programs/*.mxprog`
 
-These rendered programs include:
+The Markdown report is the easiest human-readable summary. The JSON and CSV files are more useful for automation or comparisons.
+
+The rendered programs include:
 
 - scenario variable assignments
 - a synthetic `program_start` checkpoint
 - the original program body
 - a synthetic `program_end` checkpoint
 
-## 9. Common Workflows
-
-### Check a config before touching hardware
+## Minimal End-To-End Example
 
 ```powershell
-mecademic-cycle-report validate-config configs/my_process.scenarios.yaml
-mecademic-cycle-report analyze programs/my_process.mxprog --config configs/my_process.scenarios.yaml --dry-run
+mecademic-cycle-report generate-scenarios programs --output-dir configs/generated
+mecademic-cycle-report validate-config configs/generated/my_process.scenarios.yaml
+mecademic-cycle-report analyze programs/my_process.mxprog --config configs/generated/my_process.scenarios.yaml --dry-run
 ```
 
-### Run a real measurement on RBT1-style studies
+In practice, you edit `configs/generated/my_process.scenarios.yaml` between the first and second commands.
 
-```powershell
-mecademic-cycle-report analyze programs/my_process.mxprog --config configs/my_process.scenarios.yaml --no-enforce-sim-mode
-```
+## What The Tool Measures
 
-### Run a simulation-backed sensitivity study
+The total cycle time is measured as the delta between the synthetic wrapper checkpoints:
 
-```powershell
-mecademic-cycle-report analyze programs/my_process.mxprog --config configs/my_process.scenarios.yaml --enforce-sim-mode
-```
+- `program_start`
+- `program_end`
 
-## 10. Repository Samples
+Any checkpoints inside the original `.mxprog` are still recorded and used for segment-level timing inside that execution window.
+
+## Repository Samples
 
 This repository includes sample programs and configs under `tests/fixtures` for development and regression testing.
 
@@ -175,16 +201,7 @@ Examples:
 
 Use them as reference material, not as the normal storage location for your own robot programs.
 
-## 11. Notes on What the Tool Measures
-
-The total cycle time is measured as the delta between the synthetic wrapper checkpoints:
-
-- `program_start`
-- `program_end`
-
-Any checkpoints inside the original `.mxprog` are still recorded and used for segment-level timing inside that execution window.
-
-## 12. Troubleshooting
+## Troubleshooting
 
 If a run fails early, check these first:
 

@@ -45,6 +45,7 @@ def test_write_report_artifacts_creates_json_and_csv_outputs(tmp_path: Path) -> 
     payload = build_report_payload(
         config,
         [record, variant_record],
+        program_path="programs/floor_mounted.mxprog",
         referenced_program_variables={"SPD_INSERT"},
         warnings=[],
         robot_runtime={
@@ -62,6 +63,7 @@ def test_write_report_artifacts_creates_json_and_csv_outputs(tmp_path: Path) -> 
     assert Path(paths["markdown"]).exists()
     assert Path(paths["records_csv"]).exists()
     assert Path(paths["summary_csv"]).exists()
+    assert (tmp_path / "logo.png").exists()
     with Path(paths["records_csv"]).open(encoding="utf-8", newline="") as handle:
         records_rows = list(csv.DictReader(handle))
     with Path(paths["summary_csv"]).open(encoding="utf-8", newline="") as handle:
@@ -71,15 +73,23 @@ def test_write_report_artifacts_creates_json_and_csv_outputs(tmp_path: Path) -> 
     assert json.loads(records_rows[0]["applied_variables_json"]) == {"SPD_INSERT": 800}
     assert json.loads(summary_rows[0]["applied_variables_json"]) == {"SPD_INSERT": 800}
     assert report_json["program"]["referenced_variables"] == ["SPD_INSERT"]
+    assert report_json["program"]["name"] == "floor_mounted.mxprog"
     assert report_json["records"][0]["applied_inputs"]["variables"]["SPD_INSERT"] == 800
     assert report_json["robot"]["runtime"]["program_load_method"] == "LoadProgram"
     assert report_json["robot"]["runtime"]["ready_status"]["simulation_mode"] == 1
     assert report_json["analysis"]["alignment_run"] is True
     markdown_report = Path(paths["markdown"]).read_text(encoding="utf-8")
-    assert "# Mecademic Cycle Time Report" in markdown_report
+    assert "![Mecademic logo](logo.png)" in markdown_report
+    assert "# Mecademic Cycle Time Report - floor_mounted.mxprog" in markdown_report
     assert "Alignment run before measurement: `True`" in markdown_report
     assert "## Impact Insights" in markdown_report
     assert "baseline-variables.SPD_INSERT-plus10pct" in markdown_report
+    assert "- Applied time scaling: `100%`" in markdown_report
+    assert "- Blending:" not in markdown_report
+    assert "- Gripper open delay:" not in markdown_report
+    assert "- Gripper close delay:" not in markdown_report
+    assert "- Rendered program file: `program.mxprog`" in markdown_report
+    assert "- Rendered program path: `rendered/program.mxprog`" in markdown_report
 
 
 def test_write_report_artifacts_preserves_grouped_random_summaries(tmp_path: Path) -> None:
@@ -121,14 +131,17 @@ def test_write_report_artifacts_preserves_grouped_random_summaries(tmp_path: Pat
         ),
     ]
 
-    payload = build_report_payload(config, records)
+    payload = build_report_payload(config, records, program_path="programs/random_case.mxprog")
     paths = write_report_artifacts(payload, tmp_path)
     summary_rows = list(csv.DictReader(Path(paths["summary_csv"]).open(encoding="utf-8", newline="")))
     markdown_report = Path(paths["markdown"]).read_text(encoding="utf-8")
 
     assert [row["scenario_name"] for row in summary_rows] == ["baseline-pick_position-random"]
+    assert (tmp_path / "logo.png").exists()
+    assert "![Mecademic logo](logo.png)" in markdown_report
     assert "### baseline-pick_position-random" in markdown_report
     assert "- Random samples summarized: `2`" in markdown_report
+    assert "- Applied time scaling: `100%`" in markdown_report
     assert "`PICK_X` sampled over `10` to `11` (mean `10.5`)" in markdown_report
     assert "baseline-pick_position-random run 1 (baseline-pick_position-random-1)" not in markdown_report
     assert "### baseline-pick_position-random-1" not in markdown_report
