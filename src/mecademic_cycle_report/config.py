@@ -146,6 +146,8 @@ def parse_config(payload: dict[str, Any]) -> AppConfig:
         raise ConfigError("analysis.contingency_percent cannot be negative")
 
     checkpoint_payload = payload.get("checkpoints")
+    if checkpoint_payload is None:
+        checkpoint_payload = []
     if not isinstance(checkpoint_payload, list):
         raise ConfigError("checkpoints must be a list")
 
@@ -155,6 +157,7 @@ def parse_config(payload: dict[str, Any]) -> AppConfig:
             label=str(item["label"]),
             timeout_s=float(item["timeout_s"]) if item.get("timeout_s") is not None else None,
             required=bool(item.get("required", True)),
+            queue_next_run=bool(item.get("queue_next_run", False)),
         )
         for item in checkpoint_payload
     )

@@ -1,12 +1,12 @@
 robot:
   address: 192.168.0.100
-  enforce_sim_mode: true
+  enforce_sim_mode: false
 analysis:
-  runs: 10
+  runs: 3
   warmup_runs: 0
-  alignment_run: true
+  alignment_run: false
   contingency_percent: 20
-  output_dir: artifacts/test_RBT2
+  output_dir: artifacts/test_RBT2_simple
 checkpoints:
   - checkpoint_id: 1
     label: station_1_start
@@ -25,12 +25,3 @@ scenarios:
         SPD_INSERT: 150
         SPD_RETRACT: 800
         GRP_DELAY: 0.20
-    - name: cautious
-      variables:
-        SPD_INSERT: 50
-        SPD_RETRACT: 500
-        GRP_DELAY: 0.20
-  # perturbations:
-  #   variables.SPD_INSERT: [-10, 10]
-  #   variables.SPD_RETRACT: [-10, 10]
-  #   variables.GRP_DELAY: [-10, 10]

@@ -71,6 +71,46 @@ def _effective_time_scaling_percent(applied_inputs: dict[str, Any]) -> float:
     return 100.0 if time_scaling is None else float(time_scaling)
 
 
+def _group_records_by_analysis_name(payload: dict[str, Any]) -> dict[str, list[dict[str, Any]]]:
+    grouped: dict[str, list[dict[str, Any]]] = {}
+    for record in payload["records"]:
+        grouped.setdefault(record["metrics"]["scenario_name"], []).append(record)
+    return grouped
+
+
+def _phase_record(records: list[dict[str, Any]], phase: str) -> dict[str, Any] | None:
+    return next((record for record in records if record["metrics"].get("measurement_phase") == phase), None)
+
+
+def _has_transient_measurements(payload: dict[str, Any]) -> bool:
+    return any(
+        record["metrics"].get("measurement_phase") in {"single_run", "accel_only", "decel_only"}
+        for record in payload["records"]
+    )
+
+
+def _phase_summary_label(phase: str) -> str:
+    if phase == "single_run":
+        return "Single run measurement"
+    if phase == "accel_only":
+        return "First chained cycle (accel-dominant)"
+    if phase == "decel_only":
+        return "Last chained cycle (decel-dominant)"
+    return "Steady-state run"
+
+
+def _phase_heading(record: dict[str, Any]) -> str:
+    measurement_phase = record["metrics"].get("measurement_phase")
+    scenario_name = record["metrics"]["scenario_name"]
+    if measurement_phase == "single_run":
+        return f"### {scenario_name} single run measurement"
+    if measurement_phase == "accel_only":
+        return f"### {scenario_name} first chained cycle (accel-dominant)"
+    if measurement_phase == "decel_only":
+        return f"### {scenario_name} last chained cycle (decel-dominant)"
+    return f"### {scenario_name} steady-state run {record['metrics']['run_index']}"
+
+
 def build_report_payload(
     config: AppConfig,
     records: list[RunRecord],
@@ -82,7 +122,8 @@ def build_report_payload(
 ) -> dict[str, Any]:
     runs_by_scenario: dict[str, list] = {}
     for record in records:
-        runs_by_scenario.setdefault(record.metrics.scenario_name, []).append(record.metrics)
+        if record.include_in_summary:
+            runs_by_scenario.setdefault(record.metrics.scenario_name, []).append(record.metrics)
 
     scenario_inputs = {
         scenario.name: scenario_runtime_inputs(scenario) for scenario in config.scenarios
@@ -125,6 +166,7 @@ def build_report_payload(
                 "metrics": asdict(record.metrics),
                 "observations": [asdict(observation) for observation in record.observations],
                 "rendered_program_path": record.rendered_program_path,
+                "include_in_summary": record.include_in_summary,
             }
             for record in records
         ],
@@ -135,12 +177,34 @@ def build_report_payload(
 
 
 def render_terminal_summary(payload: dict[str, Any]) -> str:
+    summary_records = [record for record in payload["records"] if record.get("include_in_summary", True)]
+    single_run_records = [
+        record
+        for record in payload["records"]
+        if record["metrics"].get("measurement_phase") == "single_run"
+    ]
+    accel_records = [
+        record
+        for record in payload["records"]
+        if record["metrics"].get("measurement_phase") == "accel_only"
+    ]
+    decel_records = [
+        record
+        for record in payload["records"]
+        if record["metrics"].get("measurement_phase") == "decel_only"
+    ]
     lines = [
         "Mecademic Cycle Report",
         f"Robot: {payload['robot']['address']}",
         f"Configured scenarios: {len(payload['scenarios'])}",
-        f"Measured records: {len(payload['records'])}",
+        f"In-between steady-state records: {len(summary_records)}",
     ]
+    if single_run_records:
+        lines.append(f"Single-run records: {len(single_run_records)}")
+    if accel_records:
+        lines.append(f"Accel-only records: {len(accel_records)}")
+    if decel_records:
+        lines.append(f"Decel-only records: {len(decel_records)}")
 
     runtime = payload["robot"].get("runtime", {})
     if runtime.get("program_load_method"):
@@ -153,7 +217,7 @@ def render_terminal_summary(payload: dict[str, Any]) -> str:
             f"paused={ready_status['pause_motion_status']}"
         )
     if payload["analysis"].get("alignment_run"):
-        lines.append("Alignment run: enabled")
+        lines.append("Startup plus steady-state measurement: enabled")
 
     if payload["program"].get("referenced_variables"):
         lines.append(
@@ -188,9 +252,9 @@ def render_markdown_report(payload: dict[str, Any]) -> str:
         "",
         f"- Robot address: `{payload['robot']['address']}`",
         f"- Dry run: `{payload['analysis']['dry_run']}`",
-        f"- Alignment run before measurement: `{payload['analysis']['alignment_run']}`",
+        f"- Startup plus steady-state measurement: `{payload['analysis']['alignment_run']}`",
         f"- Warmup runs per scenario: `{payload['analysis']['warmup_runs']}`",
-        f"- Measured runs per scenario: `{payload['analysis']['runs']}`",
+        f"- In-between steady-state runs summarized per scenario: `{payload['analysis']['runs']}`",
         f"- Contingency percent: `{payload['analysis']['contingency_percent']}`",
     ]
 
@@ -235,6 +299,34 @@ def render_markdown_report(payload: dict[str, Any]) -> str:
             f"| {scenario_name} | {stats['average_s']:.3f} | {stats['minimum_s']:.3f} | {stats['maximum_s']:.3f} | {stats['std_dev_s']:.3f} | {stats['contingency_adjusted_average_s']:.3f} |"
         )
 
+    if _has_transient_measurements(payload):
+        lines.extend(["", "## Measurement Breakdown", ""])
+        grouped_records = _group_records_by_analysis_name(payload)
+        for scenario_name, records in grouped_records.items():
+            lines.append(f"### {scenario_name}")
+            lines.append("")
+            startup_record = _phase_record(records, "single_run")
+            accel_record = _phase_record(records, "accel_only")
+            decel_record = _phase_record(records, "decel_only")
+            steady_state_stats = payload["scenario_comparison"].get(scenario_name)
+            if startup_record:
+                lines.append(
+                    f"- {_phase_summary_label('single_run')}: `{startup_record['metrics']['total_cycle_s']:.3f}s`"
+                )
+            if accel_record:
+                lines.append(
+                    f"- {_phase_summary_label('accel_only')}: `{accel_record['metrics']['total_cycle_s']:.3f}s`"
+                )
+            if decel_record:
+                lines.append(
+                    f"- {_phase_summary_label('decel_only')}: `{decel_record['metrics']['total_cycle_s']:.3f}s`"
+                )
+            if steady_state_stats:
+                lines.append(
+                    f"- In-between steady-state runs: `{payload['analysis']['runs']}` summarized with avg `{steady_state_stats['average_s']:.3f}s`, min `{steady_state_stats['minimum_s']:.3f}s`, max `{steady_state_stats['maximum_s']:.3f}s`"
+                )
+            lines.append("")
+
     if "baseline" in payload["scenario_comparison"]:
         baseline_avg = payload["scenario_comparison"]["baseline"]["average_s"]
         insight_lines: list[str] = []
@@ -267,8 +359,7 @@ def render_markdown_report(payload: dict[str, Any]) -> str:
     for record in payload["records"]:
         if record["scenario_name"] != record["metrics"]["scenario_name"]:
             continue
-        heading = f"### {record['metrics']['scenario_name']} run {record['metrics']['run_index']}"
-        lines.append(heading)
+        lines.append(_phase_heading(record))
         lines.append("")
         lines.append(f"- Total cycle time: `{record['metrics']['total_cycle_s']:.3f}s`")
         rendered_program = Path(record["rendered_program_path"])

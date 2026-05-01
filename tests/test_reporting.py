@@ -23,11 +23,32 @@ def test_write_report_artifacts_creates_json_and_csv_outputs(tmp_path: Path) -> 
         checkpoints=[ExpectedCheckpoint(checkpoint_id=10, label="start")],
         scenarios=[ScenarioProfile(name="baseline", variables={"SPD_INSERT": 800})],
     )
-    record = RunRecord(
+    startup_record = RunRecord(
         scenario=ScenarioProfile(name="baseline", variables={"SPD_INSERT": 800}),
-        metrics=build_run_metrics("baseline", 1, ["start"], [1.0], 20.0),
+        metrics=build_run_metrics("baseline", 0, ["start"], [1.0], 20.0, measurement_phase="single_run"),
         observations=[CheckpointObservation(checkpoint_id=10, status="reached", elapsed_s=1.0)],
         rendered_program_path="rendered/program.mxprog",
+        include_in_summary=False,
+    )
+    accel_record = RunRecord(
+        scenario=ScenarioProfile(name="baseline", variables={"SPD_INSERT": 800}),
+        metrics=build_run_metrics("baseline", 0, ["start"], [0.9], 20.0, measurement_phase="accel_only"),
+        observations=[CheckpointObservation(checkpoint_id=10, status="reached", elapsed_s=0.9)],
+        rendered_program_path="rendered/program_steady.mxprog",
+        include_in_summary=False,
+    )
+    record = RunRecord(
+        scenario=ScenarioProfile(name="baseline", variables={"SPD_INSERT": 800}),
+        metrics=build_run_metrics("baseline", 1, ["start"], [0.8], 20.0),
+        observations=[CheckpointObservation(checkpoint_id=10, status="reached", elapsed_s=0.8)],
+        rendered_program_path="rendered/program_steady.mxprog",
+    )
+    decel_record = RunRecord(
+        scenario=ScenarioProfile(name="baseline", variables={"SPD_INSERT": 800}),
+        metrics=build_run_metrics("baseline", 0, ["start"], [0.95], 20.0, measurement_phase="decel_only"),
+        observations=[CheckpointObservation(checkpoint_id=10, status="reached", elapsed_s=0.95)],
+        rendered_program_path="rendered/program_steady.mxprog",
+        include_in_summary=False,
     )
     variant_record = RunRecord(
         scenario=ScenarioProfile(name="baseline-variables.SPD_INSERT-plus10pct", variables={"SPD_INSERT": 880}),
@@ -44,7 +65,7 @@ def test_write_report_artifacts_creates_json_and_csv_outputs(tmp_path: Path) -> 
 
     payload = build_report_payload(
         config,
-        [record, variant_record],
+        [startup_record, accel_record, record, decel_record, variant_record],
         program_path="programs/floor_mounted.mxprog",
         referenced_program_variables={"SPD_INSERT"},
         warnings=[],
@@ -81,7 +102,13 @@ def test_write_report_artifacts_creates_json_and_csv_outputs(tmp_path: Path) -> 
     markdown_report = Path(paths["markdown"]).read_text(encoding="utf-8")
     assert "![Mecademic logo](logo.png)" in markdown_report
     assert "# Mecademic Cycle Time Report - floor_mounted.mxprog" in markdown_report
-    assert "Alignment run before measurement: `True`" in markdown_report
+    assert "Startup plus steady-state measurement: `True`" in markdown_report
+    assert "In-between steady-state runs summarized per scenario: `1`" in markdown_report
+    assert "## Measurement Breakdown" in markdown_report
+    assert "- Single run measurement: `1.000s`" in markdown_report
+    assert "- First chained cycle (accel-dominant): `0.900s`" in markdown_report
+    assert "- Last chained cycle (decel-dominant): `0.950s`" in markdown_report
+    assert "- In-between steady-state runs: `1` summarized with avg `0.800s`, min `0.800s`, max `0.800s`" in markdown_report
     assert "## Impact Insights" in markdown_report
     assert "baseline-variables.SPD_INSERT-plus10pct" in markdown_report
     assert "- Applied time scaling: `100%`" in markdown_report
@@ -90,6 +117,9 @@ def test_write_report_artifacts_creates_json_and_csv_outputs(tmp_path: Path) -> 
     assert "- Gripper close delay:" not in markdown_report
     assert "- Rendered program file: `program.mxprog`" in markdown_report
     assert "- Rendered program path: `rendered/program.mxprog`" in markdown_report
+    assert "### baseline single run measurement" in markdown_report
+    assert "### baseline first chained cycle (accel-dominant)" in markdown_report
+    assert "### baseline last chained cycle (decel-dominant)" in markdown_report
 
 
 def test_write_report_artifacts_preserves_grouped_random_summaries(tmp_path: Path) -> None:
@@ -145,3 +175,48 @@ def test_write_report_artifacts_preserves_grouped_random_summaries(tmp_path: Pat
     assert "`PICK_X` sampled over `10` to `11` (mean `10.5`)" in markdown_report
     assert "baseline-pick_position-random run 1 (baseline-pick_position-random-1)" not in markdown_report
     assert "### baseline-pick_position-random-1" not in markdown_report
+
+
+def test_write_report_artifacts_renders_measurement_breakdown_without_alignment_when_transients_exist(tmp_path: Path) -> None:
+    config = AppConfig(
+        robot=RobotSettings(address="192.168.0.100"),
+        analysis=AnalysisSettings(
+            runs=1,
+            warmup_runs=0,
+            alignment_run=False,
+            contingency_percent=20.0,
+            output_dir=str(tmp_path),
+        ),
+        checkpoints=[ExpectedCheckpoint(checkpoint_id=10, label="start")],
+        scenarios=[ScenarioProfile(name="baseline", variables={"SPD_INSERT": 150})],
+    )
+    accel_record = RunRecord(
+        scenario=config.scenarios[0],
+        metrics=build_run_metrics("baseline", 0, ["start"], [0.9], 20.0, measurement_phase="accel_only"),
+        observations=[CheckpointObservation(checkpoint_id=10, status="reached", elapsed_s=0.9)],
+        rendered_program_path="rendered/program.mxprog",
+        include_in_summary=False,
+    )
+    decel_record = RunRecord(
+        scenario=config.scenarios[0],
+        metrics=build_run_metrics("baseline", 0, ["start"], [1.1], 20.0, measurement_phase="decel_only"),
+        observations=[CheckpointObservation(checkpoint_id=10, status="reached", elapsed_s=1.1)],
+        rendered_program_path="rendered/program.mxprog",
+        include_in_summary=False,
+    )
+    steady_state_record = RunRecord(
+        scenario=config.scenarios[0],
+        metrics=build_run_metrics("baseline", 1, ["start"], [1.0], 20.0),
+        observations=[CheckpointObservation(checkpoint_id=10, status="reached", elapsed_s=1.0)],
+        rendered_program_path="rendered/program.mxprog",
+    )
+
+    payload = build_report_payload(config, [accel_record, decel_record, steady_state_record])
+    paths = write_report_artifacts(payload, tmp_path)
+    markdown_report = Path(paths["markdown"]).read_text(encoding="utf-8")
+
+    assert "Startup plus steady-state measurement: `False`" in markdown_report
+    assert "## Measurement Breakdown" in markdown_report
+    assert "- First chained cycle (accel-dominant): `0.900s`" in markdown_report
+    assert "- Last chained cycle (decel-dominant): `1.100s`" in markdown_report
+    assert "- In-between steady-state runs: `1` summarized with avg `1.000s`, min `1.000s`, max `1.000s`" in markdown_report

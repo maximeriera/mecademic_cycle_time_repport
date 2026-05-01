@@ -158,18 +158,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         elif args.no_enforce_sim_mode:
             config = replace(config, robot=replace(config.robot, enforce_sim_mode=False))
         if args.dry_run:
-            config = config.__class__(
-                robot=config.robot,
-                analysis=config.analysis.__class__(
-                    runs=config.analysis.runs,
-                    warmup_runs=config.analysis.warmup_runs,
-                    contingency_percent=config.analysis.contingency_percent,
-                    output_dir=config.analysis.output_dir,
-                    dry_run=True,
-                ),
-                checkpoints=config.checkpoints,
-                scenarios=config.scenarios,
-            )
+            config = replace(config, analysis=replace(config.analysis, dry_run=True))
 
         runner = CycleRunner(
             config=config,

@@ -1,11 +1,13 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+import hashlib
 from pathlib import Path
 from time import monotonic
 from typing import Any, Protocol
 
 from .checkpoint_spec import CheckpointObservation, ExpectedCheckpoint
+from .program_template import build_runtime_parameter_variables
 from .scenario_matrix import ScenarioProfile
 
 try:
@@ -31,7 +33,13 @@ class RobotClient(Protocol):
 
     def arm_checkpoints(self, checkpoints: list[ExpectedCheckpoint]) -> None: ...
 
-    def start_program(self) -> None: ...
+    def start_program(
+        self,
+        start_checkpoint_id: int | None = None,
+        end_checkpoint_id: int | None = None,
+    ) -> None: ...
+
+    def wait_until_idle(self) -> None: ...
 
     def wait_for_checkpoint(self, checkpoint: ExpectedCheckpoint) -> CheckpointObservation: ...
 
@@ -73,8 +81,15 @@ class UnimplementedMecademicClient:
             f"Checkpoint arming is not implemented yet: {len(checkpoints)} checkpoints"
         )
 
-    def start_program(self) -> None:
+    def start_program(
+        self,
+        start_checkpoint_id: int | None = None,
+        end_checkpoint_id: int | None = None,
+    ) -> None:
         raise RobotClientError("Program start is not implemented yet")
+
+    def wait_until_idle(self) -> None:
+        raise RobotClientError("Idle wait is not implemented yet")
 
     def wait_for_checkpoint(self, checkpoint: ExpectedCheckpoint) -> CheckpointObservation:
         raise RobotClientError(
@@ -93,7 +108,7 @@ class MecademicPyRobotClient:
     enforce_sim_mode: bool = True
     robot: Any | None = None
     current_program_name: str | None = None
-    checkpoint_events: dict[int, Any] | None = None
+    checkpoint_events: dict[int, list[Any]] | None = None
     discarded_checkpoint_ids: set[int] | None = None
     last_program_load_method: str | None = None
     initial_status: dict[str, Any] | None = None
@@ -104,6 +119,7 @@ class MecademicPyRobotClient:
     ENFORCED_BLENDING_PERCENT = 100.0
     ENFORCED_JOINT_ACCELERATION_PERCENT = 100.0
     ENFORCED_CARTESIAN_ACCELERATION_PERCENT = 100.0
+    MAX_ROBOT_PROGRAM_NAME_LENGTH = 63
 
     def connect(self) -> None:
         if mdr is None or initializer is None:
@@ -148,7 +164,7 @@ class MecademicPyRobotClient:
         if self.robot is None:
             raise RobotClientError("Robot client is not connected")
         content = mxprog_path.read_text(encoding="utf-8")
-        self.current_program_name = mxprog_path.name
+        self.current_program_name = self._build_robot_program_name(mxprog_path)
         self.robot.SaveFile(self.current_program_name, content, overwrite=True)
         self.robot.LoadProgram(self.current_program_name)
         self.last_program_load_method = "LoadProgram"
@@ -156,11 +172,19 @@ class MecademicPyRobotClient:
     def apply_scenario(self, scenario: ScenarioProfile) -> None:
         if self.robot is None:
             raise RobotClientError("Robot client is not connected")
-        self.robot.SetTimeScaling(self.ENFORCED_TIME_SCALING_PERCENT)
-        self.robot.SetBlending(self.ENFORCED_BLENDING_PERCENT)
+        self.robot.SetTimeScaling(
+            self.ENFORCED_TIME_SCALING_PERCENT
+            if scenario.time_scaling_percent is None
+            else float(scenario.time_scaling_percent)
+        )
+        self.robot.SetBlending(
+            self.ENFORCED_BLENDING_PERCENT
+            if scenario.blending_percent is None
+            else float(scenario.blending_percent)
+        )
         self.robot.SetJointAcc(self.ENFORCED_JOINT_ACCELERATION_PERCENT)
         self.robot.SetCartAcc(self.ENFORCED_CARTESIAN_ACCELERATION_PERCENT)
-        for variable_name, value in scenario.variables.items():
+        for variable_name, value in build_runtime_parameter_variables(scenario).items():
             self.robot.CreateVariable(variable_name, value, 0, 0)
             self.robot.SetVariable(variable_name, value)
 
@@ -173,26 +197,44 @@ class MecademicPyRobotClient:
         self.checkpoint_events.clear()
         self.discarded_checkpoint_ids.clear()
         for checkpoint in checkpoints:
-            self.checkpoint_events[checkpoint.checkpoint_id] = self.robot.ExpectExternalCheckpoint(
-                checkpoint.checkpoint_id
-            )
+            event = self.robot.ExpectExternalCheckpoint(checkpoint.checkpoint_id)
+            if checkpoint.checkpoint_id not in self.checkpoint_events:
+                self.checkpoint_events[checkpoint.checkpoint_id] = []
+            self.checkpoint_events[checkpoint.checkpoint_id].append(event)
 
-    def start_program(self) -> None:
+    def start_program(
+        self,
+        start_checkpoint_id: int | None = None,
+        end_checkpoint_id: int | None = None,
+    ) -> None:
         if self.robot is None:
             raise RobotClientError("Robot client is not connected")
         if not self.current_program_name:
             raise RobotClientError("No program is loaded")
+        if start_checkpoint_id is not None:
+            self.robot.SetCheckpoint(start_checkpoint_id)
         self.robot.StartProgram(self.current_program_name)
+        if end_checkpoint_id is not None:
+            self.robot.SetCheckpoint(end_checkpoint_id)
+
+    def wait_until_idle(self) -> None:
+        if self.robot is None:
+            raise RobotClientError("Robot client is not connected")
+        self.robot.WaitIdle()
 
     def wait_for_checkpoint(self, checkpoint: ExpectedCheckpoint) -> CheckpointObservation:
         if self.robot is None:
             raise RobotClientError("Robot client is not connected")
-        if not self.checkpoint_events or checkpoint.checkpoint_id not in self.checkpoint_events:
+        if (
+            not self.checkpoint_events
+            or checkpoint.checkpoint_id not in self.checkpoint_events
+            or not self.checkpoint_events[checkpoint.checkpoint_id]
+        ):
             raise RobotClientError(
                 f"Checkpoint {checkpoint.checkpoint_id} was not armed before program start"
             )
 
-        checkpoint_event = self.checkpoint_events[checkpoint.checkpoint_id]
+        checkpoint_event = self.checkpoint_events[checkpoint.checkpoint_id].pop(0)
         start_time = monotonic()
         try:
             checkpoint_event.wait(timeout=checkpoint.timeout_s)
@@ -228,7 +270,13 @@ class MecademicPyRobotClient:
             return
         try:
             if self.robot.IsConnected():
-                self.robot.Disconnect()
+                try:
+                    self.robot.WaitIdle()
+                except Exception:
+                    # Teardown should still disconnect even if idle wait fails.
+                    pass
+                finally:
+                    self.robot.Disconnect()
         finally:
             self.robot = None
             self.current_program_name = None
@@ -278,6 +326,22 @@ class MecademicPyRobotClient:
                 getattr(status, "connection_watchdog_enabled", False)
             ),
         }
+
+    @classmethod
+    def _build_robot_program_name(cls, mxprog_path: Path) -> str:
+        program_name = mxprog_path.name
+        if len(program_name) <= cls.MAX_ROBOT_PROGRAM_NAME_LENGTH:
+            return program_name
+
+        suffix = mxprog_path.suffix or ""
+        digest = hashlib.sha1(program_name.encode("utf-8")).hexdigest()[:10]
+        stem_budget = cls.MAX_ROBOT_PROGRAM_NAME_LENGTH - len(suffix) - len(digest) - 1
+        if stem_budget <= 0:
+            raise RobotClientError(
+                f"Program suffix leaves no room for a valid robot file name: {program_name}"
+            )
+        safe_stem = mxprog_path.stem[:stem_budget]
+        return f"{safe_stem}_{digest}{suffix}"
 
 def create_robot_client(
     robot_address: str,

@@ -164,10 +164,12 @@ The Markdown report is the easiest human-readable summary. The JSON and CSV file
 
 The rendered programs include:
 
-- scenario variable assignments
+- shared runtime variable references for scenario-driven placeholders
 - a synthetic `program_start` checkpoint
 - the original program body
 - a synthetic `program_end` checkpoint
+
+When multiple scenarios use the same program shape, the tool now reuses the same rendered `.mxprog` files and pushes scenario values through the robot API before each run instead of generating one rendered file per scenario.
 
 ## Minimal End-To-End Example
 

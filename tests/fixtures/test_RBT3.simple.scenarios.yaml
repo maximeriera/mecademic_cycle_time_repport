@@ -1,0 +1,13 @@
+robot:
+  address: 192.168.0.100
+  enforce_sim_mode: false
+analysis:
+  runs: 3
+  warmup_runs: 0
+  alignment_run: false
+  contingency_percent: 20
+  output_dir: artifacts/test_RBT3_simple
+checkpoints:
+scenarios:
+  profiles:
+    - name: baseline

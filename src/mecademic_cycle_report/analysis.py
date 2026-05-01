@@ -18,6 +18,7 @@ class RunMetrics:
     run_index: int
     total_cycle_s: float
     checkpoint_segments: list[SegmentStat]
+    measurement_phase: str = "steady_state"
     failed: bool = False
     failure_reason: str | None = None
 
@@ -41,6 +42,7 @@ def build_run_metrics(
     checkpoint_labels: list[str],
     checkpoint_times_s: list[float],
     contingency_percent: float,
+    measurement_phase: str = "steady_state",
     failed: bool = False,
     failure_reason: str | None = None,
 ) -> RunMetrics:
@@ -66,6 +68,7 @@ def build_run_metrics(
     return RunMetrics(
         scenario_name=scenario_name,
         run_index=run_index,
+        measurement_phase=measurement_phase,
         total_cycle_s=total_cycle_s,
         checkpoint_segments=segments,
         failed=failed,
